@@ -72,7 +72,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataBase\athletes.cs" />
+    <Compile Include="DataBase\Athletes.cs" />
+    <Compile Include="DataBase\Injury.cs" />
+    <Compile Include="DataBase\Operations.cs" />
+    <Compile Include="DataBase\PastIllnesses.cs" />
+    <Compile Include="DataBase\PlaceofStudy.cs" />
+    <Compile Include="DataBase\PlaceofWork.cs" />
     <Compile Include="DataBase\UserContext.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

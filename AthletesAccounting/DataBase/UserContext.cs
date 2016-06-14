@@ -12,7 +12,12 @@ namespace AthletesAccounting.DataBase
         public UserContext() :
              base("data source = (localdb)\\MSSQLLocalDB; Initial Catalog = 222; Integrated Security = True; TrustServerCertificate=False") { }
 
-        public DbSet<athletes> {get; set;}
+        public DbSet<Athletes> Athletes{get; set;}
+
+        public DbSet<PlaceofStudy> PlaceofStudy {get;set;}
+
+        public DbSet<PlaceofWork> PlaceofWork { get; set; }
+
     }
 
 }

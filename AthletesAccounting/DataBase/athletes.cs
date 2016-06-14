@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AthletesAccounting.DataBase
 {
-  public  class athletes
+  public  class Athletes
     {
         [Key]
         public int Id { get; set; }
@@ -37,23 +38,33 @@ namespace AthletesAccounting.DataBase
         /// <summary>
         /// место учебы 
         /// </summary>
-        public string PlaceofStudy {get;set;}
-              /// <summary>
-              ////место работы 
-              /// </summary>
-        public string PlaceofWork { get; set; }
-          /// <summary>
-          ////перенесенные заболевания 
-          /// </summary>
-        public string PastIllnesses { get; set; }
+        public string Place_Study { get;set;}
+        [ForeignKey("id")]        
+        public virtual PlaceofStudy PlaceofStudy { get;set;}
+        /// <summary>
+        ////место работы 
+        /// </summary>
+        public string Place_Work { get; set; }
+        [ForeignKey("id")]
+        public virtual PlaceofWork PlaceofWork { get; set; }
+        /// <summary>
+        ////перенесенные заболевания 
+        /// </summary>
+        public string Past_Illnesses { get; set; }
+        [ForeignKey("id")]
+        public virtual PastIllnesses PastIllnesses { get; set; }
         /// <summary>
         ////травмы
         /// </summary>
-        public string Injury { get; set; }
+        public string _Injury { get; set; }
+        [ForeignKey("id")]
+        public virtual Injury Injury { get; set; }
         /// <summary>
         //// операции
         /// </summary>
-        public string Operations { get; set; }
+        public string _Operations { get; set; }
+        [ForeignKey("id")]
+        public virtual Operations Operations { get; set; }
         /// <summary>
         ////вид спорта
         /// </summary>
