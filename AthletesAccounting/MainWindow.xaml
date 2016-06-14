@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AthletesAccounting"
         mc:Ignorable="d"
-        Title="Карты пациентов" Height="350" Width="525">
+        Title="Карты пациентов" Height="350" Width="1000">
     <Grid x:Name="gridAll" Margin="10,10,10,10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
