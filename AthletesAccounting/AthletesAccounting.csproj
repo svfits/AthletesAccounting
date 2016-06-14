@@ -78,6 +78,8 @@
     <Compile Include="DataBase\PastIllnesses.cs" />
     <Compile Include="DataBase\PlaceofStudy.cs" />
     <Compile Include="DataBase\PlaceofWork.cs" />
+    <Compile Include="DataBase\Rank.cs" />
+    <Compile Include="DataBase\Sports.cs" />
     <Compile Include="DataBase\UserContext.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

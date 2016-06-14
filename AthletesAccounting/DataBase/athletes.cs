@@ -68,11 +68,14 @@ namespace AthletesAccounting.DataBase
         /// <summary>
         ////вид спорта
         /// </summary>
-        public string Sports { get; set; }
-
+        public string _Sports { get; set; }
+        [ForeignKey("id")]
+        public virtual Sports Sports { get; set; }
         /// <summary>
         ////разряд
         /// </summary>
-        public string Rank { get; set; }
+        public string _Rank { get; set; }
+        [ForeignKey("id")]
+        public virtual Rank Rank { get; set; }
     }
 }
