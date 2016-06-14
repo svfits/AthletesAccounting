@@ -22,12 +22,12 @@
                 <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Content="Фильтр" Grid.Column="0" VerticalAlignment="Center" Margin="10,10,10,10"/>
+            <Label Content="Поиск" Grid.Column="0" VerticalAlignment="Center" Margin="10,10,10,10"/>
             <TextBox x:Name="Text_Filtr_DataGrid_Log" Grid.Column="1" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Left"
                                      Width="250" Padding="5,5,5,5" Height="auto" ToolTip="Введите 3 символа спортмена">
             </TextBox>
             <Button x:Name="Btn_Grid_Update" Grid.Column="2" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Left" 
-                                    Width="auto" Padding="5,5,5,5" >Сбросить</Button>
+                                    Width="auto" Padding="5,5,5,5" Click="Btn_Grid_Update_Click" >Сбросить</Button>
     </Grid>
     </GroupBox>
       

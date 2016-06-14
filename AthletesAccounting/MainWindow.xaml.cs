@@ -24,5 +24,10 @@ namespace AthletesAccounting
         {
             InitializeComponent();
         }
+
+        private void Btn_Grid_Update_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
