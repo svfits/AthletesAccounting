@@ -10,13 +10,23 @@ namespace AthletesAccounting.DataBase
     public class UserContext : DbContext
     {
         public UserContext() :
-             base("data source = (localdb)\\MSSQLLocalDB; Initial Catalog = 222; Integrated Security = True; TrustServerCertificate=False") { }
+            base("data source = (localdb)\\MSSQLLocalDB; Initial Catalog = AthletesAccounting; Integrated Security = True; TrustServerCertificate=False") { }
+       //   base("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = 2222; Integrated Security = True") { }                 
 
         public DbSet<Athletes> Athletes{get; set;}
 
         public DbSet<PlaceofStudy> PlaceofStudy {get;set;}
 
         public DbSet<PlaceofWork> PlaceofWork { get; set; }
+
+        public DbSet<Injury> Injury { get; set; }
+        public DbSet<Operations> Operations { get; set; }
+
+        public DbSet<PastIllness> PastIllness { get; set; }
+
+        public DbSet<Rank> Rank { get; set; }
+
+        public DbSet<Sports> Sports { get; set; }
 
     }
 

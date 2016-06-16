@@ -4,6 +4,6 @@
     {
         public int id { get; set; }
 
-        public string _Operations { get; set; }
+        public string operations { get; set; }
     }
 }

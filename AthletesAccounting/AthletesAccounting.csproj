@@ -73,6 +73,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataBase\Athletes.cs" />
+    <Compile Include="DataBase\Injuries.cs" />
     <Compile Include="DataBase\Injury.cs" />
     <Compile Include="DataBase\Operations.cs" />
     <Compile Include="DataBase\PastIllnesses.cs" />

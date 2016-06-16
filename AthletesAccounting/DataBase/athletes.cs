@@ -11,16 +11,15 @@ namespace AthletesAccounting.DataBase
   public  class Athletes
     {
         [Key]
-        public int Id { get; set; }
+        public int id { get; set; }
         /// <summary>
         ////имя
         /// </summary>
-        public string Name { get; set; }
-
+        public string name { get; set; }
         /// <summary>
         /// фамилия
         /// </summary>
-        public string Fam { get; set; }
+        public string fam { get; set; }
         /// <summary>
         /// отчество
         /// </summary>
@@ -28,54 +27,56 @@ namespace AthletesAccounting.DataBase
         /// <summary>
         /// возраст
         /// </summary>
-        public int Age { get; set; }
+        public int age { get; set; }
         /// <summary>
         ////адресс где проживает
         /// </summary>
-        public string Adress {get; set;}
+        public string adress {get; set;}
 
-        public string Telefon { get; set; }
+        public string telefon { get; set; }
         /// <summary>
         /// место учебы 
-        /// </summary>
-        public string Place_Study { get;set;}
-        [ForeignKey("id")]        
-        public virtual PlaceofStudy PlaceofStudy { get;set;}
+         /// </summary>
+        public int? placeStudy { get; set; }
+        //[ForeignKey("id")]
+        public virtual PlaceofStudy PlaceofStudy { get; set; }
         /// <summary>
         ////место работы 
         /// </summary>
-        public string Place_Work { get; set; }
-        [ForeignKey("id")]
+        public int? placeWork { get; set; }
+        //[ForeignKey("id")]
         public virtual PlaceofWork PlaceofWork { get; set; }
         /// <summary>
         ////перенесенные заболевания 
-        /// </summary>
-        public string Past_Illnesses { get; set; }
-        [ForeignKey("id")]
-        public virtual PastIllnesses PastIllnesses { get; set; }
+            /// </summary>
+           public int? pastIllnesses { get; set; }
+           //[ForeignKey("id")]
+           public virtual PastIllness PastIllness { get; set; }
         /// <summary>
         ////травмы
         /// </summary>
-        public string _Injury { get; set; }
-        [ForeignKey("id")]
-        public virtual Injury Injury { get; set; }
+        public int? injury { get; set; }
+        //[ForeignKey("id")]
+        public virtual Injuries Injuries { get; set; }
         /// <summary>
         //// операции
         /// </summary>
-        public string _Operations { get; set; }
-        [ForeignKey("id")]
-        public virtual Operations Operations { get; set; }
-        /// <summary>
-        ////вид спорта
-        /// </summary>
-        public string _Sports { get; set; }
-        [ForeignKey("id")]
-        public virtual Sports Sports { get; set; }
-        /// <summary>
-        ////разряд
-        /// </summary>
-        public string _Rank { get; set; }
-        [ForeignKey("id")]
-        public virtual Rank Rank { get; set; }
+        public int? operations { get; set; }
+           //[ForeignKey("id")]
+           public virtual Operations Operations { get; set; }
+           /// <summary>
+           ////вид спорта
+           /// </summary>
+           public int? sports { get; set; }
+           //[ForeignKey("id")]
+           public virtual Sports Sports { get; set; }
+           /// <summary>
+           ////разряд
+           /// </summary>
+           public int? rank { get; set; }
+           //[ForeignKey("id")]
+           public virtual Rank Rank { get; set; }
+
+       
     }
 }

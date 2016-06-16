@@ -2,11 +2,11 @@
 
 namespace AthletesAccounting.DataBase
 {
-    public class PastIllnesses
+    public class PastIllness
     {
         [Key]
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        public string Past_Illnesses { get; set; }
+        public string pastIllnesses { get; set; }
     }
 }

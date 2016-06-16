@@ -7,6 +7,6 @@ namespace AthletesAccounting.DataBase
         [Key]
         public int Id { get; set; }
 
-        public string Place_Work { get; set; }
+        public string placeWork { get; set; }
     }
 }

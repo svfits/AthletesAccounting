@@ -6,6 +6,6 @@
     public class Injury
     {
         public int id { get; set; }
-        public string _Injury { get; set; }
+        public string Injury1 { get; set; }
     }
 }

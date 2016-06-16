@@ -1,8 +1,8 @@
 ﻿namespace AthletesAccounting.DataBase
 {
-    public class Rank
+    public class Injuries
     {
         public int id { get; set; }
-        public string rank { get; set; }
+        public string injury { get; set; }
     }
 }

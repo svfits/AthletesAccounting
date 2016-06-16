@@ -3,6 +3,6 @@
     public class Sports
     {
         public int id { get; set; }
-        public string _Sports { get; set; }
+        public string sports { get; set; }
     }
 }
