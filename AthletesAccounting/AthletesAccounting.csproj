@@ -73,6 +73,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataBase\Athletes.cs" />
+    <Compile Include="DataBase\dob.cs" />
     <Compile Include="DataBase\Injuries.cs" />
     <Compile Include="DataBase\Injury.cs" />
     <Compile Include="DataBase\Operations.cs" />
@@ -82,6 +83,8 @@
     <Compile Include="DataBase\Rank.cs" />
     <Compile Include="DataBase\Sports.cs" />
     <Compile Include="DataBase\UserContext.cs" />
+    <Compile Include="DataBase\User\RoleUsers.cs" />
+    <Compile Include="DataBase\User\Users.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -115,6 +118,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

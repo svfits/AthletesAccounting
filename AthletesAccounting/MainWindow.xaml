@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AthletesAccounting"
         mc:Ignorable="d"
-        Title="Карты пациентов" Height="350" Width="519">
+        Title="Карты пациентов"  VerticalAlignment="Center"
+        Loaded="Window_Loaded"
+        >
     <Grid x:Name="gridAll" Margin="10,10,10,10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -18,18 +20,89 @@
         <GroupBox Grid.Row="0" Margin="10,10,10,10">
             <Grid>
                 <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"></ColumnDefinition>
-                <ColumnDefinition Width="auto"></ColumnDefinition>
-                <ColumnDefinition Width="auto"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Label Content="Поиск" Grid.Column="0" VerticalAlignment="Center" Margin="10,10,10,10"/>
-            <TextBox x:Name="Text_Filtr_DataGrid_Log" Grid.Column="1" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Left"
-                                     Width="250" Padding="5,5,5,5" Height="auto" ToolTip="Введите 3 символа спортмена">
-            </TextBox>
-            <Button x:Name="Btn_Grid_Update" Grid.Column="2" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Left" 
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Content="Поиск" Grid.Column="0" VerticalAlignment="Center" Margin="10,10,10,10"/>
+                <TextBox x:Name="Text_Filtr_DataGrid_Log" Grid.Column="1" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Left"
+                                     Width="250" Padding="5,5,5,5" Height="auto" ToolTip="Введите 3 буквы фамилии">
+                </TextBox>
+                <Button x:Name="Btn_Grid_Update" Grid.Column="2" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Left" 
                                     Width="auto" Padding="5,5,5,5" Click="Btn_Grid_Update_Click" >Сбросить</Button>
-    </Grid>
-    </GroupBox>
-      
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Margin="10,10,10,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Expander x:Name="PersonalData" VerticalAlignment="Center" Header="Персональные данные" Grid.Row="1" IsExpanded="True">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="Фамилия" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        <TextBox x:Name="Fam" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Width="100"/>
+                        
+                        <Label Content="Имя" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="Name" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Width="100"/>
+                        
+                        <Label Content="Отчество" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="Parent" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Width="100"/>
+
+                        <Label Content="Возраст" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="Age" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="1" Width="100"/>
+
+                        <Label Content="Адрес" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="Adress" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Width="100"/>
+
+                        <Label Content="Телефон" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="Telefon" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="1" Width="100" />
+
+                        <Label Content="Место учебы" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="PlaceStydy" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Width="100"/>
+
+                        <Label Content="Место работы" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="PlaceWork" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Width="100"/>
+
+                        <Label Content="Перенесенные заболевания" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="PastIllnesses" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Width="100"/>
+
+                        <Label Content="Травмы" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="Injury" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Width="100"/>
+
+                        <Label Content="Операции" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="Operations" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Width="100"/>
+
+                        <Label Content="Вид спорта" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="Sport" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Width="100"/>
+
+                        <Label Content="Разряд" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="Rank" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Width="100"/>
+
+                        <Label Content="Дата Рождения" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="DOB" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Width="100"/>
+                    </Grid>
+                </Expander>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

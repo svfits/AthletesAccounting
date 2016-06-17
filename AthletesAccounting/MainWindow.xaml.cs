@@ -68,5 +68,10 @@ namespace AthletesAccounting
 
             
             }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SizeToContent = SizeToContent.WidthAndHeight;
+        }
     }
 }
