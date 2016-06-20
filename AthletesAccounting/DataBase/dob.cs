@@ -1,6 +1,6 @@
 ﻿namespace AthletesAccounting.DataBase
 {
-    public class dob
+    public class DOB
     {
     }
 }

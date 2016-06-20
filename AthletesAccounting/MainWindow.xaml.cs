@@ -34,12 +34,13 @@ namespace AthletesAccounting
                 {
                     db.Athletes.Add(new Athletes()
                     {
-                        name = "Семен",
-                        fam = "Семенович",
-                        parent = "Семенович",
+                        name = "Иван",
+                        fam = "Кристофорович",
+                        parent = "Крузенштерн",
                         age = 21,
                         adress = "ghjghjghjjjjjjjjjjjjj",
-                        telefon = "89500810322"
+                        telefon = "89500810322",
+                        DOB = DateTime.Now
                     });
                     db.SaveChanges();
                 }
@@ -72,6 +73,87 @@ namespace AthletesAccounting
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SizeToContent = SizeToContent.WidthAndHeight;
+        }
+
+        //private void Text_Filtr_DataGrid_Log_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        //{
+        //    if (Text_Filtr_DataGrid_Log.Text.Length < 2)
+        //    {
+        //        return;
+        //    }
+
+          
+        //    //IEnumerable<Athletes> result = null;
+        //    try
+        //    {
+        //        using (UserContext db = new UserContext())
+        //        {
+        //            var result = db.Athletes.FirstOrDefault();                    
+        //            //.AsEnumerable()
+        //            // .Where(c => c.name.ToLower().Contains(Text_Filtr_DataGrid_Log.Text.ToString()))
+        //            //.Take(20)
+        //            //.ToList()
+        //            ;
+
+        //            //System.Diagnostics.Debug.WriteLine(result.First());
+        //            this.DataContext = result;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        System.Diagnostics.Debug.WriteLine(ex.ToString());
+        //    }           
+        //}
+
+        private void comboBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (comboBox.Text.Length < 2)
+            {
+                //comboBox.ItemsSource = null;
+                return;
+            }
+            //   List<Athletes> result = null;
+            //comboBox.ItemsSource = null;
+            try
+            {
+                using (UserContext db = new UserContext())
+                {
+                 var result = db.Athletes
+                    .AsEnumerable()                  
+                    .Where(c => c.fam.ToLower().StartsWith(comboBox.Text.ToString()))
+                    .Select(c => new
+                    {
+                        c.fam,
+                        c.name,
+                        c.parent,                        
+                        c.DOB                        
+                    }
+                    )                    
+                    .Take(20)
+                    .ToList()
+                    ;
+                 
+                    List<string> result1 = new List<string>();
+                    result.ForEach(elem =>
+                    {
+
+                        //   elem.ToString().Replace("fam =", "").Replace("name =", "").Replace("parent =", "").Replace("DOB =", "ДР");
+                        elem.fam.Replace("fam =", "");
+                        elem.name.Replace("name =", "");
+                        elem.parent.Replace("parent =", "");
+                        result1.Add(elem.fam.Replace("fam =", "") + "   " + elem.name.Replace("name =", "") + "  " + elem.parent.Replace("parent =", "") + "    " + elem.DOB);
+                        //   elem.DOB.toString().Replace("DOB =", "ДР");
+                        System.Diagnostics.Debug.WriteLine(elem.fam);
+                    });               
+              
+                    comboBox.IsDropDownOpen = true;
+                    comboBox.ItemsSource = result1;
+                }               
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
         }
     }
 }

@@ -38,47 +38,47 @@ namespace AthletesAccounting.DataBase
         /// место учебы 
          /// </summary>
         public int? placeStudy { get; set; }
-        [ForeignKey("id")]
+        //[ForeignKey("id")]
         public virtual PlaceofStudy PlaceofStudy { get; set; }
         /// <summary>
         ////место работы 
         /// </summary>
         public int? placeWork { get; set; }
-        [ForeignKey("id")]
+        //[ForeignKey("id")]
         public virtual PlaceofWork PlaceofWork { get; set; }
         /// <summary>
         ////перенесенные заболевания 
             /// </summary>
         public int? pastIllnesses { get; set; }
-        [ForeignKey("id")]
+        //[ForeignKey("id")]
         public virtual PastIllness PastIllness { get; set; }
         /// <summary>
         ////травмы
         /// </summary>
         public int? injury { get; set; }
-        [ForeignKey("id")]
+        //[ForeignKey("id")]
         public virtual Injuries Injuries { get; set; }
         /// <summary>
         //// операции
         /// </summary>
         public int? operations { get; set; }
-        [ForeignKey("id")]
+        //[ForeignKey("id")]
         public virtual Operations Operations { get; set; }
         /// <summary>
         ////вид спорта
         /// </summary>
         public int? sports { get; set; }
-        [ForeignKey("id")]
+        //[ForeignKey("id")]
         public virtual Sports Sports { get; set; }
         /// <summary>
         ////разряд
         /// </summary>
         public int? rank { get; set; }
-        [ForeignKey("id")]
+        //[ForeignKey("id")]
         public virtual Rank Rank { get; set; }        
         /// <summary>
         ////дата рождения
         /// </summary>
-        public DataType DOB { get; set; }         
+        public DateTime DOB { get; set; }         
     }
 }
