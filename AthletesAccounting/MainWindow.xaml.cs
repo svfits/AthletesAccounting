@@ -126,28 +126,32 @@ namespace AthletesAccounting
                         c.fam,
                         c.name,
                         c.parent,                        
-                        c.DOB                        
+                        c.DOB              
                     }
                     )                    
                     .Take(20)
                     .ToList()
                     ;
-                 
-                    List<string> result1 = new List<string>();
-                    result.ForEach(elem =>
-                    {
 
-                        //   elem.ToString().Replace("fam =", "").Replace("name =", "").Replace("parent =", "").Replace("DOB =", "ДР");
-                        elem.fam.Replace("fam =", "");
-                        elem.name.Replace("name =", "");
-                        elem.parent.Replace("parent =", "");
-                        result1.Add(elem.fam.Replace("fam =", "") + "   " + elem.name.Replace("name =", "") + "  " + elem.parent.Replace("parent =", "") + "    " + elem.DOB);
-                        //   elem.DOB.toString().Replace("DOB =", "ДР");
-                        System.Diagnostics.Debug.WriteLine(elem.fam);
-                    });               
-              
+                    //List<string> result1 = new List<string>();
+                    //result.ForEach(elem =>
+                    //{
+
+                    //    //   elem.ToString().Replace("fam =", "").Replace("name =", "").Replace("parent =", "").Replace("DOB =", "ДР");
+                    //    elem.fam.Replace("fam =", "");
+                    //    elem.name.Replace("name =", "");
+                    //    elem.parent.Replace("parent =", "");
+                    //    result1.Add(elem.fam.Replace("fam =", "") + "   " + elem.name.Replace("name =", "") + "  " + elem.parent.Replace("parent =", "") + "    " + elem.DOB);
+                    //    //   elem.DOB.toString().Replace("DOB =", "ДР");
+                    //    System.Diagnostics.Debug.WriteLine(elem.fam);
+                    //});               
+
+                    //comboBox.DisplayMemberPath = "name";
+                    //comboBox.DisplayMemberPath = "fam";
+                    //comboBox.DisplayMemberPath = "DOB";
+                    comboBox.SelectedIndex = -1;
                     comboBox.IsDropDownOpen = true;
-                    comboBox.ItemsSource = result1;
+                    comboBox.ItemsSource = result;
                 }               
             }
             catch (Exception ex)
