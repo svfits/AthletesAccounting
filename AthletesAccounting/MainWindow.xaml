@@ -36,7 +36,7 @@
                         <DataTemplate>
                             <TextBlock>
                                 <TextBlock.Text>
-                                    <MultiBinding StringFormat="{}{0} {1} {2} {3:d}">
+                                    <MultiBinding StringFormat="{}{0} {1} {2} {3:dd.MM.yyyy}">
                                         <Binding Path="fam"/>
                                         <Binding Path="name"/>
                                         <Binding Path="parent"/>
