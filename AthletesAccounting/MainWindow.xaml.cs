@@ -34,11 +34,11 @@ namespace AthletesAccounting
                 {
                     db.Athletes.Add(new Athletes()
                     {
-                        name = "Иван",
+                        name = "Петр",
                         fam = "Кристофорович",
                         parent = "Крузенштерн",
-                        age = 21,
-                        adress = "ghjghjghjjjjjjjjjjjjj",
+                        age = 47,
+                        adress = "Иркутская обл. г. Ангарск 82 квартал дом 72 кв. 179",
                         telefon = "89500810322",
                         DOB = DateTime.Now
                     });
@@ -72,7 +72,7 @@ namespace AthletesAccounting
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SizeToContent = SizeToContent.WidthAndHeight;
+           SizeToContent = SizeToContent.Height;
         }
 
         //private void Text_Filtr_DataGrid_Log_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -107,11 +107,11 @@ namespace AthletesAccounting
 
         private void comboBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (comboBox.Text.Length < 2)
-            {
-                //comboBox.ItemsSource = null;
-                return;
-            }
+            //if (comboBox.Text.Length < 2)
+            //{
+            //    //comboBox.ItemsSource = null;
+            //    return;
+            //}
             //   List<Athletes> result = null;
             //comboBox.ItemsSource = null;
             try
