@@ -124,6 +124,7 @@ namespace AthletesAccounting
                     .Where(c => c.fam.ToLower().StartsWith(comboBox.Text.ToString()))
                     .Select(c => new
                     {
+                        c.id,
                         c.fam,
                         c.name,
                         c.parent,                        
@@ -168,11 +169,80 @@ namespace AthletesAccounting
         /// <param name="e"></param>
         private void DOB_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {          
-            DateTime newDate = DateTime.Now;
-          
+            DateTime newDate = DateTime.Now;          
             int DOBAthlets = DOB.SelectedDate.Value.Year;
-
             txtbAge.Text = (DateTime.Now.Year - DOBAthlets).ToString();
+        }
+
+        /// <summary>
+        /// выбор после поиска 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBox comboBox = (ComboBox)sender;
+                //ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
+                //   MessageBox.Show(selectedItem.Content.ToString());
+
+                var ss = comboBox.SelectedValue;
+                System.Diagnostics.Debug.WriteLine(comboBox.SelectedValue.GetType());
+                System.Diagnostics.Debug.WriteLine(comboBox.SelectedValue);
+                            
+                //  System.Diagnostics.Debug.WriteLine(((Sample)comboBox.SelectedItem).ID);
+
+                //var productQuery =   ((Sample)yourComboBox.SelectedItem).ID
+                //    from prod in ss
+                //    select new { prod.Color, prod.Price };
+
+                //foreach (var v in productQuery)
+                //{
+                //    Console.WriteLine("Color={0}, Price={1}", v.Color, v.Price);
+                //}
+
+                ////var ss1 = ss;
+                ////var manager = new { Name = "Bob", Age = 26, Company = "Microsoft" };
+                ////Console.WriteLine(manager.Age); // <>f__AnonymousType1'3
+                ////System.Diagnostics.Debug.WriteLine(manager.Age + "   " + ss1.ToString());
+
+                //foreach (var v in prod)
+                //{
+                //    System.Diagnostics.Debug.WriteLine(manager.Age + "   " + ss1.ToString());
+                //}
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
+
+            try
+            {
+                using (UserContext db = new UserContext())
+                {
+                    var result = db.Athletes
+                       .AsEnumerable()
+                       .Where(c => c.fam.ToLower().StartsWith("Сем"))
+                       .FirstOrDefault()
+                       ;
+                    System.Diagnostics.Debug.WriteLine(result + "    select   ");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
+
+           // this.DataContext = AdornerHitTestResult;
+        }
+
+        private void comboBox_Selected(object sender, RoutedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
+            MessageBox.Show(selectedItem.Content.ToString());
         }
     }
 }

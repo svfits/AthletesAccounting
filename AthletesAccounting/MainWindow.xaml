@@ -37,8 +37,18 @@
                 <Button x:Name="Btn_Grid_Update" Grid.Column="2" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Left" 
                                     Width="auto" Padding="5,5,5,5" Click="Btn_Grid_Update_Click" >Сбросить</Button>
                 <ComboBox x:Name="comboBox" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="350" Height="auto" IsEditable="True"
-                          PreviewTextInput="comboBox_PreviewTextInput"  ToolTip="Введите первые 3 буквы фамилии"   Padding="5,5,5,5"   >
-
+                          PreviewTextInput="comboBox_PreviewTextInput"  ToolTip="Введите первые 3 буквы фамилии"   Padding="5,5,5,5"  SelectionChanged="comboBox_SelectionChanged"
+                        SelectedValuePath="id"  >
+                   
+                    <!--<ComboBox.Text>
+                        <MultiBinding StringFormat="{}{0} {1} {2} {3:dd.MM.yyyy}">
+                            <Binding Path="fam"/>
+                            <Binding Path="name"/>
+                            <Binding Path="parent"/>
+                            <Binding Path="DOB"/>
+                        </MultiBinding>
+                    </ComboBox.Text>-->
+                    
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock>
