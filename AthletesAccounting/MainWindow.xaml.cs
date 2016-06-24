@@ -1,4 +1,5 @@
 ﻿using AthletesAccounting.DataBase;
+using AthletesAccounting.TimeDateAge;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -158,6 +159,20 @@ namespace AthletesAccounting
             {
                 System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
+        }
+
+        /// <summary>
+        /// высчитываем возраст спортсмена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DOB_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {          
+            DateTime newDate = DateTime.Now;
+          
+            int DOBAthlets = DOB.SelectedDate.Value.Year;
+
+            txtbAge.Text = (DateTime.Now.Year - DOBAthlets).ToString();
         }
     }
 }

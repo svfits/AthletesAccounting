@@ -100,7 +100,7 @@
 
                         <Label Content="Дата Рождения" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <!--<TextBox x:Name="DOB" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="4" Width="100"/>-->
-                        <DatePicker x:Name="DOB" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Width="100" />
+                        <DatePicker x:Name="DOB" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Width="100" SelectedDateChanged="DOB_SelectedDateChanged"/>
 
                         <Label Content="Телефон" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBox x:Name="Telefon" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="6" Width="100" />
@@ -151,11 +151,10 @@
                     </Grid.RowDefinitions>
 
                     <Label Content="Возраст" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBox x:Name="Age" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="0" Width="100"
-                             Text="{Binding ElementName=DOB,Path=Text, StringFormat={}{0:yyyy}}" IsReadOnly="True"/>
+                    <TextBox x:Name="txtbAge" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="0" Width="100" IsReadOnly="True"/>
 
                     <Label Content="Рост" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox x:Name="HeightAthletes" Grid.Column="5"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Width="100"/>
+                    <TextBox x:Name="txtbHeightAthletes" Grid.Column="5"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Width="100"/>
 
                     <Label Content="Вес" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
                     <TextBox x:Name="Weight" Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Width="100"/>
