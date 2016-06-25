@@ -47,7 +47,7 @@
                             <Binding Path="parent"/>
                             <Binding Path="DOB"/>
                         </MultiBinding>
-                    </ComboBox.Text>-->
+                    </ComboBox.Text>-->                 
                     
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -100,23 +100,54 @@
                             <RowDefinition Height="auto"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Label Content="Фамилия" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                        <TextBox x:Name="Fam" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Width="100"/>
+                        <TextBox x:Name="Fam" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Width="100">
+                            <TextBox.Text>
+                                <Binding Path="fam"></Binding>
+                            </TextBox.Text>
+                        </TextBox>
 
                         <Label Content="Имя" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Name" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Width="100"/>
+                        <TextBox x:Name="Name" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Width="100">
+                            <TextBox.Text>
+                                <Binding Path="name"></Binding>
+                            </TextBox.Text>
+                        </TextBox>
 
                         <Label Content="Отчество" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Parent" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Width="100"/>
+                        <TextBox x:Name="Parent" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Width="100">
+                            <TextBox.Text>
+                                <Binding Path="parent"></Binding>
+                            </TextBox.Text>
+                        </TextBox>
 
                         <Label Content="Дата Рождения" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <!--<TextBox x:Name="DOB" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="4" Width="100"/>-->
-                        <DatePicker x:Name="DOB" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Width="100" SelectedDateChanged="DOB_SelectedDateChanged"/>
+                        <DatePicker x:Name="DOB" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Width="100" SelectedDateChanged="DOB_SelectedDateChanged">
+                            <DatePicker.SelectedDate>
+                                <Binding Path="DOB"></Binding>
+                            </DatePicker.SelectedDate>
+                            </DatePicker>
+
+                        <Label Content="Адрес" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="Adress" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="5" Width="100">
+                            <TextBox.Text>
+                                <Binding Path="adress"></Binding>
+                            </TextBox.Text>
+                        </TextBox>
 
                         <Label Content="Телефон" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Telefon" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="6" Width="100" />
+                        <TextBox x:Name="Telefon" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="6" Width="100" >
+                            <TextBox.Text>
+                                <Binding Path="telefon"></Binding>
+                            </TextBox.Text>
+                                    </TextBox>
 
                         <Label Content="Место учебы/работы/ДУ" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="PlaceStydy" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="7" Width="100"/>
+                        <TextBox x:Name="PlaceStydy" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="7" Width="100">
+                            <TextBox.Text>
+                                <Binding Path="placeStudy"></Binding>
+                            </TextBox.Text>
+                        </TextBox>
 
                         <Label Content="Перенесенные заболевания" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBox x:Name="PastIllnesses" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="8" Width="100"/>
@@ -133,8 +164,8 @@
                         <Label Content="Разряд" Grid.Row="12" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBox x:Name="Rank" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="12" Width="100"/>
 
-                        <Label Content="Адрес" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Adress" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="5" Width="100"/>
+                        
+                        
 
                     </Grid>
                 </Expander>

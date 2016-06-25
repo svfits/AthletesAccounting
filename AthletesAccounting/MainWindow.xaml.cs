@@ -180,54 +180,18 @@ namespace AthletesAccounting
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                ComboBox comboBox = (ComboBox)sender;
-                //ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-                //   MessageBox.Show(selectedItem.Content.ToString());
-
-                var ss = comboBox.SelectedValue;
-                System.Diagnostics.Debug.WriteLine(comboBox.SelectedValue.GetType());
-                System.Diagnostics.Debug.WriteLine(comboBox.SelectedValue);
-                            
-                //  System.Diagnostics.Debug.WriteLine(((Sample)comboBox.SelectedItem).ID);
-
-                //var productQuery =   ((Sample)yourComboBox.SelectedItem).ID
-                //    from prod in ss
-                //    select new { prod.Color, prod.Price };
-
-                //foreach (var v in productQuery)
-                //{
-                //    Console.WriteLine("Color={0}, Price={1}", v.Color, v.Price);
-                //}
-
-                ////var ss1 = ss;
-                ////var manager = new { Name = "Bob", Age = 26, Company = "Microsoft" };
-                ////Console.WriteLine(manager.Age); // <>f__AnonymousType1'3
-                ////System.Diagnostics.Debug.WriteLine(manager.Age + "   " + ss1.ToString());
-
-                //foreach (var v in prod)
-                //{
-                //    System.Diagnostics.Debug.WriteLine(manager.Age + "   " + ss1.ToString());
-                //}
-
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.ToString());
-            }
-
+        {        
             try
             {
                 using (UserContext db = new UserContext())
                 {
                     var result = db.Athletes
                        .AsEnumerable()
-                       .Where(c => c.fam.ToLower().StartsWith("Сем"))
+                       .Where(c => c.id == Convert.ToInt32( comboBox.SelectedValue))
                        .FirstOrDefault()
                        ;
-                    System.Diagnostics.Debug.WriteLine(result + "    select   ");
+                    System.Diagnostics.Debug.WriteLine(result.name + "    select   " + result.fam + result.Injuries + result.DOB);
+                    this.DataContext = result;
                 }
             }
             catch (Exception ex)
@@ -235,7 +199,7 @@ namespace AthletesAccounting
                 System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
 
-           // this.DataContext = AdornerHitTestResult;
+          
         }
 
         private void comboBox_Selected(object sender, RoutedEventArgs e)
