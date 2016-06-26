@@ -23,22 +23,22 @@ namespace AthletesAccounting.DataBase
         /// <summary>
         /// отчество
         /// </summary>
-        public string parent { get; set; }
+        public string parent { get; set; }      
         /// <summary>
-        /// возраст
-        /// </summary>
-        public int age { get; set; }
-        /// <summary>
-        ////адресс где проживает
+        ////адрес где проживает
         /// </summary>
         public string adress {get; set;}
 
         public string telefon { get; set; }
         /// <summary>
+        /// пол
+        /// </summary>
+        public string sex { get; set; }
+        /// <summary>
         /// место учебы 
-         /// </summary>
+        /// </summary>
         public int? placeStudy { get; set; }
-        //[ForeignKey("id")]
+        [ForeignKey("placeStudy")]
         public virtual PlaceofStudy PlaceofStudy { get; set; }
         /// <summary>
         ////место работы 

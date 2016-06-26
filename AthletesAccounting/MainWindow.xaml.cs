@@ -36,9 +36,8 @@ namespace AthletesAccounting
                     db.Athletes.Add(new Athletes()
                     {
                         name = "Петр",
-                        fam = "Кристофорович",
-                        parent = "Крузенштерн",
-                        age = 47,
+                        fam = "Крузенштерн",
+                        parent = "Кристофорович",                        
                         adress = "Иркутская обл. г. Ангарск 82 квартал дом 72 кв. 179",
                         telefon = "89500810322",
                         DOB = DateTime.Now
