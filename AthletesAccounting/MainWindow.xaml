@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:AthletesAccounting"            
         mc:Ignorable="d"
         Title="Карта пациента"  VerticalAlignment="Center" HorizontalAlignment="Center"
-        Loaded="Window_Loaded" Height="822" Width="800"
+        Loaded="Window_Loaded" Height="857" Width="839"
         >
+    
     <Grid x:Name="gridAll" Margin="10,10,10,10" FocusManager.FocusedElement="{Binding ElementName=comboBox}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -24,7 +25,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <GroupBox Grid.Row="0" Margin="10,10,10,10">
+        <GroupBox Grid.Row="0" Margin="10,35,10,10">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -102,24 +103,27 @@
                             <RowDefinition Height="auto"></RowDefinition>
                             <RowDefinition Height="auto"></RowDefinition>
                             <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
                         </Grid.RowDefinitions>
-
+                       
                         <Label Content="Фамилия" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                        <TextBox x:Name="Fam" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Width="100">
+                        <TextBox x:Name="Fam" Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Width="100">
                             <TextBox.Text>
                                 <Binding Path="fam"></Binding>
                             </TextBox.Text>
                         </TextBox>
 
                         <Label Content="Имя" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Name" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Width="100">
+                        <TextBox x:Name="Name" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Left" Grid.Row="0" Width="100">
                             <TextBox.Text>
                                 <Binding Path="name"></Binding>
                             </TextBox.Text>
                         </TextBox>
 
                         <Label Content="Отчество" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Parent" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Width="100">
+                        <TextBox x:Name="Parent" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Left" Grid.Row="0" Width="100">
                             <TextBox.Text>
                                 <Binding Path="parent"></Binding>
                             </TextBox.Text>
@@ -143,46 +147,47 @@
                         </DatePicker>
 
                         <Label Content="Домашний адрес" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                        <TextBox x:Name="Adres" Grid.Column="1" VerticalAlignment="Center" Grid.Row="2" HorizontalAlignment="Center" Width="346" Grid.ColumnSpan="3">
+                        <TextBox x:Name="Adres" Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="3">
                             <TextBox.Text>
                                 <Binding Path="adress"></Binding>
                             </TextBox.Text>
                         </TextBox>
 
                         <Label Content="Телефон" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Telefon" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Width="100" >
+                        <TextBox x:Name="Telefon" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Width="100" >
                             <TextBox.Text>
                                 <Binding Path="telefon"></Binding>
                             </TextBox.Text>
-                        </TextBox>
+                        </TextBox>                      
 
                         <Label Content="Вид спорта" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Sport" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Width="100"/>
+                        <ComboBox x:Name="Sport" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Width="100"/>
 
 
                         <Label Content="Спортколлектив (ДЮСШ)" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="orgNameAthlet" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Width="280" IsEditable="True" Grid.ColumnSpan="3"/>
+                        <ComboBox x:Name="orgNameAthlet" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                  Grid.Row="3" IsEditable="True" Grid.ColumnSpan="3" />
 
                         <Label Content="Место учебы/работы/ДУ" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="PlaceStydy" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="7" Width="100">
+                        <TextBox x:Name="PlaceStydy" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Left" Grid.Row="7" Width="100">
                             <TextBox.Text>
                                 <Binding Path="placeStudy"></Binding>
                             </TextBox.Text>
                         </TextBox>
 
                         <Label Content="Профессия, Должность" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="profAthlets" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="7" Width="100" >
+                        <TextBox x:Name="profAthlets" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="7" Width="100" >
                             <TextBox.Text>
                                 <Binding Path="profAthlets"></Binding>
                             </TextBox.Text>
                         </TextBox>
 
                         <Label Content="Образование" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="education" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="7" Width="100" >
-                            <TextBox.Text>
+                        <ComboBox x:Name="education" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="7" Width="100" >
+                            <ComboBox.Text>
                                 <Binding Path="education"></Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                            </ComboBox.Text>
+                        </ComboBox>
 
 
                         <Label Content="Употребление алкоголя" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -209,23 +214,45 @@
                         </ComboBox>
 
                         <Label Content="Перенесенные заболевания" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="PastIllnesses" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="9" Width="238" Grid.ColumnSpan="2"
+                        <TextBox x:Name="PastIllnesses" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="9" Grid.ColumnSpan="2"
                                  TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление заболеваний через нажатие ENTER"/>
 
                         <Label Content="Операции" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Operations" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="10" Width="238" Grid.ColumnSpan="2"
-                                 Margin="0,5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление операций через нажатие ENTER"/>
+                        <TextBox x:Name="Operations" Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="10" Grid.ColumnSpan="2"
+                                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление операций через нажатие ENTER"/>
 
                         <Label Content="Травмы" Grid.Row="10" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Injury" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="10" Width="179" Grid.ColumnSpan="2"
+                        <TextBox x:Name="Injury" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="10" Grid.ColumnSpan="2"
                                  TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление травм через нажатие ENTER"/>
 
 
-                        <Label Content="Разряд" Grid.Row="12" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Rank" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="12" Width="100"/>
+                        <Label Content="Разряд" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="Rank" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="11" Width="100"/>
 
+                        <Label Content="Каким пре-нно занимается?" ToolTip="Каким видом спорта преимущественно занимается?" Grid.Row="12"
+                               Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                        <ComboBox x:Name="mainSport" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="12" ToolTip="Вид спорта"/>
+                        <Label Content="Сколько времени?" Grid.Row="12" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                        <!--<Label Content="C" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center"/>-->
+                        <DatePicker Grid.Row="12" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Right" ToolTip="укажите дату начала"/>
 
+                        <Label Content="Какими др. видами занимался?" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left"
+                               VerticalAlignment="Center" ToolTip="Какими другими видами спорта занимался "/>
+                        <ComboBox x:Name="cmbotherSports" Grid.Row="13" Grid.Column="1" ToolTip="Вид спорта"/>
+                        <TextBox Name="txtotherSports" Grid.Row="13" Grid.Column="2" IsReadOnly="False"  />
+                        <Button Grid.Column="3" Grid.Row="13" ToolTip="добавить вид спорта">Добавить</Button>
 
+                        <Label Content="По каким участвовал?" ToolTip="По каким видам спорта участвовал в соревнованиях?" Grid.Row="14" Grid.Column="0"></Label>
+                        <ComboBox Grid.Row="14" Grid.Column="1" ToolTip="Вид спорта" Height="26" VerticalAlignment="Top"/>
+                        <TextBox Grid.Row="14" Grid.Column="2" IsReadOnly="False"></TextBox>
+                        <Button Grid.Row="14" Grid.Column="3" >Добавить</Button>
+
+                        <Label Content="Разряд дата получения" ToolTip="дата получения каждого разряда" Grid.Row="15" Grid.Column="0"></Label>
+                        <ComboBox x:Name="rancDate" Grid.Row="15" Grid.Column="1" ToolTip="Разряд"/>
+                        <DatePicker Grid.Row="15" Grid.Column="3" />
+                        <TextBox Grid.Row="15" Grid.Column="4" ToolTip="Перечень видов спорта" IsReadOnly="False" VerticalScrollBarVisibility="Auto" />
+                        <Button Grid.Column="5" Grid.Row="15" ToolTip="добавить дату получения разряда">Добавить</Button>
+                        <ComboBox ToolTip="Вид спрота" Grid.Row="15" Grid.Column="2"/>
 
                     </Grid>
                 </Expander>
@@ -304,5 +331,28 @@
                 </Grid>
             </Expander>
         </GroupBox>
+
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Экспорт БД в excel" Click="exportExcel"></MenuItem>
+                <MenuItem Header="Ипорт БД из excel" Click="importExcel"/>
+                <!--<MenuItem Header="WinForms"></MenuItem>
+                    <MenuItem Header="WPF" ></MenuItem>-->
+                <Separator />
+                <MenuItem Header="Выход" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Редактировать" >
+                <MenuItem Header="Справочники">
+                    <MenuItem Header="Виды спорта" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Перенесенные заболевания" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Операции" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Спортколлектив (ДЮСШ)" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Образование" Click="MenuItem_Click"></MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Настройки" ></MenuItem>
+        </Menu>
     </Grid>
+
+   
 </Window>

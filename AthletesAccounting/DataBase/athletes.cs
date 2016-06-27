@@ -25,21 +25,21 @@ namespace AthletesAccounting.DataBase
         /// </summary>
         public string parent { get; set; }      
         /// <summary>
-        ////адрес где проживает
-        /// </summary>
-        public string adress {get; set;}
-
-        public string telefon { get; set; }
-        /// <summary>
         /// пол
         /// </summary>
         public string sex { get; set; }
         /// <summary>
-        /// место учебы 
+        ////адрес где проживает
         /// </summary>
-        public int? placeStudy { get; set; }
-        [ForeignKey("placeStudy")]
-        public virtual PlaceofStudy PlaceofStudy { get; set; }
+        public string adress {get; set;}
+        /// <summary>
+        /// телефон
+        /// </summary>
+        public string telefon { get; set; }      
+        /// <summary>
+        /// место учебы 
+        /// </summary>     
+        public string PlaceofStudyAndWork PlaceofStudyAndWork { get; set; }
         /// <summary>
         ////место работы 
         /// </summary>
@@ -48,7 +48,7 @@ namespace AthletesAccounting.DataBase
         public virtual PlaceofWork PlaceofWork { get; set; }
         /// <summary>
         ////перенесенные заболевания 
-            /// </summary>
+        /// </summary>
         public int? pastIllnesses { get; set; }
         //[ForeignKey("id")]
         public virtual PastIllness PastIllness { get; set; }

@@ -2,7 +2,7 @@
 
 namespace AthletesAccounting.DataBase
 {
-    public class PlaceofStudy
+    public class PlaceofStudyAndWork
     {
         [Key]
         public int Id { get; set; }

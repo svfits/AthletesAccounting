@@ -15,7 +15,7 @@ namespace AthletesAccounting.DataBase
 
         public DbSet<Athletes> Athletes{get; set;}
 
-        public DbSet<PlaceofStudy> PlaceofStudy {get;set;}
+        public DbSet<PlaceofStudyAndWork> PlaceofStudy {get;set;}
 
         public DbSet<PlaceofWork> PlaceofWork { get; set; }
 

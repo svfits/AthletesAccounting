@@ -72,7 +72,7 @@ namespace AthletesAccounting
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           SizeToContent = SizeToContent.Height;
+           SizeToContent = SizeToContent.WidthAndHeight;
         }
 
         //private void Text_Filtr_DataGrid_Log_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -201,11 +201,22 @@ namespace AthletesAccounting
           
         }
 
-        private void comboBox_Selected(object sender, RoutedEventArgs e)
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            ComboBox comboBox = (ComboBox)sender;
-            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            MessageBox.Show(selectedItem.Content.ToString());
+            MenuItem menuItem = (MenuItem)sender;
+            MessageBox.Show(menuItem.Header.ToString());
+        }
+
+        private void exportExcel(object sender, RoutedEventArgs e)
+        {
+            MenuItem menuItem = (MenuItem)sender;
+            MessageBox.Show(menuItem.Header.ToString());
+        }
+
+        private void importExcel(object sender, RoutedEventArgs e)
+        {
+            MenuItem menuItem = (MenuItem)sender;
+            MessageBox.Show(menuItem.Header.ToString());
         }
     }
 }
