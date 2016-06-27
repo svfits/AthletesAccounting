@@ -68,6 +68,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBase\Education.cs" />
+    <Compile Include="DataBase\MainSports.cs" />
+    <Compile Include="DataBase\SportTeam.cs" />
     <Compile Include="TimeDateAge\ConvertDOBtoAge.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

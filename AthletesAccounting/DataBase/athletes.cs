@@ -37,15 +37,38 @@ namespace AthletesAccounting.DataBase
         /// </summary>
         public string telefon { get; set; }      
         /// <summary>
-        /// место учебы 
+        /// место учебы или работы
         /// </summary>     
-        public string PlaceofStudyAndWork PlaceofStudyAndWork { get; set; }
+        public string PlaceofStudyAndWork { get; set; }     
+        
         /// <summary>
-        ////место работы 
+        ////Спортколлектив ДЮСШ
         /// </summary>
-        public int? placeWork { get; set; }
-        //[ForeignKey("id")]
-        public virtual PlaceofWork PlaceofWork { get; set; }
+        public int? sportTeam { get; set; }
+        public virtual SportTeam SportTeam { get; set; }
+        /// <summary>
+        /// профессия спортсмена
+        /// </summary>
+        public string profAthlets { get; set; }
+        /// <summary>
+        ////образование
+        /// </summary>
+        public int? education { get; set; }
+        public virtual Education Education { get; set; }
+
+        /// <summary>
+        /// алкоголь
+        /// </summary>
+        public string alcphol { get; set; }
+
+        /// <summary>
+        ////жилищные условия
+        /// </summary>
+        public string housing { get; set; }
+        /// <summary>
+        // курение
+        /// </summary>
+       public string  smoke { get; set; }
         /// <summary>
         ////перенесенные заболевания 
         /// </summary>
@@ -54,10 +77,8 @@ namespace AthletesAccounting.DataBase
         public virtual PastIllness PastIllness { get; set; }
         /// <summary>
         ////травмы
-        /// </summary>
-        public int? injury { get; set; }
-        //[ForeignKey("id")]
-        public virtual Injuries Injuries { get; set; }
+        /// </summary>      
+        public string Injuries { get; set; }
         /// <summary>
         //// операции
         /// </summary>
@@ -79,6 +100,20 @@ namespace AthletesAccounting.DataBase
         /// <summary>
         ////дата рождения
         /// </summary>
-        public DateTime DOB { get; set; }         
+        public DateTime DOB { get; set; } 
+        //public int? mainSport { get; set; }
+        //[ForeignKey("idAthlets")]
+        //public virtual MainSports MainSports { get; set; }
+        /// <summary>
+        ////другие виде спорта
+        /// </summary>
+        public string otherSports { get; set; }
+        /// <summary>
+        /// По каким видам спорта участвовал в соревнованиях
+        /// </summary>
+        public string otherSportsGames { get; set; }
+        
+         
     }
+  
 }

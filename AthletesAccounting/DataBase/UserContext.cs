@@ -15,18 +15,18 @@ namespace AthletesAccounting.DataBase
 
         public DbSet<Athletes> Athletes{get; set;}
 
-        public DbSet<PlaceofStudyAndWork> PlaceofStudy {get;set;}
+        //public DbSet<PlaceofStudyAndWork> PlaceofStudy {get;set;}
 
-        public DbSet<PlaceofWork> PlaceofWork { get; set; }
+        //public DbSet<PlaceofWork> PlaceofWork { get; set; }
 
-        public DbSet<Injury> Injury { get; set; }
-        public DbSet<Operations> Operations { get; set; }
+        //public DbSet<Injury> Injury { get; set; }
+        //public DbSet<Operations> Operations { get; set; }
 
-        public DbSet<PastIllness> PastIllness { get; set; }
+        //public DbSet<PastIllness> PastIllness { get; set; }
 
-        public DbSet<Rank> Rank { get; set; }
+        //public DbSet<Rank> Rank { get; set; }
 
-        public DbSet<Sports> Sports { get; set; }
+        //public DbSet<Sports> Sports { get; set; }
 
     }
 

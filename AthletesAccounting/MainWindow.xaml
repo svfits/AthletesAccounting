@@ -243,7 +243,7 @@
                         <Button Grid.Column="3" Grid.Row="13" ToolTip="добавить вид спорта">Добавить</Button>
 
                         <Label Content="По каким участвовал?" ToolTip="По каким видам спорта участвовал в соревнованиях?" Grid.Row="14" Grid.Column="0"></Label>
-                        <ComboBox Grid.Row="14" Grid.Column="1" ToolTip="Вид спорта" Height="26" VerticalAlignment="Top"/>
+                        <ComboBox Grid.Row="14" Grid.Column="1" ToolTip="Вид спорта" Height="26" VerticalAlignment="Bottom"/>
                         <TextBox Grid.Row="14" Grid.Column="2" IsReadOnly="False"></TextBox>
                         <Button Grid.Row="14" Grid.Column="3" >Добавить</Button>
 
