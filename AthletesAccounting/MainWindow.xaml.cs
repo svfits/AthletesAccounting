@@ -40,7 +40,8 @@ namespace AthletesAccounting
                         parent = "Кристофорович",                        
                         adress = "Иркутская обл. г. Ангарск 82 квартал дом 72 кв. 179",
                         telefon = "89500810322",
-                        DOB = DateTime.Now
+                        DOB = DateTime.Now,
+                        sex = "Муж"
                     });
                     db.SaveChanges();
                 }
