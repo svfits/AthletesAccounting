@@ -206,6 +206,9 @@ namespace AthletesAccounting
         {
             MenuItem menuItem = (MenuItem)sender;
             MessageBox.Show(menuItem.Header.ToString());
+
+            Handbook handbook = new Handbook();
+            handbook.Show();
         }
 
         private void exportExcel(object sender, RoutedEventArgs e)

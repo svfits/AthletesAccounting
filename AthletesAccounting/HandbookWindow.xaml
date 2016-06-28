@@ -1,0 +1,21 @@
+﻿<Window x:Class="AthletesAccounting.Handbook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AthletesAccounting"
+        mc:Ignorable="d"
+        Title="Справочник" Height="300" Width="300" Loaded="Window_Loaded">
+    <Grid>
+        <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Width="auto">
+            <DataGrid x:Name="dataGrid" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding sports_id}" Header="№"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding sports}" Header="Виды спорта" Width="300" ></DataGridTextColumn>
+                    <!--<DataGridTextColumn Binding="{Binding Type_Exception.type_events}" Header="Класс сообщения" Width="200"></DataGridTextColumn>-->            
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</Window>

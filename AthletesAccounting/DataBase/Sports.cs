@@ -1,8 +1,11 @@
-﻿namespace AthletesAccounting.DataBase
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AthletesAccounting.DataBase
 {
     public class Sports
     {
-        public int id { get; set; }
+        [Key]
+        public int sports_id { get; set; }
         public string sports { get; set; }
     }
 }

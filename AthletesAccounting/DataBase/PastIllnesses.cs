@@ -5,7 +5,7 @@ namespace AthletesAccounting.DataBase
     public class PastIllness
     {
         [Key]
-        public int id { get; set; }
+        public int pastIllnesses_id { get; set; }
 
         public string pastIllnesses { get; set; }
     }

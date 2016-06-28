@@ -1,4 +1,6 @@
-﻿namespace AthletesAccounting.DataBase
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AthletesAccounting.DataBase
 {
     public class Rank
     {

@@ -71,7 +71,14 @@
     <Compile Include="DataBase\Education.cs" />
     <Compile Include="DataBase\MainSports.cs" />
     <Compile Include="DataBase\SportTeam.cs" />
+    <Compile Include="HandbookWindow.xaml.cs">
+      <DependentUpon>HandbookWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TimeDateAge\ConvertDOBtoAge.cs" />
+    <Page Include="HandbookWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,12 +88,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataBase\Athletes.cs" />
-    <Compile Include="DataBase\dob.cs" />
     <Compile Include="DataBase\Injuries.cs" />
     <Compile Include="DataBase\Operations.cs" />
     <Compile Include="DataBase\PastIllnesses.cs" />
-    <Compile Include="DataBase\PlaceofStudy.cs" />
-    <Compile Include="DataBase\PlaceofWork.cs" />
     <Compile Include="DataBase\Rank.cs" />
     <Compile Include="DataBase\Sports.cs" />
     <Compile Include="DataBase\UserContext.cs" />
