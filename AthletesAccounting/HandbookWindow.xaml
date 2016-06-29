@@ -8,7 +8,8 @@
         Title="Справочник" Height="300" Width="300" Loaded="Window_Loaded">
     <Grid>
         <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Width="auto">
-            <DataGrid x:Name="dataGrid" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True">
+            <DataGrid x:Name="dataGrid" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="False"
+                      CanUserAddRows="True" CanUserDeleteRows="True" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding sports_id}" Header="№"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding sports}" Header="Виды спорта" Width="300" ></DataGridTextColumn>

@@ -21,7 +21,7 @@ namespace AthletesAccounting.DataBase
 
         public DbSet<Rank> Rank { get; set; }
 
-        //public DbSet<Operations> Operations { get; set; }
+        public DbSet<SportTeam> SportTeam { get; set; }
 
         //public DbSet<PastIllness> PastIllness { get; set; }
 

@@ -42,9 +42,15 @@ namespace AthletesAccounting.DataBase
         public string PlaceofStudyAndWork { get; set; }     
         
         /// <summary>
+        /// жилищные условия
+        /// </summary>
+        public string livingСonditions { get; set; }
+        
+        /// <summary>
         ////Спортколлектив ДЮСШ
         /// </summary>
-        public int? sportTeam { get; set; }
+        public int? sportTeam_id { get; set; }
+        [ForeignKey("sportTeam_id")]
         public virtual SportTeam SportTeam { get; set; }
         /// <summary>
         /// профессия спортсмена
@@ -59,7 +65,7 @@ namespace AthletesAccounting.DataBase
         /// <summary>
         /// алкоголь
         /// </summary>
-        public string alcphol { get; set; }
+        public string alcohol { get; set; }
 
         /// <summary>
         ////жилищные условия
@@ -75,10 +81,11 @@ namespace AthletesAccounting.DataBase
         public int? pastIllnesses_id { get; set; }
         [ForeignKey("pastIllnesses_id")]
         public virtual PastIllness PastIllness { get; set; }
+      
         /// <summary>
         ////травмы
-        /// </summary>      
-        public string Injuries { get; set; }
+        /// </summary>
+        public string injuries { get; set; }
 
         /// <summary>
         //// операции
