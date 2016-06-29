@@ -4,7 +4,7 @@ namespace AthletesAccounting.DataBase
     public class SportTeam
     {
         [Key]
-        public int id { get; set; }
+        public int sportTeam_id { get; set; }
         public string sportTeam { get; set; }
     }
 }

@@ -11,11 +11,10 @@ namespace AthletesAccounting.DataBase
     {
         public UserContext() :
             base("data source = (localdb)\\MSSQLLocalDB; Initial Catalog = AthletesAccounting; Integrated Security = True; TrustServerCertificate=False") { }
-       //   base("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = 2222; Integrated Security = True") { }                 
+        //   base("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = 2222; Integrated Security = True") { }                 
+        
 
-        public DbSet<Athletes> Athletes{get; set;}
-
-        public DbSet<PastIllness> PastIllness { get;set;}
+        public DbSet<Athletes> Athletes{get; set;}     
 
         public DbSet<Operations> Operations { get; set; }
 
@@ -23,7 +22,7 @@ namespace AthletesAccounting.DataBase
 
         public DbSet<SportTeam> SportTeam { get; set; }
 
-        //public DbSet<PastIllness> PastIllness { get; set; }
+        public DbSet<Education> Education { get; set; }
 
         //public DbSet<Rank> Rank { get; set; }
 

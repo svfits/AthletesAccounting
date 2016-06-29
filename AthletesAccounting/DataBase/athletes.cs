@@ -12,26 +12,32 @@ namespace AthletesAccounting.DataBase
     {
         [Key]
         public int id { get; set; }
-        /// <summary>
-        ////имя
-        /// </summary>
-        public string name { get; set; }
+
         /// <summary>
         /// фамилия
         /// </summary>
         public string fam { get; set; }
+
+        /// <summary>
+        ////имя
+        /// </summary>
+        public string name { get; set; }
+    
         /// <summary>
         /// отчество
         /// </summary>
-        public string parent { get; set; }      
+        public string parent { get; set; }   
+           
         /// <summary>
         /// пол
         /// </summary>
         public string sex { get; set; }
+
         /// <summary>
         ////адрес где проживает
         /// </summary>
         public string adress {get; set;}
+
         /// <summary>
         /// телефон
         /// </summary>
@@ -52,15 +58,18 @@ namespace AthletesAccounting.DataBase
         public int? sportTeam_id { get; set; }
         [ForeignKey("sportTeam_id")]
         public virtual SportTeam SportTeam { get; set; }
+
         /// <summary>
         /// профессия спортсмена
         /// </summary>
         public string profAthlets { get; set; }
+
         /// <summary>
         ////образование
         /// </summary>
-        public int? education { get; set; }
-        public virtual Education Education { get; set; }
+        public int? education_id { get; set; }
+        [ForeignKey("education_id")]
+        public virtual Education education { get; set; }
 
         /// <summary>
         /// алкоголь
@@ -71,17 +80,17 @@ namespace AthletesAccounting.DataBase
         ////жилищные условия
         /// </summary>
         public string housing { get; set; }
+
         /// <summary>
         // курение
         /// </summary>
        public string  smoke { get; set; }
+
         /// <summary>
         ////перенесенные заболевания 
         /// </summary>
-        public int? pastIllnesses_id { get; set; }
-        [ForeignKey("pastIllnesses_id")]
-        public virtual PastIllness PastIllness { get; set; }
-      
+        public string pastIllnes { get; set; }
+
         /// <summary>
         ////травмы
         /// </summary>
@@ -90,9 +99,7 @@ namespace AthletesAccounting.DataBase
         /// <summary>
         //// операции
         /// </summary>
-        public int? operations_id { get; set; }
-        [ForeignKey("operations_id")]
-        public virtual Operations Operations { get; set; }
+        public string operations { get; set;}
 
         /// <summary>
         ////вид спорта
@@ -100,14 +107,13 @@ namespace AthletesAccounting.DataBase
         public int? sports_id { get; set; }
         [ForeignKey("sports_id")]
         public virtual Sports Sports { get; set; }
-
-
+        
         /// <summary>
         ////разряд
         /// </summary>
-        public int? rank_id { get; set; }
+        public int?  rank_id { get; set; }
         [ForeignKey("rank_id")]
-        public virtual Rank Rank { get; set; }        
+        public virtual Rank rank { get; set; }
         /// <summary>
         ////дата рождения
         /// </summary>

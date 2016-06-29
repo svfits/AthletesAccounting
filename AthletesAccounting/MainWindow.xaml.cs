@@ -56,8 +56,23 @@ namespace AthletesAccounting
                         .AsEnumerable()
                         .ToList()
                         ;
-                    System.Diagnostics.Debug.WriteLine(result.ToString());
-                    orgNameAthlet.ItemsSource = result1;
+                    System.Diagnostics.Debug.WriteLine(result1.ToString());
+                    sportTeamCmb.ItemsSource = result1;
+
+                    var result2 = db.Rank
+                      .AsEnumerable()
+                      .ToList()
+                      ;
+                    System.Diagnostics.Debug.WriteLine(result2.ToString());
+                    rank.ItemsSource = result2;
+
+                    var result3 = db.Education
+                   .AsEnumerable()
+                   .ToList()
+                   ;
+                    System.Diagnostics.Debug.WriteLine(result3.ToString());
+                    education.ItemsSource = result3;
+                                   
                 }
             }
             catch (Exception ex)
@@ -95,23 +110,7 @@ namespace AthletesAccounting
                     .Take(20)
                     .ToList()
                     ;
-
-                    //List<string> result1 = new List<string>();
-                    //result.ForEach(elem =>
-                    //{
-
-                    //    //   elem.ToString().Replace("fam =", "").Replace("name =", "").Replace("parent =", "").Replace("DOB =", "ДР");
-                    //    elem.fam.Replace("fam =", "");
-                    //    elem.name.Replace("name =", "");
-                    //    elem.parent.Replace("parent =", "");
-                    //    result1.Add(elem.fam.Replace("fam =", "") + "   " + elem.name.Replace("name =", "") + "  " + elem.parent.Replace("parent =", "") + "    " + elem.DOB);
-                    //    //   elem.DOB.toString().Replace("DOB =", "ДР");
-                    //    System.Diagnostics.Debug.WriteLine(elem.fam);
-                    //});               
-
-                    //comboBox.DisplayMemberPath = "name";
-                    //comboBox.DisplayMemberPath = "fam";
-                    //comboBox.DisplayMemberPath = "DOB";
+                                    
                     comboBox.SelectedIndex = -1;
                     comboBox.IsDropDownOpen = true;
                     comboBox.ItemsSource = result;
@@ -148,14 +147,18 @@ namespace AthletesAccounting
                 {
                     var result = db.Athletes
                        .Include("Sports")
+                       .Include("SportTeam")
+                       .Include("Rank")
+                       .Include("Education")                     
                        .AsEnumerable()                       
                        .Where(c => c.id == Convert.ToInt32(comboBox.SelectedValue))                       
                        .FirstOrDefault()
                        ;
                     //System.Diagnostics.Debug.WriteLine(result.name + "    select   " + result.Sports.sports );
                     this.DataContext = result;
-                    System.Diagnostics.Debug.WriteLine(result.name + "    select11111111111111111111111111111111111111111111111   " + result.sports_id);
+                    System.Diagnostics.Debug.WriteLine(result.name + "    select11111111111111111111111111111111111111111111111   " + result.education_id);
                     //sport.SelectedIndex = Convert.ToInt32(result.sports_id);
+                    //orgNameAthlet.SelectedIndex = 3;
                 }
             }
             catch (Exception ex)
@@ -213,7 +216,11 @@ namespace AthletesAccounting
                             injuries = Injury.Text,
                             housing = livingСonditions.Text,
                             sports_id = Convert.ToInt32(sport.SelectedValue),
-                            sportTeam_id = Convert.ToInt32(orgNameAthlet.SelectedValue)
+                            sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue),
+                            education_id = Convert.ToInt32(education.SelectedValue),
+                            rank_id = Convert.ToInt32(rank.SelectedValue),
+                            pastIllnes = pastIllnesTxtb.Text,
+                            operations = operationsTxtbx.Text
                         });
                         db.SaveChanges();
                     }
@@ -239,7 +246,11 @@ namespace AthletesAccounting
                     AthletUpdate.injuries = Injury.Text;
                     AthletUpdate.housing = livingСonditions.Text;
                     AthletUpdate.sports_id = Convert.ToInt32(sport.SelectedValue);
-                    AthletUpdate.sportTeam_id = Convert.ToInt32(orgNameAthlet.SelectedValue);
+                    AthletUpdate.sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue);
+                    AthletUpdate.education_id = Convert.ToInt32(education.SelectedValue);
+                    AthletUpdate.rank_id = Convert.ToInt32(rank.SelectedValue);
+                    AthletUpdate.pastIllnes = pastIllnesTxtb.Text;
+                    AthletUpdate.operations = operationsTxtbx.Text;
 
                     db.SaveChanges();
                 }
@@ -260,6 +271,16 @@ namespace AthletesAccounting
             {
                 System.Diagnostics.Debug.WriteLine(sport.SelectedValue + "  22222222222222222222222222");
             }
+        }
+
+        private void pastIllnessesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //PastIllnesses.SelectedValue.ToString
+        }
+
+        private void orgNameAthlet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(sportTeamCmb.SelectedValue + "     1");
         }
     }
 }

@@ -4,7 +4,8 @@ namespace AthletesAccounting.DataBase
 {
     public class Rank
     {
-        public int id { get; set; }
+        [Key]
+        public int rank_id { get; set; }
         public string rank { get; set; }
     }
 }
