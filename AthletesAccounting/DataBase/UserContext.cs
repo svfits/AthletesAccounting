@@ -28,6 +28,8 @@ namespace AthletesAccounting.DataBase
 
         public DbSet<Sports> Sports { get; set; }
 
+        public DbSet<MainSport> MainSport { get; set; }
+
     }
 
 }

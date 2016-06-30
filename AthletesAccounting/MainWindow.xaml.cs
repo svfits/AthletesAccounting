@@ -28,8 +28,8 @@ namespace AthletesAccounting
 
         private void Btn_Grid_Update_Click(object sender, RoutedEventArgs e)
         {
-               
-            
+
+            this.DataContext = null;
         }
 
         /// <summary>
@@ -50,12 +50,14 @@ namespace AthletesAccounting
                        .ToList()
                        ;
                     System.Diagnostics.Debug.WriteLine(result.ToString());
-                    sport.ItemsSource = result;
+                    sportCmb.ItemsSource = result;
+                    sportMain.ItemsSource = result;
 
                     var  result1 = db.SportTeam
                         .AsEnumerable()
                         .ToList()
                         ;
+
                     System.Diagnostics.Debug.WriteLine(result1.ToString());
                     sportTeamCmb.ItemsSource = result1;
 
@@ -159,6 +161,7 @@ namespace AthletesAccounting
                     System.Diagnostics.Debug.WriteLine(result.name + "    select11111111111111111111111111111111111111111111111   " + result.education_id);
                     //sport.SelectedIndex = Convert.ToInt32(result.sports_id);
                     //orgNameAthlet.SelectedIndex = 3;
+                    //sportCmb.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)
@@ -215,7 +218,7 @@ namespace AthletesAccounting
                             smoke = smoking.Text,
                             injuries = Injury.Text,
                             housing = livingСonditions.Text,
-                            sports_id = Convert.ToInt32(sport.SelectedValue),
+                            sports_id = Convert.ToInt32(sportCmb.SelectedValue),
                             sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue),
                             education_id = Convert.ToInt32(education.SelectedValue),
                             rank_id = Convert.ToInt32(rank.SelectedValue),
@@ -224,7 +227,7 @@ namespace AthletesAccounting
                         });
                         db.SaveChanges();
                     }
-                    System.Diagnostics.Debug.WriteLine("!!!!!!!!!!   " + comboBox.SelectedValue);
+                    System.Diagnostics.Debug.WriteLine("обновим спортмена  " + comboBox.SelectedValue);
                     var ss = Convert.ToInt32(comboBox.SelectedValue);
 
                     var AthletUpdate = db.Athletes
@@ -245,7 +248,7 @@ namespace AthletesAccounting
                     AthletUpdate.smoke = smoking.Text;
                     AthletUpdate.injuries = Injury.Text;
                     AthletUpdate.housing = livingСonditions.Text;
-                    AthletUpdate.sports_id = Convert.ToInt32(sport.SelectedValue);
+                    AthletUpdate.sports_id = Convert.ToInt32(sportCmb.SelectedValue);
                     AthletUpdate.sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue);
                     AthletUpdate.education_id = Convert.ToInt32(education.SelectedValue);
                     AthletUpdate.rank_id = Convert.ToInt32(rank.SelectedValue);
@@ -265,11 +268,11 @@ namespace AthletesAccounting
         private void sport_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try {
-                System.Diagnostics.Debug.WriteLine(sport.SelectedValue + "  22222222222222222222222222");
+                System.Diagnostics.Debug.WriteLine(sportCmb.SelectedValue + "  22222222222222222222222222");
             }
             catch
             {
-                System.Diagnostics.Debug.WriteLine(sport.SelectedValue + "  22222222222222222222222222");
+                System.Diagnostics.Debug.WriteLine(sportCmb.SelectedValue + "  22222222222222222222222222");
             }
         }
 

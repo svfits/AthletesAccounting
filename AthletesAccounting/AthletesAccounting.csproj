@@ -69,7 +69,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataBase\Education.cs" />
-    <Compile Include="DataBase\MainSports.cs" />
+    <Compile Include="DataBase\MainSport.cs" />
     <Compile Include="DataBase\SportTeam.cs" />
     <Compile Include="HandbookWindow.xaml.cs">
       <DependentUpon>HandbookWindow.xaml</DependentUpon>

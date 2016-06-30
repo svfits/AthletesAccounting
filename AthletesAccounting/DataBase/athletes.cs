@@ -119,9 +119,9 @@ namespace AthletesAccounting.DataBase
         /// </summary>
         public DateTime DOB { get; set; } 
 
-        //public int? mainSport { get; set; }
-        //[ForeignKey("idAthlets")]
-        //public virtual MainSports MainSports { get; set; }
+        public int? mainSport_id { get; set; }
+        [ForeignKey("mainSport_id")]
+        public virtual MainSport mainSport { get; set; }
 
 
         /// <summary>

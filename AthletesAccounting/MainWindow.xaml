@@ -151,7 +151,7 @@
                         <Label Content="Домашний адрес" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
                         <TextBox x:Name="Adres" Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="3">
                             <TextBox.Text>
-                                <Binding Path="adress" Mode="TwoWay"></Binding>
+                                <Binding Path="adress"></Binding>
                             </TextBox.Text>
                         </TextBox>
 
@@ -163,7 +163,7 @@
                         </TextBox>
 
                         <Label Content="Вид спорта" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="sport" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="3"
+                        <ComboBox x:Name="sportCmb" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="3"
                                   Width="100" SelectedValuePath="sports_id" SelectionChanged="sport_SelectionChanged" >
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
@@ -189,7 +189,7 @@
                                     <TextBlock>
                                         <TextBlock.Text>
                                             <MultiBinding StringFormat="{}{0}">
-                                                <Binding Path="sportTeam" Mode="TwoWay"/>
+                                                <Binding Path="sportTeam"/>
                                             </MultiBinding>
                                         </TextBlock.Text>
                                     </TextBlock>
@@ -223,7 +223,7 @@
                                     <TextBlock>
                                         <TextBlock.Text>
                                             <MultiBinding StringFormat="{}{0}">
-                                                <Binding Path="education" Mode="TwoWay"/>
+                                                <Binding Path="education"/>
                                             </MultiBinding>
                                         </TextBlock.Text>
                                     </TextBlock>
@@ -243,7 +243,7 @@
                             <ComboBoxItem>Часто</ComboBoxItem>
                             <ComboBoxItem>Не употребляет</ComboBoxItem>
                             <ComboBox.Text>
-                                <Binding Path=" alcohol"></Binding>
+                                <Binding Path="alcohol"></Binding>
                             </ComboBox.Text>
                         </ComboBox>
 
@@ -270,7 +270,7 @@
                         <TextBox x:Name="pastIllnesTxtb" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="9" Grid.ColumnSpan="2"
                                  TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление заболеваний через нажатие ENTER">
                             <TextBox.Text>
-                                <Binding Path="pastIllnes" Mode="TwoWay"></Binding>
+                                <Binding Path="pastIllnes"></Binding>
                             </TextBox.Text>
                         </TextBox>
 
@@ -285,7 +285,7 @@
                         <TextBox x:Name="operationsTxtbx" Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="10" Grid.ColumnSpan="2"
                                  TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление операций через нажатие ENTER">
                             <TextBox.Text>
-                                <Binding Path="operations" Mode="TwoWay"></Binding>
+                                <Binding Path="operations"></Binding>
                             </TextBox.Text>
                         </TextBox>
 
@@ -309,33 +309,76 @@
                                     <TextBlock>
                                         <TextBlock.Text>
                                             <MultiBinding StringFormat="{}{0}">
-                                                <Binding Path="rank" Mode="TwoWay"/>
+                                                <Binding Path="rank"/>
                                             </MultiBinding>
                                         </TextBlock.Text>
                                     </TextBlock>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
+                      
+                        <TextBlock Grid.Column="0" Grid.Row="12">
+                            Каким видом спорта
+                            <LineBreak />
+                            преимущественно занимается?
+                        </TextBlock>
+                        
+                        <ComboBox x:Name="sportMain" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="12" ToolTip="Каким видом спорта преимущественно занимается?"
+                                  SelectedValuePath="sports_id">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0}">
+                                            <Binding Path="sports"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        <ComboBox.SelectedIndex >
+                            <Binding Path="sports_id"/>
+                        </ComboBox.SelectedIndex>
+                        </ComboBox>
 
-                        <Label Content="Каким пре-нно занимается?" ToolTip="Каким видом спорта преимущественно занимается?" Grid.Row="12"
-                               Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-                        <ComboBox x:Name="mainSport" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="12" ToolTip="Вид спорта"/>
-                        <Label Content="Сколько времени?" Grid.Row="12" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-                        <!--<Label Content="C" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center"/>-->
-                        <DatePicker Grid.Row="12" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Right" ToolTip="укажите дату начала"/>
+                        <Label Content="Сколько времени " Grid.Row="12" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                        <Label Content="..." Grid.Row="12" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Label Content="лет" Grid.Row="12" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <DatePicker Grid.Row="12" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Right" ToolTip="Укажите дату начала занятий"/>
 
-                        <Label Content="Какими др. видами занимался?" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left"
-                               VerticalAlignment="Center" ToolTip="Какими другими видами спорта занимался "/>
+                        <!--<Label Content="Какими др. видами занимался?" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left"
+                               VerticalAlignment="Center" ToolTip="Какими другими видами спорта занимался "/>-->
+                        <TextBlock Grid.Row="13" Grid.Column="0">
+                            Какими другими видами
+                            <LineBreak />                            
+                            спорта занимался?
+                        </TextBlock>
+                        
+                        
                         <ComboBox x:Name="cmbotherSports" Grid.Row="13" Grid.Column="1" ToolTip="Вид спорта"/>
                         <TextBox Name="txtotherSports" Grid.Row="13" Grid.Column="2" IsReadOnly="False"  />
                         <Button Grid.Column="3" Grid.Row="13" ToolTip="добавить вид спорта">Добавить</Button>
 
-                        <Label Content="По каким участвовал?" ToolTip="По каким видам спорта участвовал в соревнованиях?" Grid.Row="14" Grid.Column="0"></Label>
+                        <!--<Label Content="По каким участвовал?" ToolTip="По каким видам спорта участвовал в соревнованиях?" Grid.Row="14" Grid.Column="0"></Label>-->
+                        <TextBlock Grid.Row="14" Grid.Column="0">
+                            По каким видам спорта
+                             <LineBreak /> 
+                            участвовал в соревнованиях?
+                        </TextBlock>
+                        
                         <ComboBox Grid.Row="14" Grid.Column="1" ToolTip="Вид спорта" Height="26" VerticalAlignment="Bottom"/>
                         <TextBox Grid.Row="14" Grid.Column="2" IsReadOnly="False"></TextBox>
                         <Button Grid.Row="14" Grid.Column="3" >Добавить</Button>
 
-                        <Label Content="Разряд дата получения" ToolTip="дата получения каждого разряда" Grid.Row="15" Grid.Column="0"></Label>
+                        <!--<Label Content="Разряд дата получения" ToolTip="дата получения каждого разряда" Grid.Row="15" Grid.Column="0"></Label>-->
+                        <TextBlock Grid.Row="15" Grid.Column="0">
+                            Разряд, дата получения
+                            <LineBreak/>
+                            каждого разряда,
+                            <LineBreak/>
+                            по какому виду спорта
+                        </TextBlock>
+                        
                         <ComboBox x:Name="rancDate" Grid.Row="15" Grid.Column="1" ToolTip="Разряд"/>
                         <DatePicker Grid.Row="15" Grid.Column="3" />
                         <TextBox Grid.Row="15" Grid.Column="4" ToolTip="Перечень видов спорта" IsReadOnly="False" VerticalScrollBarVisibility="Auto" />
