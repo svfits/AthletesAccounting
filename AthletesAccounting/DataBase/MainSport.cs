@@ -4,10 +4,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AthletesAccounting.DataBase
 {
+/// <summary>
+///  основной вид спорта дата начала
+/// </summary>
     public class MainSport
     {
         [Key]
-        public string mainSport_id { get; set; }
+        public int mainSport_id { get; set; }
         public DateTime dateOnSports { get; set; }
 
         public int sports_id { get; set; }

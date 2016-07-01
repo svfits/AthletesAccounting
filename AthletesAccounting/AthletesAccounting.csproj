@@ -70,6 +70,7 @@
     </ApplicationDefinition>
     <Compile Include="DataBase\Education.cs" />
     <Compile Include="DataBase\MainSport.cs" />
+    <Compile Include="DataBase\RankDateGet.cs" />
     <Compile Include="DataBase\SportTeam.cs" />
     <Compile Include="HandbookWindow.xaml.cs">
       <DependentUpon>HandbookWindow.xaml</DependentUpon>

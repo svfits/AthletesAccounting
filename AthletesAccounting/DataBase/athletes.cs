@@ -114,26 +114,39 @@ namespace AthletesAccounting.DataBase
         public int?  rank_id { get; set; }
         [ForeignKey("rank_id")]
         public virtual Rank rank { get; set; }
+
         /// <summary>
         ////дата рождения
         /// </summary>
-        public DateTime DOB { get; set; } 
+        public DateTime DOB { get; set; }
 
+        /// <summary>
+        ///  основной вид спрота дата начала
+        /// Каким видом спорта преимущественно занимается 
+        /// сколько времени
+        ///// </summary>
         public int? mainSport_id { get; set; }
         [ForeignKey("mainSport_id")]
         public virtual MainSport mainSport { get; set; }
 
-
         /// <summary>
         ////другие виде спорта
+        /// Какими другими видами спорта занимался 
         /// </summary>
         public string otherSports { get; set; }
+
         /// <summary>
-        /// По каким видам спорта участвовал в соревнованиях
+        ////  По каким видам спорта участвовал в соревнованиях 
         /// </summary>
-        public string otherSportsGames { get; set; }
-        
-         
+        public string sportsGame { get; set; }
+
+        /// <summary>
+        /// Разряд дата получения каждого разряда,
+        /// </summary>
+        public int? rankDateGet_id { get; set; }
+        [ForeignKey("rankDateGet_id")]
+        public virtual RankDateGet rankDateGet { get; set; }
+
     }
   
 }

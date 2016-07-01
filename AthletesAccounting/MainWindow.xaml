@@ -376,11 +376,11 @@
                     </TextBlock>
 
                     <ComboBox x:Name="rancDate" Grid.Row="16" Grid.Column="1" ToolTip="Разряд" VerticalAlignment="Center" Margin="5,5,5,5"/>
-                    <DatePicker Grid.Row="16" Grid.Column="3" VerticalAlignment="Center" Margin="0,17" Height="24"/>
+                    <DatePicker Grid.Row="16" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Margin="5,5,5,5"/>
                     <TextBox Grid.Row="16" Grid.Column="4" ToolTip="Перечень видов спорта" IsReadOnly="False" VerticalScrollBarVisibility="Auto"
                                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,5,5,5"/>
-                    <Button Grid.Column="5" Grid.Row="16" ToolTip="добавить дату получения разряда" VerticalAlignment="Center" Margin="5,5,5,5">Добавить</Button>
-                    <ComboBox ToolTip="Вид спрота" Grid.Row="16" Grid.Column="2" VerticalAlignment="Center" Margin="0,18" Height="22"/>
+                    <Button Grid.Column="5" Grid.Row="16" ToolTip="добавить дату получения разряда" VerticalAlignment="Stretch" Margin="5,5,5,5">Добавить</Button>
+                    <ComboBox ToolTip="Вид спрота" Grid.Row="16" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"  Margin="5,5,5,5"/>
 
                 </Grid>
             </Expander>
