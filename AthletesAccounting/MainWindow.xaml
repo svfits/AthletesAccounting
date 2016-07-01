@@ -336,11 +336,13 @@
                             <Binding Path="sports_id"/>
                         </ComboBox.SelectedIndex>
                     </ComboBox>
-
-                    <Label Content="Сколько времени " Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
-                    <Label Content="..." Grid.Row="13" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="13" Grid.Column="2" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+                    <Label Content="Сколько времени" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
+                    <Label x:Name="mainSportDateLbl" Content="..." Grid.Row="13" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
                     <Label Content="лет" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,8" Height="26" Width="28"/>
-                    <DatePicker Grid.Row="13" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ToolTip="Укажите дату начала занятий" Margin="5,5,5,5"/>
+                    </StackPanel>
+                    <DatePicker x:Name="mainSportDateDatepicker" Grid.Row="13" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Stretch" ToolTip="Укажите дату начала занятий" Margin="5,5,5,5"
+                                SelectedDateChanged="DatePicker_SelectedDateChanged"/>
 
                     <!--<Label Content="Какими др. видами занимался?" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left"
                                VerticalAlignment="Center" ToolTip="Какими другими видами спорта занимался "/>-->

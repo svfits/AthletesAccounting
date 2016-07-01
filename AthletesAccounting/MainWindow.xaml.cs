@@ -130,10 +130,17 @@ namespace AthletesAccounting
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void DOB_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {          
-            DateTime newDate = DateTime.Now;          
-            int DOBAthlets = DOB.SelectedDate.Value.Year;
-            txtbAge.Text = (DateTime.Now.Year - DOBAthlets).ToString();
+        {
+            try
+            {
+                DateTime newDate = DateTime.Now;
+                int DOBAthlets = DOB.SelectedDate.Value.Year;
+                txtbAge.Text = (DateTime.Now.Year - DOBAthlets).ToString();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -284,6 +291,20 @@ namespace AthletesAccounting
         private void orgNameAthlet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine(sportTeamCmb.SelectedValue + "     1");
+        }
+
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                DateTime newDate = DateTime.Now;
+                int DOBAthlets = mainSportDateDatepicker.SelectedDate.Value.Year;
+                mainSportDateLbl.Content = (DateTime.Now.Year - DOBAthlets).ToString();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
         }
     }
 }
