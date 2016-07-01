@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AthletesAccounting"            
         mc:Ignorable="d"
-        Title="Карта пациента"  VerticalAlignment="Center" HorizontalAlignment="Center"
-        Loaded="Window_Loaded" Height="857" Width="839"
+        Title="Карта пациента"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+        Loaded="Window_Loaded" Height="1180" Width="1024"
         >
 
-    <Grid x:Name="gridAll" Margin="10,10,10,10" FocusManager.FocusedElement="{Binding ElementName=comboBox}">
+    <Grid x:Name="gridAll" Margin="10,10,10,10" FocusManager.FocusedElement="{Binding ElementName=comboBox}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
@@ -30,8 +30,8 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label Content="Поиск" Grid.Column="0" VerticalAlignment="Center" Margin="10,10,10,10"/>
 
@@ -70,261 +70,94 @@
 
             </Grid>
         </GroupBox>
-        <GroupBox Grid.Row="1" Margin="10,10,10,10">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="auto"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Expander x:Name="PersonalData" VerticalAlignment="Center" Header="Персональные данные" Grid.Row="1" IsExpanded="True">
-                    <Grid Margin="10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="1" Margin="10,10,10,10" VerticalAlignment="Center" HorizontalAlignment="Stretch">
 
-                        <Label Content="Фамилия" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                        <TextBox x:Name="Fam" Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Width="100">
-                            <TextBox.Text>
-                                <Binding Path="fam"></Binding>
-                            </TextBox.Text>
-                        </TextBox>
+            <Expander x:Name="PersonalData" VerticalAlignment="Center" Header="Персональные данные" Grid.Row="1" IsExpanded="True" HorizontalAlignment="Stretch">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*" MinWidth="100"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
 
-                        <Label Content="Имя" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Name" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Left" Grid.Row="0" Width="100">
-                            <TextBox.Text>
-                                <Binding Path="name"></Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                    <Label Content="Фамилия" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <TextBox x:Name="Fam" Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5">
+                        <TextBox.Text>
+                            <Binding Path="fam"></Binding>
+                        </TextBox.Text>
+                    </TextBox>
 
-                        <Label Content="Отчество" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Parent" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Left" Grid.Row="0" Width="100">
-                            <TextBox.Text>
-                                <Binding Path="parent"></Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                    <Label Content="Имя" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <TextBox x:Name="Name" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5">
+                        <TextBox.Text>
+                            <Binding Path="name"></Binding>
+                        </TextBox.Text>
+                    </TextBox>
 
-                        <Label Content="Пол" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="sex" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Width="100">
-                            <ComboBox.Text>
-                                <Binding Path="sex"></Binding>
-                            </ComboBox.Text>
-                            <ComboBoxItem>Муж.</ComboBoxItem>
-                            <ComboBoxItem>Жен.</ComboBoxItem>
-                        </ComboBox>
+                    <Label Content="Отчество" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <TextBox x:Name="Parent" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5">
+                        <TextBox.Text>
+                            <Binding Path="parent"></Binding>
+                        </TextBox.Text>
+                    </TextBox>
 
-                        <Label Content="Дата Рождения" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <!--<TextBox x:Name="DOB" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="4" Width="100"/>-->
-                        <DatePicker x:Name="DOB" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="100" SelectedDateChanged="DOB_SelectedDateChanged">
-                            <DatePicker.SelectedDate>
-                                <Binding Path="DOB"></Binding>
-                            </DatePicker.SelectedDate>
-                        </DatePicker>
+                    <Label Content="Пол" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5" Grid.Row="1"/>
+                    <ComboBox x:Name="sex" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,5,5,5" Grid.Row="1">
+                        <ComboBox.Text>
+                            <Binding Path="sex"></Binding>
+                        </ComboBox.Text>
+                        <ComboBoxItem>Муж.</ComboBoxItem>
+                        <ComboBoxItem>Жен.</ComboBoxItem>
+                    </ComboBox>
 
-                        <Label Content="Домашний адрес" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                        <TextBox x:Name="Adres" Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="3">
-                            <TextBox.Text>
-                                <Binding Path="adress"></Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                    <Label Content="Дата Рождения" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Margin="5,5,5,5"/>
+                    <!--<TextBox x:Name="DOB" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="4" Width="100"/>-->
+                    <DatePicker x:Name="DOB" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" SelectedDateChanged="DOB_SelectedDateChanged" Margin="5,5,5,5">
+                        <DatePicker.SelectedDate>
+                            <Binding Path="DOB"></Binding>
+                        </DatePicker.SelectedDate>
+                    </DatePicker>
 
-                        <Label Content="Телефон" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Telefon" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Width="100" >
-                            <TextBox.Text>
-                                <Binding Path="telefon"></Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                    <Label Content="Домашний адрес" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5" />
+                    <TextBox x:Name="Adres" Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="3" HorizontalAlignment="Stretch" Grid.ColumnSpan="3" Margin="5,5,5,5">
+                        <TextBox.Text>
+                            <Binding Path="adress"></Binding>
+                        </TextBox.Text>
+                    </TextBox>
 
-                        <Label Content="Вид спорта" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="sportCmb" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="3"
-                                  Width="100" SelectedValuePath="sports_id" SelectionChanged="sport_SelectionChanged" >
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock>
-                                        <TextBlock.Text>
-                                            <MultiBinding StringFormat="{}{0}">
-                                                <Binding Path="sports"/>                                              
-                                            </MultiBinding>
-                                        </TextBlock.Text>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                            <ComboBox.SelectedIndex >
-                                <Binding Path="sports_id"/>
-                            </ComboBox.SelectedIndex>
-                        </ComboBox>
+                    <Label Content="Телефон" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <TextBox x:Name="Telefon" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Margin="5,5,5,5"  >
+                        <TextBox.Text>
+                            <Binding Path="telefon"></Binding>
+                        </TextBox.Text>
+                    </TextBox>
 
-                        <Label Content="Спортколлектив (ДЮСШ)" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="sportTeamCmb" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                                  Grid.Row="3" Grid.ColumnSpan="3" SelectedValuePath="sportTeam_id" SelectionChanged="orgNameAthlet_SelectionChanged" >
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock>
-                                        <TextBlock.Text>
-                                            <MultiBinding StringFormat="{}{0}">
-                                                <Binding Path="sportTeam"/>
-                                            </MultiBinding>
-                                        </TextBlock.Text>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                            <ComboBox.SelectedIndex>
-                                <Binding Path="sportTeam_id"/>
-                            </ComboBox.SelectedIndex>
-                        </ComboBox>
-
-
-                        <Label Content="Место учебы/работы/ДУ" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="PlaceStydy" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Left" Grid.Row="7" Width="100">
-                            <TextBox.Text>
-                                <Binding Path="PlaceofStudyAndWork"></Binding>
-                            </TextBox.Text>
-                        </TextBox>
-
-                        <Label Content="Профессия, Должность" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="profAthlets" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="7" Width="100" >
-                            <TextBox.Text>
-                                <Binding Path="profAthlets"></Binding>
-                            </TextBox.Text>
-                        </TextBox>
-
-                        <Label Content="Образование" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="education" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="7" Width="100"
-                                  SelectedValuePath="education_id">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock>
-                                        <TextBlock.Text>
-                                            <MultiBinding StringFormat="{}{0}">
-                                                <Binding Path="education"/>
-                                            </MultiBinding>
-                                        </TextBlock.Text>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                            <ComboBox.SelectedIndex >
-                                <Binding Path="education_id"/>
-                            </ComboBox.SelectedIndex>
-                        </ComboBox>
-
-
-                        <Label Content="Употребление алкоголя" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="alcohol" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="8" Width="100" >
-                            <ComboBoxItem>Случайное</ComboBoxItem>
-                            <ComboBoxItem>Мало</ComboBoxItem>
-                            <ComboBoxItem>Много</ComboBoxItem>
-                            <ComboBoxItem>Часто</ComboBoxItem>
-                            <ComboBoxItem>Не употребляет</ComboBoxItem>
-                            <ComboBox.Text>
-                                <Binding Path="alcohol"></Binding>
-                            </ComboBox.Text>
-                        </ComboBox>
-
-
-                        <Label Content="Жилищные условия" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="livingСonditions" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="8" Width="100" >
-                            <ComboBoxItem>Удолетворительно</ComboBoxItem>
-                            <ComboBoxItem>НЕ удолетворительно</ComboBoxItem>                            
-                            <ComboBox.Text>
-                                <Binding Path="livingСonditions"></Binding>
-                            </ComboBox.Text>
-                        </ComboBox>
-
-                        <Label Content="Курение" Grid.Row="8" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="smoking" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="8" Width="100" >
-                            <ComboBoxItem>Не курит</ComboBoxItem>
-                            <ComboBoxItem>Курит</ComboBoxItem>
-                            <ComboBox.Text>
-                                <Binding Path="smoke"></Binding>
-                            </ComboBox.Text>
-                        </ComboBox>
-                      
-                        <Label Content="Перенесенные заболевания" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="pastIllnesTxtb" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="9" Grid.ColumnSpan="2"
-                                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление заболеваний через нажатие ENTER">
-                            <TextBox.Text>
-                                <Binding Path="pastIllnes"></Binding>
-                            </TextBox.Text>
-                        </TextBox>
-
-                        <!--<TextBox x:Name="Injury" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="10" Grid.ColumnSpan="2"
-                                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление травм через нажатие ENTER">
-                            <TextBox.Text>
-                                <Binding Path="injuries"></Binding>
-                            </TextBox.Text>
-                        </TextBox>-->
-
-                        <Label Content="Операции" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="operationsTxtbx" Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="10" Grid.ColumnSpan="2"
-                                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление операций через нажатие ENTER">
-                            <TextBox.Text>
-                                <Binding Path="operations"></Binding>
-                            </TextBox.Text>
-                        </TextBox>
-
-                        <Label Content="Травмы" Grid.Row="10" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox x:Name="Injury" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="10" Grid.ColumnSpan="2"
-                                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление травм через нажатие ENTER">
-                            <TextBox.Text>
-                                <Binding Path="injuries"></Binding>
-                            </TextBox.Text>
-                        </TextBox>
-
-
-                            <Label Content="Разряд" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="rank" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="11" Width="100"
-                                  SelectedValuePath="rank_id">
-                            <ComboBox.SelectedIndex>
-                                <Binding Path="rank_id"/>
-                            </ComboBox.SelectedIndex>
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock>
-                                        <TextBlock.Text>
-                                            <MultiBinding StringFormat="{}{0}">
-                                                <Binding Path="rank"/>
-                                            </MultiBinding>
-                                        </TextBlock.Text>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                      
-                        <TextBlock Grid.Column="0" Grid.Row="12">
-                            Каким видом спорта
-                            <LineBreak />
-                            преимущественно занимается?
-                        </TextBlock>
-                        
-                        <ComboBox x:Name="sportMain" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="12" ToolTip="Каким видом спорта преимущественно занимается?"
-                                  SelectedValuePath="sports_id">
+                    <Label Content="Вид спорта" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <ComboBox x:Name="sportCmb" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                              Grid.Row="4" SelectedValuePath="sports_id" SelectionChanged="sport_SelectionChanged" Margin="5,5,5,5">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock>
@@ -339,55 +172,219 @@
                         <ComboBox.SelectedIndex >
                             <Binding Path="sports_id"/>
                         </ComboBox.SelectedIndex>
-                        </ComboBox>
+                    </ComboBox>
 
-                        <Label Content="Сколько времени " Grid.Row="12" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-                        <Label Content="..." Grid.Row="12" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Label Content="лет" Grid.Row="12" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <DatePicker Grid.Row="12" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Right" ToolTip="Укажите дату начала занятий"/>
+                    <Label Content="Спортколлектив (ДЮСШ)" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <ComboBox x:Name="sportTeamCmb" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                  Grid.Row="4" Grid.ColumnSpan="2" SelectedValuePath="sportTeam_id" SelectionChanged="orgNameAthlet_SelectionChanged" Margin="5,5,5,5"  >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0}">
+                                            <Binding Path="sportTeam"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        <ComboBox.SelectedIndex>
+                            <Binding Path="sportTeam_id"/>
+                        </ComboBox.SelectedIndex>
+                    </ComboBox>
 
-                        <!--<Label Content="Какими др. видами занимался?" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left"
+
+                    <Label Content="Место учебы/работы/ДУ" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                          Margin="5,5,5,5"/>
+                    
+                    <TextBox x:Name="PlaceStydy" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="7" Margin="5,5,5,5">
+                        <TextBox.Text>
+                            <Binding Path="PlaceofStudyAndWork"></Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                    <Label Content="Профессия, Должность" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
+                    <TextBox x:Name="profAthlets" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="7" Margin="5,5,5,5" >
+                        <TextBox.Text>
+                            <Binding Path="profAthlets"></Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                    <Label Content="Образование" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <ComboBox x:Name="education" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="7"
+                                  SelectedValuePath="education_id" Margin="5,5,5,5">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0}">
+                                            <Binding Path="education"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        <ComboBox.SelectedIndex >
+                            <Binding Path="education_id"/>
+                        </ComboBox.SelectedIndex>
+                    </ComboBox>
+
+
+                    <Label Content="Употребление алкоголя" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
+                    <ComboBox x:Name="alcohol" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="9" Margin="5,5,5,5" >
+                        <ComboBoxItem>Случайное</ComboBoxItem>
+                        <ComboBoxItem>Мало</ComboBoxItem>
+                        <ComboBoxItem>Много</ComboBoxItem>
+                        <ComboBoxItem>Часто</ComboBoxItem>
+                        <ComboBoxItem>Не употребляет</ComboBoxItem>
+                        <ComboBox.Text>
+                            <Binding Path="alcohol"></Binding>
+                        </ComboBox.Text>
+                    </ComboBox>
+
+
+                    <Label Content="Жилищные условия" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
+                    <ComboBox x:Name="livingСonditions" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="9" Margin="5,5,5,5" >
+                        <ComboBoxItem>Удолетворительно</ComboBoxItem>
+                        <ComboBoxItem>НЕ удолетворительно</ComboBoxItem>
+                        <ComboBox.Text>
+                            <Binding Path="livingСonditions"></Binding>
+                        </ComboBox.Text>
+                    </ComboBox>
+
+                    <Label Content="Курение" Grid.Row="9" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
+                    <ComboBox x:Name="smoking" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="9" Margin="5,5,5,5" >
+                        <ComboBoxItem>Не курит</ComboBoxItem>
+                        <ComboBoxItem>Курит</ComboBoxItem>
+                        <ComboBox.Text>
+                            <Binding Path="smoke"></Binding>
+                        </ComboBox.Text>
+                    </ComboBox>
+
+                    <Label Content="Перенесенные заболевания" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
+                    <TextBox x:Name="pastIllnesTxtb" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="10" Margin="5,5,5,5"
+                                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление заболеваний через нажатие ENTER" >
+                        <TextBox.Text>
+                            <Binding Path="pastIllnes"></Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                    <!--<TextBox x:Name="Injury" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="10" Grid.ColumnSpan="2"
+                                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление травм через нажатие ENTER">
+                            <TextBox.Text>
+                                <Binding Path="injuries"></Binding>
+                            </TextBox.Text>
+                        </TextBox>-->
+
+                    <Label Content="Операции" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
+                    <TextBox x:Name="operationsTxtbx" Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="11" Margin="5,5,5,5"
+                                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление операций через нажатие ENTER">
+                        <TextBox.Text>
+                            <Binding Path="operations"></Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                    <Label Content="Травмы" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <TextBox x:Name="Injury" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="11" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление травм через нажатие ENTER" Margin="5,5,5,5">
+                        <TextBox.Text>
+                            <Binding Path="injuries"></Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+
+                    <Label Content="Разряд" Grid.Row="12" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <ComboBox x:Name="rank" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="12"
+                                  SelectedValuePath="rank_id" Margin="5,5,5,5" >
+                        <ComboBox.SelectedIndex>
+                            <Binding Path="rank_id"/>
+                        </ComboBox.SelectedIndex>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0}">
+                                            <Binding Path="rank"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <TextBlock Grid.Column="0" Grid.Row="13" Margin="5,5,5,5">
+                            Каким видом спорта
+                            <LineBreak />
+                            преимущественно занимается?
+                    </TextBlock>
+
+                    <ComboBox x:Name="sportMain" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                                  Grid.Row="13" ToolTip="Каким видом спорта преимущественно занимается?"
+                                  SelectedValuePath="sports_id" Margin="5,5,5,5">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0}">
+                                            <Binding Path="sports"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        <ComboBox.SelectedIndex >
+                            <Binding Path="sports_id"/>
+                        </ComboBox.SelectedIndex>
+                    </ComboBox>
+
+                    <Label Content="Сколько времени " Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
+                    <Label Content="..." Grid.Row="13" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <Label Content="лет" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,8" Height="26" Width="28"/>
+                    <DatePicker Grid.Row="13" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ToolTip="Укажите дату начала занятий" Margin="5,5,5,5"/>
+
+                    <!--<Label Content="Какими др. видами занимался?" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left"
                                VerticalAlignment="Center" ToolTip="Какими другими видами спорта занимался "/>-->
-                        <TextBlock Grid.Row="13" Grid.Column="0">
+                    <TextBlock Grid.Row="14" Grid.Column="0" Margin="5,5,5,5">
                             Какими другими видами
                             <LineBreak />                            
                             спорта занимался?
-                        </TextBlock>
-                        
-                        
-                        <ComboBox x:Name="cmbotherSports" Grid.Row="13" Grid.Column="1" ToolTip="Вид спорта"/>
-                        <TextBox Name="txtotherSports" Grid.Row="13" Grid.Column="2" IsReadOnly="False"  />
-                        <Button Grid.Column="3" Grid.Row="13" ToolTip="добавить вид спорта">Добавить</Button>
+                    </TextBlock>
 
-                        <!--<Label Content="По каким участвовал?" ToolTip="По каким видам спорта участвовал в соревнованиях?" Grid.Row="14" Grid.Column="0"></Label>-->
-                        <TextBlock Grid.Row="14" Grid.Column="0">
+
+                    <ComboBox x:Name="cmbotherSports" Grid.Row="14" Grid.Column="1" ToolTip="Вид спорта" VerticalAlignment="Center" Margin="5,5,5,5" />
+                    <TextBox Name="txtotherSports" Grid.Row="14" Grid.Column="2" IsReadOnly="False"  VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <Button Grid.Column="3" Grid.Row="14" ToolTip="добавить вид спорта" VerticalAlignment="Stretch" Margin="5,5,5,5">Добавить</Button>
+
+                    <!--<Label Content="По каким участвовал?" ToolTip="По каким видам спорта участвовал в соревнованиях?" Grid.Row="14" Grid.Column="0"></Label>-->
+                    <TextBlock Grid.Row="15" Grid.Column="0" Margin="5,5,5,5">
                             По каким видам спорта
                              <LineBreak /> 
                             участвовал в соревнованиях?
-                        </TextBlock>
-                        
-                        <ComboBox Grid.Row="14" Grid.Column="1" ToolTip="Вид спорта" Height="26" VerticalAlignment="Bottom"/>
-                        <TextBox Grid.Row="14" Grid.Column="2" IsReadOnly="False"></TextBox>
-                        <Button Grid.Row="14" Grid.Column="3" >Добавить</Button>
+                    </TextBlock>
 
-                        <!--<Label Content="Разряд дата получения" ToolTip="дата получения каждого разряда" Grid.Row="15" Grid.Column="0"></Label>-->
-                        <TextBlock Grid.Row="15" Grid.Column="0">
+                    <ComboBox Grid.Row="15" Grid.Column="1" ToolTip="Вид спорта"  VerticalAlignment="Center" Margin="5,5,5,5"/>
+                    <TextBox Grid.Row="15" Grid.Column="2" IsReadOnly="False" VerticalAlignment="Stretch" Margin="5,5,5,5"></TextBox>
+                    <Button Grid.Row="15" Grid.Column="3" VerticalAlignment="Stretch" Margin="5,5,5,5">Добавить</Button>
+
+                    <!--<Label Content="Разряд дата получения" ToolTip="дата получения каждого разряда" Grid.Row="15" Grid.Column="0"></Label>-->
+                    <TextBlock Grid.Row="16" Grid.Column="0" Margin="5,5,5,5">
                             Разряд, дата получения
                             <LineBreak/>
                             каждого разряда,
                             <LineBreak/>
                             по какому виду спорта
-                        </TextBlock>
-                        
-                        <ComboBox x:Name="rancDate" Grid.Row="15" Grid.Column="1" ToolTip="Разряд"/>
-                        <DatePicker Grid.Row="15" Grid.Column="3" />
-                        <TextBox Grid.Row="15" Grid.Column="4" ToolTip="Перечень видов спорта" IsReadOnly="False" VerticalScrollBarVisibility="Auto" />
-                        <Button Grid.Column="5" Grid.Row="15" ToolTip="добавить дату получения разряда">Добавить</Button>
-                        <ComboBox ToolTip="Вид спрота" Grid.Row="15" Grid.Column="2"/>
+                    </TextBlock>
 
-                    </Grid>
-                </Expander>
-            </Grid>
+                    <ComboBox x:Name="rancDate" Grid.Row="16" Grid.Column="1" ToolTip="Разряд" VerticalAlignment="Center" Margin="5,5,5,5"/>
+                    <DatePicker Grid.Row="16" Grid.Column="3" VerticalAlignment="Center" Margin="0,17" Height="24"/>
+                    <TextBox Grid.Row="16" Grid.Column="4" ToolTip="Перечень видов спорта" IsReadOnly="False" VerticalScrollBarVisibility="Auto"
+                                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,5,5,5"/>
+                    <Button Grid.Column="5" Grid.Row="16" ToolTip="добавить дату получения разряда" VerticalAlignment="Center" Margin="5,5,5,5">Добавить</Button>
+                    <ComboBox ToolTip="Вид спрота" Grid.Row="16" Grid.Column="2" VerticalAlignment="Center" Margin="0,18" Height="22"/>
+
+                </Grid>
+            </Expander>
+            <!--</Grid>-->
         </GroupBox>
         <GroupBox x:Name="groupBox" Margin="10,10,10,10" Grid.Row="2" VerticalAlignment="Top" Width="auto">
 
