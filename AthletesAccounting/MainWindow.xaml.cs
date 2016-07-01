@@ -306,5 +306,11 @@ namespace AthletesAccounting
                 System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
         }
+      
+
+        private void MenuItem_Click_exit(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

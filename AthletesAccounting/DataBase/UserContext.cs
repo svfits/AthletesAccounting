@@ -16,7 +16,7 @@ namespace AthletesAccounting.DataBase
 
         public DbSet<Athletes> Athletes{get; set;}     
 
-        public DbSet<Operations> Operations { get; set; }
+        //public DbSet<Operations> Operations { get; set; }
 
         public DbSet<Rank> Rank { get; set; }
 

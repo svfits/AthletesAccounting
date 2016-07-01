@@ -378,7 +378,7 @@
                     </TextBlock>
 
                     <ComboBox x:Name="rancDate" Grid.Row="16" Grid.Column="1" ToolTip="Разряд" VerticalAlignment="Center" Margin="5,5,5,5"/>
-                    <DatePicker Grid.Row="16" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Margin="5,5,5,5"/>
+                    <DatePicker Grid.Row="16" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"  Margin="5,5,5,5"/>
                     <TextBox Grid.Row="16" Grid.Column="4" ToolTip="Перечень видов спорта" IsReadOnly="False" VerticalScrollBarVisibility="Auto"
                                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,5,5,5"/>
                     <Button Grid.Column="5" Grid.Row="16" ToolTip="добавить дату получения разряда" VerticalAlignment="Stretch" Margin="5,5,5,5">Добавить</Button>
@@ -469,15 +469,14 @@
                 <!--<MenuItem Header="WinForms"></MenuItem>
                     <MenuItem Header="WPF" ></MenuItem>-->
                 <Separator />
-                <MenuItem Header="Выход" ></MenuItem>
+                <MenuItem Header="Выход" Click="MenuItem_Click_exit" ToolTip="Выход"></MenuItem>
             </MenuItem>
             <MenuItem Header="Редактировать" >
                 <MenuItem Header="Справочники">
-                    <MenuItem Header="Виды спорта" Click="MenuItem_Click"></MenuItem>
-                    <MenuItem Header="Перенесенные заболевания" Click="MenuItem_Click"></MenuItem>
-                    <MenuItem Header="Операции" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Виды спорта" Click="MenuItem_Click"></MenuItem>                                  
                     <MenuItem Header="Спортколлектив (ДЮСШ)" Click="MenuItem_Click"></MenuItem>
                     <MenuItem Header="Образование" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Разряды" Click="MenuItem_Click"></MenuItem>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Настройки" ></MenuItem>
