@@ -103,6 +103,10 @@
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
 
+                    <GroupBox >
+                        
+                    </GroupBox>
+
                     <Label Content="Фамилия" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
                     <TextBox x:Name="Fam" Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5">
                         <TextBox.Text>
