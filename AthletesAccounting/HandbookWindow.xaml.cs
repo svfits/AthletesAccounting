@@ -20,9 +20,10 @@ namespace AthletesAccounting
     /// </summary>
     public partial class Handbook : Window
     {
-        public Handbook()
+        public Handbook(string txt)
         {
             InitializeComponent();
+            MessageBox.Show(txt);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

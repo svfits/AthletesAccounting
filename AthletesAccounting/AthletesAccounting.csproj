@@ -72,9 +72,17 @@
     <Compile Include="DataBase\MainSport.cs" />
     <Compile Include="DataBase\RankDateGet.cs" />
     <Compile Include="DataBase\SportTeam.cs" />
+    <Compile Include="EditAthletesWindows.xaml.cs">
+      <DependentUpon>EditAthletesWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel\Excel.cs" />
     <Compile Include="HandbookWindow.xaml.cs">
       <DependentUpon>HandbookWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="EditAthletesWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HandbookWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
