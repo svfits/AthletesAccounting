@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -36,8 +37,8 @@ namespace AthletesAccounting.DataBase
         /// <summary>
         ////адрес где проживает
         /// </summary>
-        public string adress {get; set;}
-
+        public string adress { get; set; }
+       
         /// <summary>
         /// телефон
         /// </summary>
@@ -146,7 +147,7 @@ namespace AthletesAccounting.DataBase
         public int? rankDateGet_id { get; set; }
         [ForeignKey("rankDateGet_id")]
         public virtual RankDateGet rankDateGet { get; set; }
-
+             
     }
   
 }

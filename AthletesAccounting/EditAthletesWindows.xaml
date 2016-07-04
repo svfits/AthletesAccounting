@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:AthletesAccounting"
         mc:Ignorable="d"
         Title="Карта Спортсмена"
-        Loaded="Window_Loaded" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="954" >
+        Loaded="Window_Loaded" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="969" Height="747" >
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>          
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Menu Height="25" VerticalAlignment="Top" Grid.Row="0">
@@ -44,8 +45,11 @@
                                 <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition Height="auto"></RowDefinition>
-                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto" MinHeight="50"></RowDefinition>
                             </Grid.RowDefinitions>
+
+                            <Button x:Name="saveAthlets" Grid.Row="4" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="5,5,15,5" Width="120" Click="saveAthlets_Click">Сохранить</Button>
 
                             <GroupBox Grid.Row="0" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                                 <Grid>
@@ -67,7 +71,7 @@
                                     </Grid.RowDefinitions>
 
                                     <Label Content="Фамилия" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
-                                    <TextBox x:Name="Fam" Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5">
+                                    <TextBox x:Name="Fam" Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5" Padding="2,2,2,2"> 
                                         <TextBox.Text>
                                             <Binding Path="fam"></Binding>
                                         </TextBox.Text>
@@ -123,7 +127,7 @@
 
                                     <Label Content="Вид спорта" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
                                     <ComboBox x:Name="sportCmb" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                              Grid.Row="4" SelectedValuePath="sports_id" SelectionChanged="sport_SelectionChanged" Margin="5,5,5,5">
+                              Grid.Row="4" SelectedValuePath="sports_id" SelectionChanged="sport_SelectionChanged" Margin="5,5,5,5" >
                                         <ComboBox.ItemTemplate>
                                             <DataTemplate>
                                                 <TextBlock>
@@ -138,6 +142,9 @@
                                         <ComboBox.SelectedIndex >
                                             <Binding Path="sports_id"/>
                                         </ComboBox.SelectedIndex>
+                                        <!--<ComboBox.SelectedValue>
+                                            <Binding Path="Sports.sports"></Binding>
+                                        </ComboBox.SelectedValue>-->
                                     </ComboBox>
 
 

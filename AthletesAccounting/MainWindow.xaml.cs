@@ -42,18 +42,7 @@ namespace AthletesAccounting
         {
            SizeToContent = SizeToContent.WidthAndHeight;
 
-            using (UserContext db = new UserContext())
-            {
-                var result = db.Athletes
-                     .Include("Sports")
-                    .AsEnumerable()
-                    .Take(20)
-                    .ToList()
-                    ;
-                dataGridALLAthlets.ItemsSource = result;
-            }
-
-
+           updateDataGrid();
         }
 
         private void comboBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -294,12 +283,33 @@ namespace AthletesAccounting
                 
             EditAthletesWindows EditAthletesWin = new EditAthletesWindows(selectedPerson.id);
             EditAthletesWin.ShowDialog();
+
+            updateDataGrid();
+
         }
 
         private void addAthlets_Click(object sender, RoutedEventArgs e)
         {
             EditAthletesWindows EditAthletesWin = new EditAthletesWindows();
             EditAthletesWin.ShowDialog();
+        }
+
+        /// <summary>
+        /// обновление datagrid или загрузка
+        /// </summary>
+        private void updateDataGrid()
+        {
+            using (UserContext db = new UserContext())
+            {
+                var result = db.Athletes
+                     .Include("Sports")
+                    .AsEnumerable()
+                    .Take(20)
+                    .ToList()
+                    ;
+                dataGridALLAthlets.ItemsSource = null;
+                dataGridALLAthlets.ItemsSource = result;
+            }
         }
     }
 }
