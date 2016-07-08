@@ -121,7 +121,7 @@
                                     <Label Content="Телефон" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
                                     <TextBox x:Name="Telefon" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Margin="5,5,5,5"  >
                                         <TextBox.Text>
-                                            <Binding Path="telefon"></Binding>
+                                            <Binding Path="telefon" Mode="TwoWay" ></Binding>
                                         </TextBox.Text>
                                     </TextBox>
 
@@ -289,10 +289,10 @@
 
 
                                     <Label Content="Разряд" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
-                                    <ComboBox x:Name="rank" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4"
-                                  SelectedValuePath="rank_id" Margin="5,5,5,5" >
+                                    <ComboBox x:Name="rankCmb" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4"
+                                      SelectedValuePath="rank_code" Margin="5,5,5,5" SelectionChanged="rank_SelectionChanged">
                                         <ComboBox.SelectedIndex>
-                                            <Binding Path="rank_id"/>
+                                            <Binding Path="rank_code"/>
                                         </ComboBox.SelectedIndex>
                                         <ComboBox.ItemTemplate>
                                             <DataTemplate>

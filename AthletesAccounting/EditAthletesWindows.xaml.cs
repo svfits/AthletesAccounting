@@ -84,7 +84,7 @@ namespace AthletesAccounting
                       .ToList()
                       ;
                     System.Diagnostics.Debug.WriteLine(result2.ToString());
-                    rank.ItemsSource = result2;
+                    rankCmb.ItemsSource = result2;
                     rankSportDateCmd.ItemsSource = result2;
 
                     var result3 = db.Education
@@ -130,6 +130,16 @@ namespace AthletesAccounting
 
         private void saveAthlets_Click(object sender, RoutedEventArgs e)
         {
+            //int newIndex; 
+            //if (Convert.ToInt32(rankCmb.SelectedValue) == 0)
+            //{
+            //    newIndex = 100;
+            //}
+            //else
+            //{
+            //    newIndex = Convert.ToInt32(rankCmb.SelectedValue);
+            //}
+
             try
             {
                 using (UserContext db = new UserContext())
@@ -142,11 +152,12 @@ namespace AthletesAccounting
                         .Where(c => c.DOB == DOB.SelectedDate.Value)
                         .FirstOrDefault();
 
-                    if (insertOrUpdate == null)
+                    //if ( DOB.SelectedDate.Value != null  ||  Parent.Text != String.Empty || Fam.Text != String.Empty || Name.Text != String.Empty || insertOrUpdate == null)
+                    if(insertOrUpdate == null)
                     {
                         System.Diagnostics.Debug.WriteLine(" добавим спортсмена  ");
-                        var rr = this.DataContext;
-                        
+                        var rr = this.DataContext;                     
+
                         //db.Athletes.AddRange(new List<Athletes> {rr });
                         db.Athletes.Add(new Athletes()
                         {
@@ -167,7 +178,7 @@ namespace AthletesAccounting
                             sports_id = Convert.ToInt32(sportCmb.SelectedValue),
                             sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue),
                             education_id = Convert.ToInt32(education.SelectedValue),
-                            rank_id = Convert.ToInt32(rank.SelectedValue),
+                            rank_code = Convert.ToInt32(rankCmb.SelectedValue),
                             pastIllnes = pastIllnesTxtb.Text,
                             operations = operationsTxtbx.Text
                         });
@@ -194,7 +205,7 @@ namespace AthletesAccounting
                         insertOrUpdate.sports_id = Convert.ToInt32(sportCmb.SelectedValue);
                         insertOrUpdate.sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue);
                         insertOrUpdate.education_id = Convert.ToInt32(education.SelectedValue);
-                        insertOrUpdate.rank_id = Convert.ToInt32(rank.SelectedValue);
+                        insertOrUpdate.rank_code = Convert.ToInt32(rankCmb.SelectedValue);
                         insertOrUpdate.pastIllnes = pastIllnesTxtb.Text;
                         insertOrUpdate.operations = operationsTxtbx.Text;
 
@@ -207,7 +218,11 @@ namespace AthletesAccounting
             }
             catch (Exception ex) { System.Diagnostics.Debug.WriteLine(" ex  " + ex); }
         }
-    
-}
+
+        private void rank_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(rankCmb.SelectedValue + "   rankCmb.SelectedValue");
+        }
+    }
     
 }

@@ -299,17 +299,22 @@ namespace AthletesAccounting
         /// </summary>
         private void updateDataGrid()
         {
-            using (UserContext db = new UserContext())
-            {
-                var result = db.Athletes
-                     .Include("Sports")
-                    .AsEnumerable()
-                    .Take(20)
-                    .ToList()
-                    ;
-                dataGridALLAthlets.ItemsSource = null;
-                dataGridALLAthlets.ItemsSource = result;
+            try {
+                using (UserContext db = new UserContext())
+                {
+                    var result = db.Athletes
+                         .Include("Sports")
+                        .AsEnumerable()
+                        .Take(20)
+                        .ToList()
+                        ;
+                    dataGridALLAthlets.ItemsSource = null;
+                    dataGridALLAthlets.ItemsSource = result;                  
+                       
+                }
             }
+            catch { }
+            
         }
     }
 }

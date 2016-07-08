@@ -9,9 +9,9 @@ namespace AthletesAccounting.DataBase
         [Key]
         public int rankDateGet_id { get; set; }
 
-        public int? rank_id { get; set; }
-        [ForeignKey("rank_id")]
-        public virtual Rank rank { get; set; }
+        public int? rank_code { get; set; }
+        [ForeignKey("rank_code")]
+        public virtual Rank Rank { get; set; }
 
         public DateTime onDateGetRank { get; set; }
     }

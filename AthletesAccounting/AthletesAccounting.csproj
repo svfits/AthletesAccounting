@@ -75,7 +75,7 @@
     <Compile Include="EditAthletesWindows.xaml.cs">
       <DependentUpon>EditAthletesWindows.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Excel\Excel.cs" />
+    <Compile Include="ImportorExportExcel\Excel.cs" />
     <Compile Include="HandbookWindow.xaml.cs">
       <DependentUpon>HandbookWindow.xaml</DependentUpon>
     </Compile>

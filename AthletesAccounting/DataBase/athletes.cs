@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace AthletesAccounting.DataBase
 {
-  public  class Athletes
+  public  class Athletes : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         [Key]
         public int id { get; set; }
 
@@ -38,11 +40,32 @@ namespace AthletesAccounting.DataBase
         ////адрес где проживает
         /// </summary>
         public string adress { get; set; }
-       
+
         /// <summary>
         /// телефон
         /// </summary>
-        public string telefon { get; set; }      
+        private string _telefon;
+
+        public string telefon
+        {
+            get { return _telefon; }
+
+            set
+            {
+                _telefon = value;
+                OnPropertyChanged("telefon");             
+            }
+        }     
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
         /// <summary>
         /// место учебы или работы
         /// </summary>     
@@ -112,9 +135,9 @@ namespace AthletesAccounting.DataBase
         /// <summary>
         ////разряд
         /// </summary>
-        public int?  rank_id { get; set; }
-        [ForeignKey("rank_id")]
-        public virtual Rank rank { get; set; }
+        public int? rank_code { get; set; }
+        [ForeignKey("rank_code")]
+        public virtual Rank Rank { get; set; }
 
         /// <summary>
         ////дата рождения
@@ -147,7 +170,8 @@ namespace AthletesAccounting.DataBase
         public int? rankDateGet_id { get; set; }
         [ForeignKey("rankDateGet_id")]
         public virtual RankDateGet rankDateGet { get; set; }
-             
+
+      
     }
   
 }
