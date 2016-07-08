@@ -25,12 +25,12 @@ namespace AthletesAccounting
         public MainWindow()
         {
             InitializeComponent();
+            updateDataGrid();
         }
 
         private void Btn_Grid_Update_Click(object sender, RoutedEventArgs e)
         {
-
-            this.DataContext = null;
+            updateDataGrid();
         }
 
         /// <summary>
@@ -53,36 +53,36 @@ namespace AthletesAccounting
             //    return;
             //}
             //   List<Athletes> result = null;
-            //comboBox.ItemsSource = null;
-            try
-            {
-                using (UserContext db = new UserContext())
-                {
-                 var result = db.Athletes
-                    .AsEnumerable()                  
-                    .Where(c => c.fam.ToLower().StartsWith(comboBox.Text.ToString()))
-                    .Select(c => new
-                    {
-                        c.id,
-                        c.fam,
-                        c.name,
-                        c.parent,                        
-                        c.DOB              
-                    }
-                    )                    
-                    .Take(20)
-                    .ToList()
-                    ;
+            ////comboBox.ItemsSource = null;
+            //try
+            //{
+            //    using (UserContext db = new UserContext())
+            //    {
+            //     var result = db.Athletes
+            //        .AsEnumerable()                  
+            //        .Where(c => c.fam.ToLower().StartsWith(comboBox.Text.ToString()))
+            //        .Select(c => new
+            //        {
+            //            c.id,
+            //            c.fam,
+            //            c.name,
+            //            c.parent,                        
+            //            c.DOB              
+            //        }
+            //        )                    
+            //        .Take(20)
+            //        .ToList()
+            //        ;
                                     
-                    comboBox.SelectedIndex = -1;
-                    comboBox.IsDropDownOpen = true;
-                    comboBox.ItemsSource = result;
-                }               
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.ToString());
-            }
+            //        //comboBox.SelectedIndex = -1;
+            //        comboBox.IsDropDownOpen = true;
+            //        comboBox.ItemsSource = result;
+            //    }               
+            //}
+            //catch (Exception ex)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(ex.ToString());
+            //}
         }
 
         /// <summary>
@@ -111,29 +111,29 @@ namespace AthletesAccounting
         /// <param name="e"></param>
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {        
-            try
-            {
-                using (UserContext db = new UserContext())
-                {
-                    var result = db.Athletes
-                       .Include("Sports")
-                       .Include("SportTeam")
-                       .Include("Rank")
-                       .Include("Education")                     
-                       .AsEnumerable()                       
-                       .Where(c => c.id == Convert.ToInt32(comboBox.SelectedValue))                       
-                       .FirstOrDefault()
-                       ;
+            //try
+            //{
+            //    using (UserContext db = new UserContext())
+            //    {
+            //        var result = db.Athletes
+            //           .Include("Sports")
+            //           .Include("SportTeam")
+            //           .Include("Rank")
+            //           .Include("Education")                     
+            //           .AsEnumerable()                       
+            //           .Where(c => c.id == Convert.ToInt32(comboBox.SelectedValue))                       
+            //           .FirstOrDefault()
+            //           ;
                  
-                    this.DataContext = result;
-                    System.Diagnostics.Debug.WriteLine(result.name + "    select11111111111111111111111111111111111111111111111   " + result.education_id);
+            //        this.DataContext = result;
+            //        System.Diagnostics.Debug.WriteLine(result.name + "    select11111111111111111111111111111111111111111111111   " + result.education_id);
                                       
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.ToString());
-            }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(ex.ToString());
+            //}
 
           
         }
@@ -160,114 +160,7 @@ namespace AthletesAccounting
             MenuItem menuItem = (MenuItem)sender;
             MessageBox.Show(menuItem.Header.ToString());
         }
-
-        private void btnSaveAthlets_Click(object sender, RoutedEventArgs e)
-        {
-            //try
-            //{
-            //    using (UserContext db = new UserContext())
-            //    {
-            //        if (comboBox.Text.Length <= 0)
-            //        {
-            //            System.Diagnostics.Debug.WriteLine(comboBox.Text.Length + " добавим спортсмена");
-            //            db.Athletes.Add(new Athletes()
-            //            {
-            //                name = Name.Text,
-            //                fam = Fam.Text,
-            //                parent = Parent.Text,
-            //                adress = Adres.Text,
-            //                telefon = Telefon.Text,
-            //                DOB = DOB.SelectedDate.Value,
-            //                sex = sex.Text,                          
-            //                PlaceofStudyAndWork = PlaceStydy.Text,
-            //                profAthlets = profAthlets.Text,
-            //                alcohol = alcohol.Text,
-            //                livingСonditions = livingСonditions.Text,
-            //                smoke = smoking.Text,
-            //                injuries = Injury.Text,
-            //                housing = livingСonditions.Text,
-            //                sports_id = Convert.ToInt32(sportCmb.SelectedValue),
-            //                sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue),
-            //                education_id = Convert.ToInt32(education.SelectedValue),
-            //                rank_id = Convert.ToInt32(rank.SelectedValue),
-            //                pastIllnes = pastIllnesTxtb.Text,
-            //                operations = operationsTxtbx.Text
-            //            });
-            //            db.SaveChanges();
-            //        }
-            //        System.Diagnostics.Debug.WriteLine("обновим спортмена  " + comboBox.SelectedValue);
-            //        var ss = Convert.ToInt32(comboBox.SelectedValue);
-
-            //        var AthletUpdate = db.Athletes
-            //            .Where(c => c.id == ss)
-            //            .FirstOrDefault();
-
-            //        AthletUpdate.name = Name.Text;
-            //        AthletUpdate.fam = Fam.Text;
-            //        AthletUpdate.parent = Parent.Text;
-            //        AthletUpdate.adress = Adres.Text;
-            //        AthletUpdate.telefon = Telefon.Text;
-            //        AthletUpdate.DOB = DOB.SelectedDate.Value;
-            //        AthletUpdate.sex = sex.Text;
-            //        AthletUpdate.PlaceofStudyAndWork = PlaceStydy.Text;
-            //        AthletUpdate.profAthlets = profAthlets.Text;
-            //        AthletUpdate.alcohol = alcohol.Text;
-            //        AthletUpdate.livingСonditions = livingСonditions.Text;
-            //        AthletUpdate.smoke = smoking.Text;
-            //        AthletUpdate.injuries = Injury.Text;
-            //        AthletUpdate.housing = livingСonditions.Text;
-            //        AthletUpdate.sports_id = Convert.ToInt32(sportCmb.SelectedValue);
-            //        AthletUpdate.sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue);
-            //        AthletUpdate.education_id = Convert.ToInt32(education.SelectedValue);
-            //        AthletUpdate.rank_id = Convert.ToInt32(rank.SelectedValue);
-            //        AthletUpdate.pastIllnes = pastIllnesTxtb.Text;
-            //        AthletUpdate.operations = operationsTxtbx.Text;
-
-            //        db.SaveChanges();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Diagnostics.Debug.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            //    System.Diagnostics.Debug.WriteLine(ex.ToString());
-            //}
-        }
-
-        private void sport_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //try {
-            //    System.Diagnostics.Debug.WriteLine(sportCmb.SelectedValue + "  22222222222222222222222222");
-            //}
-            //catch
-            //{
-            //    System.Diagnostics.Debug.WriteLine(sportCmb.SelectedValue + "  22222222222222222222222222");
-            //}
-        }
-
-        private void pastIllnessesBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //PastIllnesses.SelectedValue.ToString
-        }
-
-        private void orgNameAthlet_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //System.Diagnostics.Debug.WriteLine(sportTeamCmb.SelectedValue + "     1");
-        }
-
-        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //try
-            //{
-            //    DateTime newDate = DateTime.Now;
-            //    int DOBAthlets = mainSportDateDatepicker.SelectedDate.Value.Year;
-            //    mainSportDateLbl.Content = (DateTime.Now.Year - DOBAthlets).ToString();
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(ex.ToString());
-            //}
-        }
-      
+            
 
         private void MenuItem_Click_exit(object sender, RoutedEventArgs e)
         {
@@ -285,7 +178,7 @@ namespace AthletesAccounting
             EditAthletesWin.ShowDialog();
 
             updateDataGrid();
-
+            Text_Filtr_DataGrid_Athletes.Text = String.Empty;
         }
 
         private void addAthlets_Click(object sender, RoutedEventArgs e)
@@ -297,7 +190,7 @@ namespace AthletesAccounting
         /// <summary>
         /// обновление datagrid или загрузка
         /// </summary>
-        private void updateDataGrid()
+        public void updateDataGrid()
         {
             try {
                 using (UserContext db = new UserContext())
@@ -308,13 +201,39 @@ namespace AthletesAccounting
                         .Take(20)
                         .ToList()
                         ;
-                    dataGridALLAthlets.ItemsSource = null;
+                   
                     dataGridALLAthlets.ItemsSource = result;                  
                        
                 }
             }
             catch { }
             
+        }
+
+        private void Text_Filtr_Grid_Log_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            try
+            {
+                using (UserContext db = new UserContext())
+                {
+                    var result = db.Athletes
+                       .Include("Sports")                  
+                                        
+                       .AsEnumerable()
+                       .Where(c => c.fam.ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
+                       .ToList()
+                       
+                       ;
+
+                    dataGridALLAthlets.ItemsSource = result;
+                    System.Diagnostics.Debug.WriteLine( "  result.id   " + result.FirstOrDefault());
+
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
         }
     }
 }

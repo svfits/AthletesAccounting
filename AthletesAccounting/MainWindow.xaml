@@ -34,10 +34,9 @@
 
                 <Button x:Name="addAthlets" Grid.Column="3" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Left" Padding="5,5,5,5"
                         Click="addAthlets_Click">Добавить</Button>
-                <ComboBox x:Name="comboBox" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="350" Height="auto" IsEditable="True"
+                <!--<ComboBox x:Name="comboBox" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="350" Height="auto" IsEditable="True"
                           PreviewTextInput="comboBox_PreviewTextInput"  ToolTip="Введите первые 3 буквы фамилии"   Padding="5,5,5,5"  SelectionChanged="comboBox_SelectionChanged"
-                        SelectedValuePath="id"  >
-                  
+                        SelectedValuePath="id"  >                  
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock>
@@ -52,7 +51,12 @@
                             </TextBlock>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
-                </ComboBox>
+                </ComboBox>-->
+                <TextBox x:Name="Text_Filtr_DataGrid_Athletes" Grid.Column="1" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Left"
+                                     Width="250" Padding="5,5,5,5" Height="auto" PreviewTextInput="Text_Filtr_Grid_Log_PreviewTextInput"
+                                     ToolTip="Введите 3 символа">
+                </TextBox>
+
 
             </Grid>
         </GroupBox>
@@ -80,59 +84,7 @@
    
             <!--</Grid>-->
         </GroupBox>
-        <GroupBox x:Name="groupBox" Margin="10,10,10,10" Grid.Row="2" VerticalAlignment="Top" Width="auto">
-
-            <Expander Header="Антропометрия" VerticalAlignment="Center" HorizontalAlignment="Stretch" IsExpanded="True">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-
-                    <Label Content="Возраст" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBox x:Name="txtbAge" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="0" Width="100" IsReadOnly="True"/>
-
-                    <Label Content="Рост" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox x:Name="txtbHeightAthletes" Grid.Column="5"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Width="100"/>
-
-                    <Label Content="Вес" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox x:Name="Weight" Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Width="100"/>
-
-                    <Label Content="Спирометрия" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox x:Name="Spirometry" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Width="100"/>
-
-                    <Label Content="Обр. гр. кл. выдох" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox x:Name="Exhalation" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Width="100"/>
-
-                    <Label Content="Обр. гр. кл. вдох" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox x:Name="Breath" Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Width="100"/>
-
-                    <Label Content="Обр. гр. кл. пауза" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox x:Name="BreathPause" Grid.Column="5"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Width="100"/>
-
-                    <Label Content="Становая" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox x:Name="Stanomy" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Width="100"/>
-
-                    <Label Content="Динанометрия пр." Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox x:Name="DynamometryR" Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Width="100"/>
-
-                    <Label Content="Динанометрия лв." Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox x:Name="DynamometryL" Grid.Column="5"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Width="100"/>
-
-                </Grid>
-            </Expander>
-        </GroupBox>
+       
 
         <Menu Height="25" VerticalAlignment="Top">
             <MenuItem Header="Файл">

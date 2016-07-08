@@ -63,6 +63,7 @@ namespace AthletesAccounting.DataBase
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(name));
+                                    
             }
         }
 
