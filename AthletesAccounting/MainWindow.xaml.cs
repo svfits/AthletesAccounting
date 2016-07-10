@@ -26,6 +26,7 @@ namespace AthletesAccounting
         {
             InitializeComponent();
             updateDataGrid();
+           
         }
 
         private void Btn_Grid_Update_Click(object sender, RoutedEventArgs e)
@@ -84,26 +85,7 @@ namespace AthletesAccounting
             //    System.Diagnostics.Debug.WriteLine(ex.ToString());
             //}
         }
-
-        /// <summary>
-        /// высчитываем возраст спортсмена
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DOB_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                DateTime newDate = DateTime.Now;
-                //int DOBAthlets = DOB.SelectedDate.Value.Year;
-                //txtbAge.Text = (DateTime.Now.Year - DOBAthlets).ToString();
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.ToString());
-            }
-        }
-
+        
         /// <summary>
         /// выбор после поиска 
         /// </summary>
@@ -170,15 +152,19 @@ namespace AthletesAccounting
 
         private void dataGridALLAthlets_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (dataGridALLAthlets.SelectedItem == null) return;
-            var selectedPerson = dataGridALLAthlets.SelectedItem as Athletes;
-            //  MessageBox.Show(string.Format("The Person you double clicked on is - Name: {0}, Address: {1}, Email: {2}", selectedPerson.name, selectedPerson.id, selectedPerson.telefon));
-                
-            EditAthletesWindows EditAthletesWin = new EditAthletesWindows(selectedPerson.id);
-            EditAthletesWin.ShowDialog();
+            try
+            {
+                if (dataGridALLAthlets.SelectedItem == null) return;
+                var selectedPerson = dataGridALLAthlets.SelectedItem as Athletes;
+                //  MessageBox.Show(string.Format("The Person you double clicked on is - Name: {0}, Address: {1}, Email: {2}", selectedPerson.name, selectedPerson.id, selectedPerson.telefon));
 
-            updateDataGrid();
-            Text_Filtr_DataGrid_Athletes.Text = String.Empty;
+                EditAthletesWindows EditAthletesWin = new EditAthletesWindows(selectedPerson.id);
+                EditAthletesWin.ShowDialog();
+
+                updateDataGrid();
+                Text_Filtr_DataGrid_Athletes.Text = String.Empty;
+            }
+            catch { }
         }
 
         private void addAthlets_Click(object sender, RoutedEventArgs e)
@@ -206,10 +192,17 @@ namespace AthletesAccounting
                        
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                    }
             
         }
-
+        /// <summary>
+        /// тект фильтр 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Text_Filtr_Grid_Log_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             try
@@ -217,12 +210,10 @@ namespace AthletesAccounting
                 using (UserContext db = new UserContext())
                 {
                     var result = db.Athletes
-                       .Include("Sports")                  
-                                        
+                       .Include("Sports")               
                        .AsEnumerable()
                        .Where(c => c.fam.ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
                        .ToList()
-                       
                        ;
 
                     dataGridALLAthlets.ItemsSource = result;

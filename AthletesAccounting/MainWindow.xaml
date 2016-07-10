@@ -9,7 +9,7 @@
         Loaded="Window_Loaded" Height="1180" Width="1024"
         >
 
-    <Grid x:Name="gridAll" Margin="10,10,10,10" FocusManager.FocusedElement="{Binding ElementName=comboBox}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Grid x:Name="gridAll" Margin="10,10,10,10" FocusManager.FocusedElement="{Binding ElementName=Text_Filtr_DataGrid_Athletes}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto" MinHeight="200"></RowDefinition>

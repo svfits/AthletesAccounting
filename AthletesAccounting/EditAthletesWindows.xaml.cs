@@ -1,6 +1,8 @@
 ﻿using AthletesAccounting.DataBase;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,16 +18,18 @@ using System.Windows.Shapes;
 namespace AthletesAccounting
 {
     /// <summary>
-    /// Interaction logic for EditAthletesWindows.xaml
+    /// форма для редактирования спортсменов 
     /// </summary>
-    public partial class EditAthletesWindows : Window
+    public partial class EditAthletesWindows : Window    
     {
+        int? athletesAddorUpdate;
         public EditAthletesWindows(int id = -100)
         {
             InitializeComponent();
-
+            this.DataContext = this;
             if (id != -100)
             {
+                athletesAddorUpdate = id;
                 try
                 {
                     using (UserContext db = new UserContext())
@@ -49,7 +53,7 @@ namespace AthletesAccounting
                 {
                     System.Diagnostics.Debug.WriteLine(ex.ToString());
                 }
-            }
+            }            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -64,7 +68,7 @@ namespace AthletesAccounting
                        .AsEnumerable()
                        .ToList()
                        ;
-                    System.Diagnostics.Debug.WriteLine(result.ToString());
+                    //System.Diagnostics.Debug.WriteLine(result.ToString());
                     sportCmb.ItemsSource = result;
                     sportMain.ItemsSource = result;
                     sportsOtherCmb.ItemsSource = result;
@@ -76,14 +80,14 @@ namespace AthletesAccounting
                         .ToList()
                         ;
 
-                    System.Diagnostics.Debug.WriteLine(result1.ToString());
+                    //System.Diagnostics.Debug.WriteLine(result1.ToString());
                     sportTeamCmb.ItemsSource = result1;
 
                     var result2 = db.Rank
                       .AsEnumerable()
                       .ToList()
                       ;
-                    System.Diagnostics.Debug.WriteLine(result2.ToString());
+                    //System.Diagnostics.Debug.WriteLine(result2.ToString());
                     rankCmb.ItemsSource = result2;
                     rankSportDateCmd.ItemsSource = result2;
 
@@ -91,7 +95,7 @@ namespace AthletesAccounting
                    .AsEnumerable()
                    .ToList()
                    ;
-                    System.Diagnostics.Debug.WriteLine(result3.ToString());
+                    //System.Diagnostics.Debug.WriteLine(result3.ToString());
                     education.ItemsSource = result3;
 
                 }
@@ -127,101 +131,148 @@ namespace AthletesAccounting
         {
 
         }
-
+        /// <summary>
+        /// сохраним или обновим данные
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveAthlets_Click(object sender, RoutedEventArgs e)
         {
-            //int newIndex; 
-            //if (Convert.ToInt32(rankCmb.SelectedValue) == 0)
-            //{
-            //    newIndex = 100;
-            //}
-            //else
-            //{
-            //    newIndex = Convert.ToInt32(rankCmb.SelectedValue);
-            //}
-
-            try
+                Athletes newAthlets = new Athletes
             {
+                    fam = Fam.Text,
+                    name = Name.Text,
+                    parent = Parent.Text,
+                    sex = sex.Text,
+                    adress = Adres.Text,
+                    telefon = Telefon.Text,
+                    PlaceofStudyAndWork = PlaceStydy.Text,
+                    livingСonditions = livingСonditions.Text,
+                    profAthlets = profAthlets.Text,
+                    alcohol = alcohol.Text,
+                    smoke = smoking.Text,
+                    pastIllnes = pastIllnesTxtb.Text,
+                    injuries = Injury.Text,
+                    operations = operationsTxtbx.Text,
+                    DOB = DOB.SelectedDate.Value
+                                        
+                };
+
+            try {
+
                 using (UserContext db = new UserContext())
                 {
-                    var insertOrUpdate = db.Athletes
-                        .AsEnumerable()
-                        .Where(c => c.name == Name.Text)
-                        .Where(c => c.fam == Fam.Text)
-                        .Where(c => c.parent == Parent.Text)
-                        .Where(c => c.DOB == DOB.SelectedDate.Value)
-                        .FirstOrDefault();
-
-                    //if ( DOB.SelectedDate.Value != null  ||  Parent.Text != String.Empty || Fam.Text != String.Empty || Name.Text != String.Empty || insertOrUpdate == null)
-                    if(insertOrUpdate == null)
+                    if (athletesAddorUpdate == null)
                     {
-                        System.Diagnostics.Debug.WriteLine(" добавим спортсмена  ");
-                        var rr = this.DataContext;                     
-
-                        //db.Athletes.AddRange(new List<Athletes> {rr });
-                        db.Athletes.Add(new Athletes()
-                        {
-                            name = Name.Text,
-                            fam = Fam.Text,
-                            parent = Parent.Text,
-                            adress = Adres.Text,
-                            telefon = Telefon.Text,
-                            DOB = DOB.SelectedDate.Value,
-                            sex = sex.Text,
-                            PlaceofStudyAndWork = PlaceStydy.Text,
-                            profAthlets = profAthlets.Text,
-                            alcohol = alcohol.Text,
-                            livingСonditions = livingСonditions.Text,
-                            smoke = smoking.Text,
-                            injuries = Injury.Text,
-                            housing = livingСonditions.Text,
-                            sports_id = Convert.ToInt32(sportCmb.SelectedValue),
-                            sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue),
-                            education_id = Convert.ToInt32(education.SelectedValue),
-                            rank_code = Convert.ToInt32(rankCmb.SelectedValue),
-                            pastIllnes = pastIllnesTxtb.Text,
-                            operations = operationsTxtbx.Text
-                        });
+                        System.Diagnostics.Debug.WriteLine(" добавим спортсмена ID  " + athletesAddorUpdate);
+                   
+                        db.Athletes.Add(newAthlets);
                         db.SaveChanges();
+
+                        athletesAddorUpdate = newAthlets.id;
+                        System.Diagnostics.Debug.WriteLine(" добавим спортсмена ID  " + athletesAddorUpdate);
                     }
                     else
                     {
-                        System.Diagnostics.Debug.WriteLine(" обновим спортсмена  ");
-
-                        insertOrUpdate.name = Name.Text;
-                        insertOrUpdate.fam = Fam.Text;
-                        insertOrUpdate.parent = Parent.Text;
-                        insertOrUpdate.adress = Adres.Text;
-                        insertOrUpdate.telefon = Telefon.Text;
-                        insertOrUpdate.DOB = DOB.SelectedDate.Value;
-                        insertOrUpdate.sex = sex.Text;
-                        insertOrUpdate.PlaceofStudyAndWork = PlaceStydy.Text;
-                        insertOrUpdate.profAthlets = profAthlets.Text;
-                        insertOrUpdate.alcohol = alcohol.Text;
-                        insertOrUpdate.livingСonditions = livingСonditions.Text;
-                        insertOrUpdate.smoke = smoking.Text;
-                        insertOrUpdate.injuries = Injury.Text;
-                        insertOrUpdate.housing = livingСonditions.Text;
-                        insertOrUpdate.sports_id = Convert.ToInt32(sportCmb.SelectedValue);
-                        insertOrUpdate.sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue);
-                        insertOrUpdate.education_id = Convert.ToInt32(education.SelectedValue);
-                        insertOrUpdate.rank_code = Convert.ToInt32(rankCmb.SelectedValue);
-                        insertOrUpdate.pastIllnes = pastIllnesTxtb.Text;
-                        insertOrUpdate.operations = operationsTxtbx.Text;
-
+                        System.Diagnostics.Debug.WriteLine(" редактируем ID  " + athletesAddorUpdate);
+                        var update = db.Athletes
+                           .AsEnumerable()
+                           .Where(c => c.id == athletesAddorUpdate)
+                           .FirstOrDefault()
+                           ;
+                        //   update.telefon = "555";
+                        //    db.Entry(update).State = EntityState.Modified;
+                        db.Entry(update).CurrentValues.SetValues(newAthlets);
                         db.SaveChanges();
 
-                        var rrr = this.DataContext;
-                        System.Diagnostics.Debug.WriteLine(" DataContext  " + rrr.ToString() );
                     }
                 }
             }
-            catch (Exception ex) { System.Diagnostics.Debug.WriteLine(" ex  " + ex); }
+            catch { }
+
+            //try
+            //{
+            //    using (UserContext db = new UserContext())
+            //    {
+            //        var insertOrUpdate = db.Athletes
+            //            .AsEnumerable()
+            //            .Where(c => c.name == Name.Text)
+            //            .Where(c => c.fam == Fam.Text)
+            //            .Where(c => c.parent == Parent.Text)
+            //            .Where(c => c.DOB == DOB.SelectedDate.Value)
+            //            .FirstOrDefault();
+
+            //        //if ( DOB.SelectedDate.Value != null  ||  Parent.Text != String.Empty || Fam.Text != String.Empty || Name.Text != String.Empty || insertOrUpdate == null)
+            //        if(insertOrUpdate == null)
+            //        {
+            //            System.Diagnostics.Debug.WriteLine(" добавим спортсмена  ");
+
+            //            //List<Athletes> ttt; 
+            //            //var rrw = this.DataContext;
+
+            //            //db.Athletes.AddRange(rrw);
+            //            //db.Athletes.Add(new Athletes()
+            //            //{
+            //            //    name = Name.Text,
+            //            //    fam = Fam.Text,
+            //            //    parent = Parent.Text,
+            //            //    adress = Adres.Text,
+            //            //    telefon = Telefon.Text,
+            //            //    DOB = DOB.SelectedDate.Value,
+            //            //    sex = sex.Text,
+            //            //    PlaceofStudyAndWork = PlaceStydy.Text,
+            //            //    profAthlets = profAthlets.Text,
+            //            //    alcohol = alcohol.Text,
+            //            //    livingСonditions = livingСonditions.Text,
+            //            //    smoke = smoking.Text,
+            //            //    injuries = Injury.Text,
+            //            //    housing = livingСonditions.Text,
+            //            //    sports_id = Convert.ToInt32(sportCmb.SelectedValue),
+            //            //    sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue),
+            //            //    education_id = Convert.ToInt32(education.SelectedValue),
+            //            //    rank_code = Convert.ToInt32(rankCmb.SelectedValue),
+            //            //    pastIllnes = pastIllnesTxtb.Text,
+            //            //    operations = operationsTxtbx.Text
+            //            //});
+            //            db.SaveChanges();
+            //        }
+            //        else
+            //        {
+            //            System.Diagnostics.Debug.WriteLine(" обновим спортсмена  ");
+
+            //            insertOrUpdate.name = Name.Text;
+            //            insertOrUpdate.fam = Fam.Text;
+            //            insertOrUpdate.parent = Parent.Text;
+            //            insertOrUpdate.adress = Adres.Text;
+            //            insertOrUpdate.telefon = Telefon.Text;
+            //            insertOrUpdate.DOB = DOB.SelectedDate.Value;
+            //            insertOrUpdate.sex = sex.Text;
+            //            insertOrUpdate.PlaceofStudyAndWork = PlaceStydy.Text;
+            //            insertOrUpdate.profAthlets = profAthlets.Text;
+            //            insertOrUpdate.alcohol = alcohol.Text;
+            //            insertOrUpdate.livingСonditions = livingСonditions.Text;
+            //            insertOrUpdate.smoke = smoking.Text;
+            //            insertOrUpdate.injuries = Injury.Text;
+                      
+            //            insertOrUpdate.sports_id = Convert.ToInt32(sportCmb.SelectedValue);
+            //            insertOrUpdate.sportTeam_id = Convert.ToInt32(sportTeamCmb.SelectedValue);
+            //            insertOrUpdate.education_id = Convert.ToInt32(education.SelectedValue);
+            //            insertOrUpdate.rank_code = Convert.ToInt32(rankCmb.SelectedValue);
+            //            insertOrUpdate.pastIllnes = pastIllnesTxtb.Text;
+            //            insertOrUpdate.operations = operationsTxtbx.Text;
+
+            //            db.SaveChanges();
+
+            //            var rrr = this.DataContext;
+            //            System.Diagnostics.Debug.WriteLine(" DataContext  " + rrr.ToString() );
+            //        }
+               
+            //catch (Exception ex) { System.Diagnostics.Debug.WriteLine(" ex  " + ex); }
         }
 
         private void rank_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(rankCmb.SelectedValue + "   rankCmb.SelectedValue");
+            //System.Diagnostics.Debug.WriteLine(rankCmb.SelectedValue + "   rankCmb.SelectedValue");
         }
     }
     
