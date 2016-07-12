@@ -76,7 +76,7 @@
                             <DataGridTextColumn Binding="{Binding sex,Mode=TwoWay}" Header="Пол"></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding adress,Mode=TwoWay}" Header="Адрес"></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding telefon,Mode=TwoWay}" Header="Телефон"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding DOB,Mode=TwoWay}" Header="ДР"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding DOB,Mode=TwoWay , StringFormat={}{0:dd.MM.yyyy} }" Header="ДР"></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding Sports.sport,Mode=TwoWay}" Header="Вид спорта"></DataGridTextColumn>
                         </DataGrid.Columns>
                         

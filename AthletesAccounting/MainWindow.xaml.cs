@@ -167,8 +167,15 @@ namespace AthletesAccounting
 
         private void addAthlets_Click(object sender, RoutedEventArgs e)
         {
-            EditAthletesWindows EditAthletesWin = new EditAthletesWindows();
-            EditAthletesWin.ShowDialog();
+            try
+            {
+                EditAthletesWindows EditAthletesWin = new EditAthletesWindows();
+                EditAthletesWin.ShowDialog();
+            }
+            catch
+            {
+                System.Diagnostics.Debug.WriteLine("  что то произошло во время редактирования " );
+            }
         }
 
         /// <summary>
