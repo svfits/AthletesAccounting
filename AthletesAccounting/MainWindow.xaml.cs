@@ -24,9 +24,7 @@ namespace AthletesAccounting
     {
         public MainWindow()
         {
-            InitializeComponent();
-            updateDataGrid();
-           
+            InitializeComponent();        
         }
 
         private void Btn_Grid_Update_Click(object sender, RoutedEventArgs e)
@@ -182,9 +180,9 @@ namespace AthletesAccounting
                 using (UserContext db = new UserContext())
                 {
                     var result = db.Athletes
-                         .Include("Sports")
+                        .Include("Sports")
                         .AsEnumerable()
-                        .Take(20)
+                        .Take(200)
                         .ToList()
                         ;
                    

@@ -96,9 +96,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataBase\Athletes.cs" />
-    <Compile Include="DataBase\Injuries.cs" />
-    <Compile Include="DataBase\Operations.cs" />
-    <Compile Include="DataBase\PastIllnesses.cs" />
     <Compile Include="DataBase\Rank.cs" />
     <Compile Include="DataBase\Sports.cs" />
     <Compile Include="DataBase\UserContext.cs" />

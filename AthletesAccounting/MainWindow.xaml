@@ -77,7 +77,7 @@
                             <DataGridTextColumn Binding="{Binding adress,Mode=TwoWay}" Header="Адрес"></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding telefon,Mode=TwoWay}" Header="Телефон"></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding DOB,Mode=TwoWay}" Header="ДР"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Sports.sports,Mode=TwoWay}" Header="Вид спорта"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Sports.sport,Mode=TwoWay}" Header="Вид спорта"></DataGridTextColumn>
                         </DataGrid.Columns>
                         
                     </DataGrid>

@@ -1,18 +1,23 @@
 ﻿
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace AthletesAccounting.DataBase
 {
     public class Education : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        [Key]
-        public int education_id { get; set; }
-
         private string _education;
+
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int education_code { get; set; }
+             
         public string education {
-            get { return _education; }
+            get
+            {
+                return _education;
+            }
             set
             {
                 _education = value;
@@ -26,7 +31,6 @@ namespace AthletesAccounting.DataBase
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(name));
-
             }
         }
 

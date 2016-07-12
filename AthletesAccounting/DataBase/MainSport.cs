@@ -13,8 +13,8 @@ namespace AthletesAccounting.DataBase
         public int mainSport_id { get; set; }
         public DateTime dateOnSports { get; set; }
 
-        public int sports_id { get; set; }
-        [ForeignKey("sports_id")]
+        public int sport_code { get; set; }
+        [ForeignKey("sport_code")]
         public virtual Sports Sports { get; set; }
     }
 }

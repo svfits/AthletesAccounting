@@ -26,7 +26,7 @@ namespace AthletesAccounting
         public EditAthletesWindows(int id = -100)
         {
             InitializeComponent();
-            this.DataContext = this;
+            
             if (id != -100)
             {
                 athletesAddorUpdate = id;
@@ -45,7 +45,7 @@ namespace AthletesAccounting
                            ;
 
                         this.DataContext = result;
-                        System.Diagnostics.Debug.WriteLine(result.name + "    select11111111111111111111111111111111111111111111111   " + result.education_id);
+                        //System.Diagnostics.Debug.WriteLine(result.name + "    select11111111111111111111111111111111111111111111111   " + result.education_id);
 
                     }
                 }
@@ -124,7 +124,7 @@ namespace AthletesAccounting
 
         private void sport_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(sportCmb.SelectedValue + "     1");
+            System.Diagnostics.Debug.WriteLine(sportCmb.SelectedValue + "     sport");
         }
 
         private void MenuItem_Click_exit(object sender, RoutedEventArgs e)
@@ -132,30 +132,34 @@ namespace AthletesAccounting
 
         }
         /// <summary>
-        /// сохраним или обновим данные
+        /// сохраним или обновим данные потом разобраться с DataContext
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void saveAthlets_Click(object sender, RoutedEventArgs e)
         {
-                Athletes newAthlets = new Athletes
+            Athletes newAthlet = new Athletes
             {
-                    fam = Fam.Text,
-                    name = Name.Text,
-                    parent = Parent.Text,
-                    sex = sex.Text,
-                    adress = Adres.Text,
-                    telefon = Telefon.Text,
-                    PlaceofStudyAndWork = PlaceStydy.Text,
-                    livingСonditions = livingСonditions.Text,
-                    profAthlets = profAthlets.Text,
-                    alcohol = alcohol.Text,
-                    smoke = smoking.Text,
-                    pastIllnes = pastIllnesTxtb.Text,
-                    injuries = Injury.Text,
-                    operations = operationsTxtbx.Text,
-                    DOB = DOB.SelectedDate.Value
-                                        
+                fam = Fam.Text,
+                name = Name.Text,
+                parent = Parent.Text,
+                sex = sex.Text,
+                adress = Adres.Text,
+                telefon = Telefon.Text,
+                PlaceofStudyAndWork = PlaceStydy.Text,
+                livingСonditions = livingСonditions.Text,
+                profAthlets = profAthlets.Text,
+                alcohol = alcohol.Text,
+                smoke = smoking.Text,
+                pastIllnes = pastIllnesTxtb.Text,
+                injuries = Injury.Text,
+                operations = operationsTxtbx.Text,
+                DOB = DOB.SelectedDate.Value,
+                sport_code = Convert.ToInt32(sportCmb.SelectedValue),
+                sportTeam_code = Convert.ToInt32(sportTeamCmb.SelectedValue),
+                education_code = Convert.ToInt32(education.SelectedValue),
+                rank_code = Convert.ToInt32(rankCmb.SelectedValue),
+                DateGreate = DateTime.Now
                 };
 
             try {
@@ -166,10 +170,10 @@ namespace AthletesAccounting
                     {
                         System.Diagnostics.Debug.WriteLine(" добавим спортсмена ID  " + athletesAddorUpdate);
                    
-                        db.Athletes.Add(newAthlets);
+                        db.Athletes.Add(newAthlet);
                         db.SaveChanges();
 
-                        athletesAddorUpdate = newAthlets.id;
+                        athletesAddorUpdate = newAthlet.id;
                         System.Diagnostics.Debug.WriteLine(" добавим спортсмена ID  " + athletesAddorUpdate);
                     }
                     else
@@ -180,10 +184,30 @@ namespace AthletesAccounting
                            .Where(c => c.id == athletesAddorUpdate)
                            .FirstOrDefault()
                            ;
-                        //   update.telefon = "555";
-                        //    db.Entry(update).State = EntityState.Modified;
-                        db.Entry(update).CurrentValues.SetValues(newAthlets);
-                        db.SaveChanges();
+
+                       update.fam = Fam.Text;
+                       update.name = Name.Text;
+                       update.parent = Parent.Text;
+                       update.sex = sex.Text;
+                       update.adress = Adres.Text;
+                       update.telefon = Telefon.Text;
+                       update.PlaceofStudyAndWork = PlaceStydy.Text;
+                       update.livingСonditions = livingСonditions.Text;
+                       update.profAthlets = profAthlets.Text;
+                       update.alcohol = alcohol.Text;
+                       update.smoke = smoking.Text;
+                       update.pastIllnes = pastIllnesTxtb.Text;
+                       update.injuries = Injury.Text;
+                       update.operations = operationsTxtbx.Text;
+                       update.DOB = DOB.SelectedDate.Value;
+
+                       update.sport_code = Convert.ToInt32(sportCmb.SelectedValue);
+                       update.sportTeam_code = Convert.ToInt32(sportTeamCmb.SelectedValue);
+                       update.education_code = Convert.ToInt32(education.SelectedValue);
+                       update.rank_code = Convert.ToInt32(rankCmb.SelectedValue);
+
+                       db.Entry(update).State = EntityState.Modified;
+                       db.SaveChanges();
 
                     }
                 }
@@ -273,6 +297,15 @@ namespace AthletesAccounting
         private void rank_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //System.Diagnostics.Debug.WriteLine(rankCmb.SelectedValue + "   rankCmb.SelectedValue");
+        }
+
+        private void mainSportDateDatepicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime newDate = DateTime.Now;
+
+            int yearMainSport = mainSportDateDatepicker.SelectedDate.Value.Year;
+
+            mainSportDateLbl.Content = (DateTime.Now.Year - yearMainSport).ToString();
         }
     }
     
