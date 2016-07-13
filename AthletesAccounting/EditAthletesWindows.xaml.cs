@@ -364,7 +364,10 @@ namespace AthletesAccounting
         /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            rankDateSport.Text += rankSportDateCmd.SelectedValue + "    " + rankDateAdd.SelectedDate.Value + "  " + sportsRankCmb.SelectedValue + "\n";
+            if (rankSportDateCmd.SelectedValue != null && rankDateAdd.SelectedDate != null && sportsRankCmb.SelectedValue != null)
+            {
+                rankDateSport.Text += rankSportDateCmd.SelectedValue + "    " + rankDateAdd.SelectedDate.Value + "  " + sportsRankCmb.SelectedValue + "\n";
+            }
         }
 
         /// <summary>

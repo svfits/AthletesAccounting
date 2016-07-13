@@ -162,7 +162,10 @@ namespace AthletesAccounting
                 updateDataGrid();
                 Text_Filtr_DataGrid_Athletes.Text = String.Empty;
             }
-            catch { }
+            catch
+            {
+                System.Diagnostics.Debug.WriteLine("  что то произошло во время редактирования во втором окне ");
+            }
         }
 
         private void addAthlets_Click(object sender, RoutedEventArgs e)
