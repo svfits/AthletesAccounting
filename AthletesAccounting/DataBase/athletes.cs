@@ -274,10 +274,8 @@ namespace AthletesAccounting.DataBase
         /// <summary>
         /// Разряд дата получения каждого разряда,
         /// </summary>
-        public int? rankDateGet_id { get; set; }
-        [ForeignKey("rankDateGet_id")]
-        public virtual RankDateGet rankDateGet { get; set; }
-
+        public string rankDateGet { get; set; }
+      
         /// <summary>
         /// дата полнения карточки
         /// </summary>

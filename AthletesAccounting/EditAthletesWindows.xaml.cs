@@ -140,9 +140,9 @@ namespace AthletesAccounting
         {
             Athletes newAthlet = new Athletes
             {
-                fam = Fam.Text,
-                name = Name.Text,
-                parent = Parent.Text,
+                fam = fam.Text,
+                name = name.Text,
+                parent = parent.Text,
                 sex = sex.Text,
                 adress = Adres.Text,
                 telefon = Telefon.Text,
@@ -155,12 +155,17 @@ namespace AthletesAccounting
                 injuries = Injury.Text,
                 operations = operationsTxtbx.Text,
                 DOB = DOB.SelectedDate.Value,
+
                 sport_code = Convert.ToInt32(sportCmb.SelectedValue),
                 sportTeam_code = Convert.ToInt32(sportTeamCmb.SelectedValue),
                 education_code = Convert.ToInt32(education.SelectedValue),
                 rank_code = Convert.ToInt32(rankCmb.SelectedValue),
-                DateGreate = DateTime.Now
-                };
+                DateGreate = DateTime.Now,
+
+                otherSports = txtotherSports.Text,
+                sportsGame  = sportGame.Text,
+                rankDateGet = rankDateSport.Text
+            };
 
             try {
 
@@ -185,9 +190,9 @@ namespace AthletesAccounting
                            .FirstOrDefault()
                            ;
 
-                       update.fam = Fam.Text;
-                       update.name = Name.Text;
-                       update.parent = Parent.Text;
+                       update.fam = fam.Text;
+                       update.name = name.Text;
+                       update.parent = parent.Text;
                        update.sex = sex.Text;
                        update.adress = Adres.Text;
                        update.telefon = Telefon.Text;
@@ -205,6 +210,10 @@ namespace AthletesAccounting
                        update.sportTeam_code = Convert.ToInt32(sportTeamCmb.SelectedValue);
                        update.education_code = Convert.ToInt32(education.SelectedValue);
                        update.rank_code = Convert.ToInt32(rankCmb.SelectedValue);
+
+                       update.otherSports = txtotherSports.Text;
+                       update.sportsGame = sportGame.Text;
+                       update.rankDateGet = rankDateSport.Text;
 
                        db.Entry(update).State = EntityState.Modified;
                        db.SaveChanges();
@@ -308,14 +317,76 @@ namespace AthletesAccounting
             mainSportDateLbl.Content = (DateTime.Now.Year - yearMainSport).ToString();
         }
 
+        /// <summary>
+        //// другие виды спорта получил
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void otherSports_Click(object sender, RoutedEventArgs e)
+        {
+            if (!txtotherSports.Text.Contains(sportsOtherCmb.SelectedValue.ToString()))
+            {
+                System.Diagnostics.Debug.WriteLine(sportsOtherCmb.SelectedValue + "   rankCmb.SelectedValue" + txtotherSports.Text);
+                //txtotherSports.Text += sportsOtherCmb.SelectedValue + "\n";
+                txtotherSports.Text += sportsOtherCmb.SelectedValue + " ";
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sportsOtherCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine(sportsOtherCmb.SelectedValue + "   rankCmb.SelectedValue");
         }
 
-        private void sportsOtherCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /// <summary>
+        /// в каких соревнованиях участвовал
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(sportsOtherCmb.SelectedValue + "   rankCmb.SelectedValue");
+            if (!sportGame.Text.Contains(sportsGameCmb.SelectedValue.ToString()))
+            {
+                System.Diagnostics.Debug.WriteLine(sportsGameCmb.SelectedValue + "   sportsGameCmb.SelectedValue" + sportGame.Text);
+                //sportGame.Text += sportsGameCmb.SelectedValue + "\n";
+                sportGame.Text += sportsGameCmb.SelectedValue + "  ";
+            }
+        }
+
+        /// <summary>
+        /// дата получения каждого разряда
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            rankDateSport.Text += rankSportDateCmd.SelectedValue + "    " + rankDateAdd.SelectedDate.Value + "  " + sportsRankCmb.SelectedValue + "\n";
+        }
+
+        /// <summary>
+        /// только год и месяц получения разряда
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rankDateAdd_CalendarOpened(object sender, RoutedEventArgs e)
+        {
+            var rankDateAdd = sender as DatePicker;
+            if (rankDateAdd != null)
+            {
+                // PART_Popup - часть шаблона DatePicker
+                var popup = rankDateAdd.Template.FindName(
+                    "PART_Popup", rankDateAdd) as System.Windows.Controls.Primitives.Popup;
+
+                if (popup != null && popup.Child is Calendar)
+                {
+                    Calendar calendar = (Calendar)popup.Child;
+                    calendar.DisplayMode = CalendarMode.Year;
+                }
+            }
         }
     }
     
