@@ -307,6 +307,16 @@ namespace AthletesAccounting
 
             mainSportDateLbl.Content = (DateTime.Now.Year - yearMainSport).ToString();
         }
+
+        private void otherSports_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(sportsOtherCmb.SelectedValue + "   rankCmb.SelectedValue");
+        }
+
+        private void sportsOtherCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(sportsOtherCmb.SelectedValue + "   rankCmb.SelectedValue");
+        }
     }
     
 }

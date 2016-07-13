@@ -66,7 +66,7 @@
                                     <Label x:Name="dateTimeGreateLbl" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5"
                                           ContentStringFormat="dd.MM.yyyy HH:mm" >
                                         <Label.Content>
-                                            <Binding Path="DateGreate" Mode="TwoWay"/>
+                                            <Binding Path="DateGreate" Mode="TwoWay"  UpdateSourceTrigger="PropertyChanged" />
                                         </Label.Content>
                                     </Label>
                                 </StackPanel>
@@ -339,7 +339,7 @@
                                         <ColumnDefinition Width="auto"></ColumnDefinition>
                                         <ColumnDefinition Width="auto"></ColumnDefinition>
                                         <ColumnDefinition Width="auto" MinWidth="150"></ColumnDefinition>
-                                        <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto" MinWidth="112"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto"></RowDefinition>
@@ -381,6 +381,7 @@
                                     </StackPanel>
                                     <DatePicker x:Name="mainSportDateDatepicker" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"
                                         ToolTip="Укажите дату начала занятий" Margin="5,5,5,5"  SelectedDateChanged="mainSportDateDatepicker_SelectedDateChanged"/>
+                                    <Button x:Name="addMainSports" Grid.Column="5" Grid.Row="0" ToolTip="добавить вид спорта" VerticalAlignment="Stretch" Margin="5,5,5,5">Добавить</Button>
 
                                     <!--<Label Content="Какими др. видами занимался?" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left"
                                VerticalAlignment="Center" ToolTip="Какими другими видами спорта занимался "/>-->
@@ -391,7 +392,7 @@
                                     </TextBlock>
 
                                     <ComboBox x:Name="sportsOtherCmb" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"
-                              Grid.Row="1" SelectedValuePath="sports_code" SelectionChanged="sport_SelectionChanged" Margin="5,5,5,5">
+                              Grid.Row="1" SelectedValuePath="sport" Margin="5,5,5,5" SelectionChanged="sportsOtherCmb_SelectionChanged">
                                         <ComboBox.ItemTemplate>
                                             <DataTemplate>
                                                 <TextBlock>
@@ -404,11 +405,20 @@
                                             </DataTemplate>
                                         </ComboBox.ItemTemplate>
                                         <ComboBox.SelectedIndex >
-                                            <Binding Path="sports_code"/>
+                                            <Binding Path="sport_code"/>
                                         </ComboBox.SelectedIndex>
                                     </ComboBox>
-                                    <TextBox Name="txtotherSports" Grid.Row="1" Grid.Column="2" IsReadOnly="False"  VerticalAlignment="Stretch" Margin="5,5,5,5"/>
-                                    <Button Grid.Column="3" Grid.Row="1" ToolTip="добавить вид спорта" VerticalAlignment="Stretch" Margin="5,5,5,5">Добавить</Button>
+                                    <TextBox Name="txtotherSports" Grid.Row="1" Grid.Column="2" IsReadOnly="False" VerticalScrollBarVisibility="Auto"
+                                             VerticalAlignment="Stretch" Margin="5,5,5,5"
+                                             Text="{Binding ElementName=sportsOtherCmb,Path=SelectedValue}" HorizontalAlignment="Stretch" >
+                                        <!--<TextBox.Text>
+                                            <MultiBinding StringFormat="{}{0}">
+                                                <Binding Path="sport"/>
+                                            </MultiBinding>
+                                        </TextBox.Text>-->
+                                    </TextBox>
+
+                                    <Button x:Name="otherSports" Grid.Column="5" Grid.Row="1" ToolTip="добавить вид спорта" VerticalAlignment="Stretch" Margin="5,5,5,5" Click="otherSports_Click">Добавить</Button>
 
                                     <!--<Label Content="По каким участвовал?" ToolTip="По каким видам спорта участвовал в соревнованиях?" Grid.Row="14" Grid.Column="0"></Label>-->
                                     <TextBlock Grid.Row="2" Grid.Column="0" Margin="5,5,5,5">
@@ -418,7 +428,7 @@
                                     </TextBlock>
                                     <!--<ComboBox Grid.Row="2" Grid.Column="1" ToolTip="Вид спорта"  VerticalAlignment="Center" Margin="5,5,5,5"/>-->
                                     <ComboBox x:Name="sportsGameCmb" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"
-                              Grid.Row="2" SelectedValuePath="sports_code" SelectionChanged="sport_SelectionChanged" Margin="5,5,5,5">
+                              Grid.Row="2" SelectedValuePath="sport" SelectionChanged="sport_SelectionChanged" Margin="5,5,5,5">
                                         <ComboBox.ItemTemplate>
                                             <DataTemplate>
                                                 <TextBlock>
@@ -435,7 +445,7 @@
                                         </ComboBox.SelectedIndex>
                                     </ComboBox>
                                     <TextBox Grid.Row="2" Grid.Column="2" IsReadOnly="False" VerticalAlignment="Stretch" Margin="5,5,5,5"></TextBox>
-                                    <Button Grid.Row="2" Grid.Column="3" VerticalAlignment="Stretch" Margin="5,5,5,5">Добавить</Button>
+                                    <Button Grid.Row="2" Grid.Column="5" VerticalAlignment="Stretch" Margin="5,5,5,5">Добавить</Button>
 
                                     <!--<Label Content="Разряд дата получения" ToolTip="дата получения каждого разряда" Grid.Row="15" Grid.Column="0"></Label>-->
                                     <TextBlock Grid.Row="3" Grid.Column="0" Margin="5,5,5,5">
@@ -470,20 +480,20 @@
                                         </ComboBox.ItemTemplate>
                                     </ComboBox>
                                     <ComboBox x:Name="sportsRankCmb" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"
-                              Grid.Row="3" SelectedValuePath="sports_id" SelectionChanged="sport_SelectionChanged" Margin="5,5,5,5">
+                              Grid.Row="3" SelectedValuePath="sports_code" SelectionChanged="sport_SelectionChanged" Margin="5,5,5,5">
                                         <ComboBox.ItemTemplate>
                                             <DataTemplate>
                                                 <TextBlock>
                                                     <TextBlock.Text>
                                                         <MultiBinding StringFormat="{}{0}">
-                                                            <Binding Path="sports"/>
+                                                            <Binding Path="sport"/>
                                                         </MultiBinding>
                                                     </TextBlock.Text>
                                                 </TextBlock>
                                             </DataTemplate>
                                         </ComboBox.ItemTemplate>
                                         <ComboBox.SelectedIndex >
-                                            <Binding Path="sports_id"/>
+                                            <Binding Path="sports_code"/>
                                         </ComboBox.SelectedIndex>
                                     </ComboBox>
 
@@ -494,10 +504,10 @@
                     </GroupBox>
                 </TabItem.Content>
             </TabItem>
-            <TabItem Header="Антропометрические данные">
+            <TabItem Header="Антропометрические данные" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
              
                 <GroupBox x:Name="groupBox" Margin="10,10,10,10" Grid.Row="2" VerticalAlignment="Top" Width="auto">
-                    <DataGrid x:Name="dataGridAntrometry" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <DataGrid x:Name="dataGridAntrometry" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">                        
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding id,Mode=TwoWay}" Header="№"></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding fam,Mode=TwoWay}" Header="Фамилия" ></DataGridTextColumn>
