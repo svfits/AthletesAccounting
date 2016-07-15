@@ -175,6 +175,12 @@ namespace AthletesAccounting
                                 db.SaveChanges();
                                 idMainSport = result.mainSport_id;
                             }
+                        }
+                        else
+                        {
+                            db.MainSport.Add(mainSport);
+                            db.SaveChanges();
+                            idMainSport = mainSport.mainSport_id;
                         }                 
                     }
                     catch
