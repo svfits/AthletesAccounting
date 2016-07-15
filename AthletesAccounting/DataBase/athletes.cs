@@ -256,8 +256,8 @@ namespace AthletesAccounting.DataBase
         /// Каким видом спорта преимущественно занимается 
         /// сколько времени
         ///// </summary>
-        public int? mainSport_code { get; set; }
-        [ForeignKey("mainSport_code")]
+        public int? mainSport_id { get; set; }
+        [ForeignKey("mainSport_id")]
         public virtual MainSport MainSport { get; set; }
 
         /// <summary>

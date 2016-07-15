@@ -138,6 +138,48 @@ namespace AthletesAccounting
         /// <param name="e"></param>
         private void saveAthlets_Click(object sender, RoutedEventArgs e)
         {
+            int? idMainSport = null;
+            #region блок 12 каким видом спорта преимущественно занимается сколько вермени
+
+            if (sportMain.SelectedValue != null && mainSportDateDatepicker.SelectedDate != null)
+            {
+                MainSport mainSport = new MainSport()
+                {
+                    dateOnSports = mainSportDateDatepicker.SelectedDate.Value,
+                    sport_code = sportMain.SelectedIndex
+                };
+
+                using (UserContext db = new UserContext())
+                {
+                    try
+                    {
+                            var result = db.Athletes.First(c => c.id == athletesAddorUpdate);
+
+                            if(result.mainSport_id == null)
+                            {
+                                db.MainSport.Add(mainSport);
+                            db.SaveChanges();
+                            idMainSport = mainSport.mainSport_id;
+                            }
+                            else
+                            {
+                            var result2 = db.MainSport.FirstOrDefault(c => c.mainSport_id == result.mainSport_id);
+
+                            result2.dateOnSports = mainSportDateDatepicker.SelectedDate.Value;
+                            result2.sport_code = sportMain.SelectedIndex;
+
+                            db.Entry(result2).State = EntityState.Modified;
+                            db.SaveChanges();
+                            idMainSport = result.mainSport_id;                           
+                        }                  
+                    }
+                    catch
+                    { }
+                }
+            }
+
+            #endregion
+
             Athletes newAthlet = new Athletes
             {
                 fam = fam.Text,
@@ -164,8 +206,9 @@ namespace AthletesAccounting
 
                 otherSports = txtotherSports.Text,
                 sportsGame  = sportGame.Text,
-                rankDateGet = rankDateSport.Text
-             
+                rankDateGet = rankDateSport.Text,
+                
+                mainSport_id = idMainSport
             };
 
             try {
@@ -216,11 +259,9 @@ namespace AthletesAccounting
                        update.sportsGame = sportGame.Text;
                        update.rankDateGet = rankDateSport.Text;
 
-                        #region блок 12 каким видом спорта преимущественно занимается сколько вермени
+                       update.mainSport_id = idMainSport;
 
-                        #endregion
-
-                        db.Entry(update).State = EntityState.Modified;
+                       db.Entry(update).State = EntityState.Modified;
                        db.SaveChanges();
 
                     }
@@ -306,7 +347,8 @@ namespace AthletesAccounting
             //        }
                
             //catch (Exception ex) { System.Diagnostics.Debug.WriteLine(" ex  " + ex); }
-        }
+        }      
+          
 
         private void rank_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
