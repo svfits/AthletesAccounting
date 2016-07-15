@@ -381,10 +381,7 @@
                                     </StackPanel>
                                     <DatePicker x:Name="mainSportDateDatepicker" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"
                                         ToolTip="Укажите дату начала занятий" Margin="5,5,5,5"  SelectedDateChanged="mainSportDateDatepicker_SelectedDateChanged"
-                                                SelectedDate="{Binding Path=MainSport.dateOnSports}"> 
-                                        <!--<DatePicker.SelectedDate>
-                                            <Binding Path="DOB"></Binding>
-                                        </DatePicker.SelectedDate>-->
+                                                SelectedDate="{Binding Path=MainSport.dateOnSports}">                                       
                                     </DatePicker>
                                     <Button x:Name="addMainSports" Grid.Column="5" Grid.Row="0" ToolTip="добавить вид спорта" VerticalAlignment="Stretch" Margin="5,5,5,5">Добавить</Button>
 

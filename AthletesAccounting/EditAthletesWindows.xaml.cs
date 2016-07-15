@@ -154,25 +154,28 @@ namespace AthletesAccounting
                 {
                     try
                     {
+                        if (athletesAddorUpdate != null)
+                        {
                             var result = db.Athletes.First(c => c.id == athletesAddorUpdate);
 
-                            if(result.mainSport_id == null)
+                            if (result.mainSport_id == null)
                             {
                                 db.MainSport.Add(mainSport);
-                            db.SaveChanges();
-                            idMainSport = mainSport.mainSport_id;
+                                db.SaveChanges();
+                                idMainSport = mainSport.mainSport_id;
                             }
                             else
                             {
-                            var result2 = db.MainSport.FirstOrDefault(c => c.mainSport_id == result.mainSport_id);
+                                var result2 = db.MainSport.FirstOrDefault(c => c.mainSport_id == result.mainSport_id);
 
-                            result2.dateOnSports = mainSportDateDatepicker.SelectedDate.Value;
-                            result2.sport_code = sportMain.SelectedIndex;
+                                result2.dateOnSports = mainSportDateDatepicker.SelectedDate.Value;
+                                result2.sport_code = sportMain.SelectedIndex;
 
-                            db.Entry(result2).State = EntityState.Modified;
-                            db.SaveChanges();
-                            idMainSport = result.mainSport_id;                           
-                        }                  
+                                db.Entry(result2).State = EntityState.Modified;
+                                db.SaveChanges();
+                                idMainSport = result.mainSport_id;
+                            }
+                        }                 
                     }
                     catch
                     { }
