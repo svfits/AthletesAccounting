@@ -165,6 +165,7 @@ namespace AthletesAccounting
                 otherSports = txtotherSports.Text,
                 sportsGame  = sportGame.Text,
                 rankDateGet = rankDateSport.Text
+             
             };
 
             try {
@@ -215,7 +216,11 @@ namespace AthletesAccounting
                        update.sportsGame = sportGame.Text;
                        update.rankDateGet = rankDateSport.Text;
 
-                       db.Entry(update).State = EntityState.Modified;
+                        #region блок 12 каким видом спорта преимущественно занимается сколько вермени
+
+                        #endregion
+
+                        db.Entry(update).State = EntityState.Modified;
                        db.SaveChanges();
 
                     }
@@ -317,6 +322,8 @@ namespace AthletesAccounting
             mainSportDateLbl.Content = (DateTime.Now.Year - yearMainSport).ToString();
         }
 
+        #region Блок 12-16
+
         /// <summary>
         //// другие виды спорта получил
         /// </summary>
@@ -364,11 +371,10 @@ namespace AthletesAccounting
         /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (
-                rankSportDateCmd.SelectedValue != null
+            if (rankSportDateCmd.SelectedValue != null
                 && rankDateAdd.SelectedDate != null 
                 && sportsRankCmb.SelectedValue != null
-                && !rankDateSport.Text.Contains(sportsRankCmb.SelectedValue.ToString())               
+                && ( ( rankDateSport.Text.Contains(sportsRankCmb.SelectedValue.ToString())  && rankDateSport.Text.Contains(rankSportDateCmd.SelectedValue.ToString()) ) != true)
                 )
             {
                 rankDateSport.Text += rankSportDateCmd.SelectedValue + "    " + rankDateAdd.SelectedDate.Value + "  " + sportsRankCmb.SelectedValue + "\n";
@@ -392,10 +398,12 @@ namespace AthletesAccounting
                 if (popup != null && popup.Child is Calendar)
                 {
                     Calendar calendar = (Calendar)popup.Child;
-                    calendar.DisplayMode = CalendarMode.Decade;
+                    calendar.DisplayMode = CalendarMode.Year;
                 }
             }
         }
+
+        #endregion
     }
-    
+
 }

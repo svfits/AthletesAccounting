@@ -451,7 +451,7 @@
                                     <Button x:Name="saveSport" Grid.Row="2" Grid.Column="5" VerticalAlignment="Stretch" Margin="5,5,5,5" Click="Button_Click">Добавить</Button>
 
                                     <!--<Label Content="Разряд дата получения" ToolTip="дата получения каждого разряда" Grid.Row="15" Grid.Column="0"></Label>-->
-                                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="5,5,5,5">
+                                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="5,5,5,5" VerticalAlignment="Center">
                             Разряд, дата получения
                             <LineBreak/>
                             каждого разряда,
