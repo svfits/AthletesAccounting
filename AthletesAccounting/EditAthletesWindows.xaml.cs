@@ -39,6 +39,7 @@ namespace AthletesAccounting
                            .Include("SportTeam")
                            .Include("Rank")
                            .Include("Education")
+                           .Include("MainSport")
                            .AsEnumerable()
                            .Where(c => c.id == id)
                            .FirstOrDefault()
@@ -446,6 +447,12 @@ namespace AthletesAccounting
         }
 
         #endregion
+
+        private void sportMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(sportMain.SelectedValue + "   sportsGameCmb.SelectedValue" + sportMain.SelectedValue);
+           
+        }
     }
 
 }

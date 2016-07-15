@@ -358,7 +358,7 @@
 
                                     <ComboBox x:Name="sportMain" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"
                                   Grid.Row="0" ToolTip="Каким видом спорта преимущественно занимается?"
-                                  SelectedValuePath="sports_code" Margin="5,5,5,5">
+                                  SelectedValuePath="sports_code" Margin="5,5,5,5" SelectedIndex="{Binding Path=MainSport.sport_code}" SelectionChanged="sportMain_SelectionChanged">
                                         <ComboBox.ItemTemplate>
                                             <DataTemplate>
                                                 <TextBlock>
@@ -370,9 +370,9 @@
                                                 </TextBlock>
                                             </DataTemplate>
                                         </ComboBox.ItemTemplate>
-                                        <ComboBox.SelectedIndex >
-                                            <Binding Path="sport_code"/>
-                                        </ComboBox.SelectedIndex>
+                                        <!--<ComboBox.SelectedIndex >
+                                            <Binding Path="MainSport.sport_code"/>
+                                        </ComboBox.SelectedIndex>-->
                                     </ComboBox>
                                     <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Center">
                                         <Label Content="Сколько времени" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
@@ -380,7 +380,12 @@
                                         <Label Content="лет" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                                     </StackPanel>
                                     <DatePicker x:Name="mainSportDateDatepicker" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"
-                                        ToolTip="Укажите дату начала занятий" Margin="5,5,5,5"  SelectedDateChanged="mainSportDateDatepicker_SelectedDateChanged"/>
+                                        ToolTip="Укажите дату начала занятий" Margin="5,5,5,5"  SelectedDateChanged="mainSportDateDatepicker_SelectedDateChanged"
+                                                SelectedDate="{Binding Path=MainSport.dateOnSports}">
+                                        <!--<DatePicker.SelectedDate>
+                                            <Binding Path="DOB"></Binding>
+                                        </DatePicker.SelectedDate>-->
+                                    </DatePicker>
                                     <Button x:Name="addMainSports" Grid.Column="5" Grid.Row="0" ToolTip="добавить вид спорта" VerticalAlignment="Stretch" Margin="5,5,5,5">Добавить</Button>
 
                                     <!--<Label Content="Какими др. видами занимался?" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left"
