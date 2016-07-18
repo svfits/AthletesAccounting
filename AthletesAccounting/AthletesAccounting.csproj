@@ -115,6 +115,14 @@
     <Compile Include="Migrations\201607150535287_AthletesAccounting.Designer.cs">
       <DependentUpon>201607150535287_AthletesAccounting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607180358374_AthletesAccounting1.cs" />
+    <Compile Include="Migrations\201607180358374_AthletesAccounting1.Designer.cs">
+      <DependentUpon>201607180358374_AthletesAccounting1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607180613395_AthletesAccounting2.cs" />
+    <Compile Include="Migrations\201607180613395_AthletesAccounting2.Designer.cs">
+      <DependentUpon>201607180613395_AthletesAccounting2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -134,6 +142,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607150535287_AthletesAccounting.resx">
       <DependentUpon>201607150535287_AthletesAccounting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607180358374_AthletesAccounting1.resx">
+      <DependentUpon>201607180358374_AthletesAccounting1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607180613395_AthletesAccounting2.resx">
+      <DependentUpon>201607180613395_AthletesAccounting2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

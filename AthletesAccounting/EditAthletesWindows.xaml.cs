@@ -218,7 +218,9 @@ namespace AthletesAccounting
                 sportsGame  = sportGame.Text,
                 rankDateGet = rankDateSport.Text,
                 
-                mainSport_id = idMainSport
+                mainSport_id = idMainSport,
+                notes = notesTxb.Text,
+                dateTimeNextProbe = dateNextDatePicker.SelectedDate.Value
             };
 
             try {
@@ -270,6 +272,8 @@ namespace AthletesAccounting
                        update.rankDateGet = rankDateSport.Text;
 
                        update.mainSport_id = idMainSport;
+                       update.notes = notesTxb.Text;
+                       update.dateTimeNextProbe = dateNextDatePicker.SelectedDate.Value;
 
                        db.Entry(update).State = EntityState.Modified;
                        db.SaveChanges();

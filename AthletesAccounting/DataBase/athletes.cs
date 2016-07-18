@@ -292,6 +292,10 @@ namespace AthletesAccounting.DataBase
             }
         }
 
+        public string notes { get; set; }
+
+        public DateTime? dateTimeNextProbe {get;set;}
+
     }
   
 }
