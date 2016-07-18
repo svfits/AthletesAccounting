@@ -35,7 +35,7 @@
         <TabControl Grid.Row="1">
             <TabItem Header="Карта спортсмена">
                 <TabItem.Content>
-                    <GroupBox Grid.Row="1" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <GroupBox Grid.Row="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                         <Grid Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -47,30 +47,43 @@
                                 <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition Height="auto" MinHeight="50"></RowDefinition>
                             </Grid.RowDefinitions>
-                        
-                                <Grid Margin="10" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                            <GroupBox Grid.Row="4" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                
+                                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                                     <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto" MinWidth="200"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
+                                   
                                 </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="50"></RowDefinition>
+                                        <RowDefinition Height="80"></RowDefinition>
                                     </Grid.RowDefinitions>
 
-                                <Button x:Name="saveAthlets" Grid.Row="0" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="5,5,15,5" 
-                                        Width="120" Click="saveAthlets_Click">Сохранить</Button>
+                                    <Label Content="Примечания" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  TextWrapping="Wrap"
+                                             VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Margin="5,5,5,5"/>
+                                    
+                                <Button x:Name="saveAthlets" Grid.Row="0" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="5,5,5,5" 
+                                        Width="120" Click="saveAthlets_Click" Height="32">Сохранить</Button>
 
-                                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+                                <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+                                    
                                     <Label Content="Дата заполнения карточки" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
                                     <Label x:Name="dateTimeGreateLbl" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5"
                                           ContentStringFormat="dd.MM.yyyy HH:mm" >
-                                        <Label.Content>
-                                            <Binding Path="DateGreate" Mode="TwoWay"  UpdateSourceTrigger="PropertyChanged" />
+                                        <Label.Content>                                                
+                                                    <Binding Path="DateGreate" Mode="TwoWay"  UpdateSourceTrigger="PropertyChanged" />
                                         </Label.Content>
                                     </Label>
+                                    
                                 </StackPanel>
-                            </Grid>                                                   
+                                    
+                              
+                            </Grid>
+                            </GroupBox>
 
                             <GroupBox Grid.Row="0" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                                 <Grid>
@@ -92,22 +105,25 @@
                                     </Grid.RowDefinitions>
 
                                     <Label Content="Фамилия" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
-                                    <TextBox x:Name="fam" Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5" Padding="2,2,2,2"> 
-                                        <TextBox.Text>
+                                    <TextBox x:Name="fam" Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5"
+                                             VerticalContentAlignment="Center" > 
+                                        <TextBox.Text>                                         
                                             <Binding Path="fam"></Binding>
                                         </TextBox.Text>
                                     </TextBox>
 
 
                                     <Label Content="Имя" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
-                                    <TextBox x:Name="name" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5">
+                                    <TextBox x:Name="name" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5"
+                                              VerticalContentAlignment="Center" >
                                         <TextBox.Text>
                                             <Binding Path="name"></Binding>
                                         </TextBox.Text>
                                     </TextBox>
 
                                     <Label Content="Отчество" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
-                                    <TextBox x:Name="parent" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5">
+                                    <TextBox x:Name="parent" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5"
+                                              VerticalContentAlignment="Center">
                                         <TextBox.Text>
                                             <Binding Path="parent"></Binding>
                                         </TextBox.Text>
@@ -133,14 +149,16 @@
 
 
                                     <Label Content="Домашний адрес" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5" />
-                                    <TextBox x:Name="Adres" Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="3" HorizontalAlignment="Stretch" Grid.ColumnSpan="3" Margin="5,5,5,5">
+                                    <TextBox x:Name="Adres" Grid.Column="1" VerticalAlignment="Stretch" Grid.Row="3" HorizontalAlignment="Stretch" Grid.ColumnSpan="3" Margin="5,5,5,5"
+                                              VerticalContentAlignment="Center">
                                         <TextBox.Text>
                                             <Binding Path="adress"></Binding>
                                         </TextBox.Text>
                                     </TextBox>
 
                                     <Label Content="Телефон" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
-                                    <TextBox x:Name="Telefon" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Margin="5,5,5,5"  >
+                                    <TextBox x:Name="Telefon" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Margin="5,5,5,5" 
+                                              VerticalContentAlignment="Center">
                                         <TextBox.Text>
                                             <Binding Path="telefon" Mode="TwoWay" ></Binding>
                                         </TextBox.Text>
@@ -192,14 +210,16 @@
                                     <Label Content="Место учебы/работы/ДУ" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" 
                           Margin="5,5,5,5"/>
 
-                                    <TextBox x:Name="PlaceStydy" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="7" Margin="5,5,5,5">
+                                    <TextBox x:Name="PlaceStydy" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="7" Margin="5,5,5,5"
+                                              VerticalContentAlignment="Center">
                                         <TextBox.Text>
                                             <Binding Path="PlaceofStudyAndWork"></Binding>
                                         </TextBox.Text>
                                     </TextBox>
 
                                     <Label Content="Профессия, Должность" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5,5,5"/>
-                                    <TextBox x:Name="profAthlets" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="7" Margin="5,5,5,5" >
+                                    <TextBox x:Name="profAthlets" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="7" Margin="5,5,5,5" 
+                                              VerticalContentAlignment="Center">
                                         <TextBox.Text>
                                             <Binding Path="profAthlets"></Binding>
                                         </TextBox.Text>
@@ -331,15 +351,15 @@
                                 </Grid>
                             </GroupBox>
 
-                            <GroupBox Grid.Row="2" Grid.RowSpan="2" Margin="5,5,5,5" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+                            <GroupBox Grid.Row="2" Grid.RowSpan="2"  HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"></ColumnDefinition>
                                         <ColumnDefinition Width="auto"  MinWidth="150"></ColumnDefinition>
-                                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                                        <ColumnDefinition Width="auto" MinWidth="150"></ColumnDefinition>
+                                        <ColumnDefinition Width="112"></ColumnDefinition>
+                                        <ColumnDefinition Width="150" MinWidth="112"></ColumnDefinition>
                                         <ColumnDefinition Width="auto" MinWidth="112"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto" MinWidth="150"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto"></RowDefinition>
@@ -374,16 +394,16 @@
                                             <Binding Path="MainSport.sport_code"/>
                                         </ComboBox.SelectedIndex>-->
                                     </ComboBox>
-                                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Center">
-                                        <Label Content="Сколько времени" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
-                                        <Label x:Name="mainSportDateLbl" Content="..." Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
+                                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="3" Margin="5,5,5,5" VerticalAlignment="Stretch"
+                                                HorizontalAlignment="Left" Grid.ColumnSpan="2" >
+                                        <Label Content="Сколько времени" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="1,5,1,5"/>
+                                        <Label x:Name="mainSportDateLbl" Content="..." Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="1,5,1,5"/>
                                         <Label Content="лет" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                                     </StackPanel>
-                                    <DatePicker x:Name="mainSportDateDatepicker" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                                    <DatePicker x:Name="mainSportDateDatepicker" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"
                                         ToolTip="Укажите дату начала занятий" Margin="5,5,5,5"  SelectedDateChanged="mainSportDateDatepicker_SelectedDateChanged"
                                                 SelectedDate="{Binding Path=MainSport.dateOnSports}">                                       
                                     </DatePicker>
-                                    <Button x:Name="addMainSports" Grid.Column="5" Grid.Row="0" ToolTip="добавить вид спорта" VerticalAlignment="Stretch" Margin="5,5,5,5">Добавить</Button>
 
                                     <!--<Label Content="Какими др. видами занимался?" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left"
                                VerticalAlignment="Center" ToolTip="Какими другими видами спорта занимался "/>-->
@@ -411,8 +431,9 @@
                                         </ComboBox.SelectedIndex>
                                     </ComboBox>
                                     <!--Text="{Binding ElementName=sportsOtherCmb,Path=SelectedValue}-->
-                                    <TextBox Name="txtotherSports" Grid.Row="1" Grid.Column="2" IsReadOnly="False" VerticalScrollBarVisibility="Auto"
-                                             VerticalAlignment="Stretch" Margin="5,5,5,5"  HorizontalAlignment="Stretch" Text="{Binding Path=otherSports }" Grid.ColumnSpan="3" >
+                                    <TextBox Name="txtotherSports" Grid.Row="1" Grid.Column="3" IsReadOnly="False" VerticalScrollBarVisibility="Auto"
+                                             VerticalAlignment="Stretch" Margin="5,5,5,5"  HorizontalAlignment="Stretch" Text="{Binding Path=otherSports }" Grid.ColumnSpan="3"
+                                              VerticalContentAlignment="Center">
                                         <!--<TextBox.Text>                                          
                                             <MultiBinding StringFormat="{}{0} + {1} + {2}">
                                                 <Binding ElementName="sportsOtherCmb" Path="SelectedValue"/>
@@ -422,7 +443,8 @@
                                         </TextBox.Text>-->
                                     </TextBox>
 
-                                    <Button x:Name="otherSports" Grid.Column="5" Grid.Row="1" ToolTip="добавить вид спорта" VerticalAlignment="Stretch" Margin="5,5,5,5" Click="otherSports_Click">Добавить</Button>
+                                    <Button x:Name="otherSports" Grid.Column="2" Grid.Row="1" ToolTip="добавить вид спорта" VerticalAlignment="Stretch" Margin="5,5,5,5"
+                                            Click="otherSports_Click">Добавить</Button>
 
                                     <!--<Label Content="По каким участвовал?" ToolTip="По каким видам спорта участвовал в соревнованиях?" Grid.Row="14" Grid.Column="0"></Label>-->
                                     <TextBlock Grid.Row="2" Grid.Column="0" Margin="5,5,5,5">
@@ -448,9 +470,9 @@
                                             <Binding Path="sport_code"/>
                                         </ComboBox.SelectedIndex>
                                     </ComboBox>
-                                    <TextBox x:Name="sportGame" Grid.Row="2" Grid.Column="2" IsReadOnly="False" VerticalAlignment="Stretch" Margin="5,5,5,5" Text="{Binding Path=sportsGame}"
-                                             Grid.ColumnSpan="3"/>
-                                    <Button x:Name="saveSport" Grid.Row="2" Grid.Column="5" VerticalAlignment="Stretch" Margin="5,5,5,5" Click="Button_Click">Добавить</Button>
+                                    <TextBox x:Name="sportGame" Grid.Row="2" Grid.Column="3" IsReadOnly="False" VerticalAlignment="Stretch" Margin="5,5,5,5" Text="{Binding Path=sportsGame}"
+                                              VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                                    <Button x:Name="saveSport" Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch" Margin="5,5,5,5" Click="Button_Click">Добавить</Button>
 
                                     <!--<Label Content="Разряд дата получения" ToolTip="дата получения каждого разряда" Grid.Row="15" Grid.Column="0"></Label>-->
                                     <TextBlock Grid.Row="3" Grid.Column="0" Margin="5,5,5,5" VerticalAlignment="Center">
@@ -464,9 +486,10 @@
                                     <!--<ComboBox x:Name="rancDate" Grid.Row="3" Grid.Column="1" ToolTip="Разряд" VerticalAlignment="Center" Margin="5,5,5,5"/>-->
                                     <DatePicker x:Name="rankDateAdd" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"  Margin="5,5,5,5" SelectedDateFormat="Short"
                                                 CalendarOpened="rankDateAdd_CalendarOpened"/>
-                                    <TextBox x:Name="rankDateSport" Grid.Row="3" Grid.Column="4" ToolTip="Перечень видов спорта" IsReadOnly="False" VerticalScrollBarVisibility="Auto"
+                                    <TextBox x:Name="rankDateSport" Grid.Row="3" Grid.Column="5" ToolTip="Перечень видов спорта" IsReadOnly="False" VerticalScrollBarVisibility="Auto"
                                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,5,5,5"  Text="{Binding Path=rankDateGet}" />
-                                    <Button Grid.Column="5" Grid.Row="3" ToolTip="добавить дату получения разряда" VerticalAlignment="Stretch" Margin="5,5,5,5" Click="Button_Click_1">Добавить</Button>
+                                    <Button Grid.Column="4" Grid.Row="3" ToolTip="добавить дату получения разряда" VerticalAlignment="Stretch" Margin="5,5,5,5" Click="Button_Click_1" 
+                                            Height="32">Добавить</Button>
                                     <!--<ComboBox ToolTip="Вид спрота" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"  Margin="5,5,5,5"/>-->
                                     <ComboBox x:Name="rankSportDateCmd" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="3"
                                   SelectedValuePath="rank" Margin="5,5,5,5" >
