@@ -73,6 +73,9 @@ namespace AthletesAccounting.DataBase
         /// </summary>
         public int leftHand { get; set; }
 
+        /// <summary>
+        /// становая 
+        /// </summary>
         public int stanovaya { get; set; }
 
         #endregion Спирометрия Динаномо-метрия
