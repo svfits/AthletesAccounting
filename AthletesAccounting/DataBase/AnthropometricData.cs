@@ -79,5 +79,19 @@ namespace AthletesAccounting.DataBase
         public int stanovaya { get; set; }
 
         #endregion Спирометрия Динаномо-метрия
+
+        #region Данные наружного осмотра
+
+        /// <summary>
+        ////Кожа
+        /// </summary>
+        public string skin { get; set; }
+
+        /// <summary>
+        /// видимые слизистые
+        /// </summary>
+        public string visibleMucousMembranes { get; set; }
+
+        #endregion
     }
 }
