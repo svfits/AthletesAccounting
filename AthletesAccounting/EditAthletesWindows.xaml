@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AthletesAccounting"
+        xmlns:local="clr-namespace:AthletesAccounting"       
         mc:Ignorable="d"
         Title="Карта Спортсмена"
         Loaded="Window_Loaded" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="969" Height="747" >
@@ -157,12 +157,12 @@
                                     </TextBox>
 
                                     <Label Content="Телефон" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
-                                    <TextBox x:Name="Telefon" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Margin="5,5,5,5" 
-                                              VerticalContentAlignment="Center">
+                                    <TextBox x:Name="Telefon"  Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Margin="5,5,5,5" 
+                                              VerticalContentAlignment="Center" PreviewTextInput="Telefon_PreviewTextInput">
                                         <TextBox.Text>
                                             <Binding Path="telefon" Mode="TwoWay" ></Binding>
                                         </TextBox.Text>
-                                    </TextBox>
+                                    </TextBox>                                
 
                                     <Label Content="Вид спорта" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
                                     <ComboBox x:Name="sportCmb" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"

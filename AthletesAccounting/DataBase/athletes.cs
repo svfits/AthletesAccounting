@@ -25,7 +25,9 @@ namespace AthletesAccounting.DataBase
         public string fam
         {
             get
-            { return _fam; }
+            {
+                return _fam;
+            }
             set
             {
                 _fam = value;
@@ -39,7 +41,9 @@ namespace AthletesAccounting.DataBase
         public string name
         {
             get
-            { return _name; }
+            {
+                return _name;
+            }
             set
             {
                 _name = value;
@@ -53,8 +57,10 @@ namespace AthletesAccounting.DataBase
         public string parent
         {
             get
-            { return _parent; }
-                 set
+            {
+                return _parent;
+            }
+           set
             {
                 _parent = value;
                 NotifyPropertyChanged();
@@ -70,7 +76,7 @@ namespace AthletesAccounting.DataBase
             {
                 return _sex;
             }
-                set
+           set
             {
                 _sex = value;
                 NotifyPropertyChanged();
@@ -118,7 +124,7 @@ namespace AthletesAccounting.DataBase
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
+     
         /// <summary>
         /// место учебы или работы
         /// </summary>     

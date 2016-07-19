@@ -140,6 +140,14 @@ namespace AthletesAccounting
         private void saveAthlets_Click(object sender, RoutedEventArgs e)
         {
             int? idMainSport = null;
+            DateTime? dateTimeNextProbe = null;
+
+            if (dateNextDatePicker.SelectedDate != null)
+            {
+                dateTimeNextProbe = dateNextDatePicker.SelectedDate.Value;
+            }
+
+
             #region блок 12 каким видом спорта преимущественно занимается сколько вермени
 
             if (sportMain.SelectedValue != null && mainSportDateDatepicker.SelectedDate != null)
@@ -220,7 +228,7 @@ namespace AthletesAccounting
                 
                 mainSport_id = idMainSport,
                 notes = notesTxb.Text,
-                dateTimeNextProbe = dateNextDatePicker.SelectedDate.Value
+                dateTimeNextProbe = dateTimeNextProbe
             };
 
             try {
@@ -273,7 +281,7 @@ namespace AthletesAccounting
 
                        update.mainSport_id = idMainSport;
                        update.notes = notesTxb.Text;
-                       update.dateTimeNextProbe = dateNextDatePicker.SelectedDate.Value;
+                       update.dateTimeNextProbe = dateTimeNextProbe;
 
                        db.Entry(update).State = EntityState.Modified;
                        db.SaveChanges();
@@ -465,6 +473,11 @@ namespace AthletesAccounting
         {
             System.Diagnostics.Debug.WriteLine(sportMain.SelectedValue + "   sportsGameCmb.SelectedValue" + sportMain.SelectedValue);
            
+        }
+
+        private void Telefon_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            //Telefon.OpacityMask = Brush.OpacityProperty;
         }
     }
 
