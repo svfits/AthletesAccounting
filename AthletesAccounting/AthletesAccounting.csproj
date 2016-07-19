@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBase\AnthropometricData.cs" />
     <Compile Include="DataBase\Education.cs" />
     <Compile Include="DataBase\MainSport.cs" />
     <Compile Include="DataBase\RankDateGet.cs" />

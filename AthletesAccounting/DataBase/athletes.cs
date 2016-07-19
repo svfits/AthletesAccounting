@@ -283,7 +283,7 @@ namespace AthletesAccounting.DataBase
         public string rankDateGet { get; set; }
       
         /// <summary>
-        /// дата полнения карточки
+        /// дата заполнения карточки
         /// </summary>
         public DateTime DateGreate
         {
@@ -300,6 +300,9 @@ namespace AthletesAccounting.DataBase
 
         public string notes { get; set; }
 
+        /// <summary>
+        /// дата следующей диспансеризация
+        /// </summary>
         public DateTime? dateTimeNextProbe {get;set;}
 
     }

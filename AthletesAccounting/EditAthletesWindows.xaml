@@ -77,8 +77,8 @@
                                           ContentStringFormat="dd.MM.yyyy HH:mm" Content="{Binding Path=DateGreate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                     
                                 </StackPanel>
-                                
-                                    <Label Grid.Row="0" Grid.Column="3" Content="Дата Следующего приема:" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                    <Label Grid.Row="0" Grid.Column="3" Content="Следующая диспансеризация:" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                     <DatePicker x:Name="dateNextDatePicker" Grid.Row="0" Grid.Column="4"  VerticalAlignment="Center" HorizontalAlignment="Center"
                                                 SelectedDate="{Binding Path=dateTimeNextProbe}"/>
                               
