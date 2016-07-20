@@ -305,6 +305,8 @@ namespace AthletesAccounting.DataBase
         /// </summary>
         public DateTime? dateTimeNextProbe {get;set;}
 
+
+
     }
   
 }
