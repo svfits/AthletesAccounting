@@ -92,6 +92,46 @@ namespace AthletesAccounting.DataBase
         /// </summary>
         public string visibleMucousMembranes { get; set; }
 
+        /// <summary>
+        /// лимфатическая система
+        /// </summary>
+        public string lymphaticSystem { get; set; }
+
+        /// <summary>
+        //  жироотложение
+        /// </summary>
+        public string fatDeposition { get; set; }
+
+        /// <summary>
+        /// мускулатура
+        /// </summary>
+        public string  musculature { get; set; }
+
+        /// <summary>
+        ////сост. груж ворот
+        /// </summary>
+        public string sosGrugVorot { get; set; }
+
+        /// <summary>
+        /// грудная клетка
+        /// </summary>
+        public string thorax { get; set; }
+
+        /// <summary>
+        /// спина 
+        /// </summary>
+        public string back { get; set; }
+
+        /// <summary>
+        ////стопа
+        /// </summary>
+        public string ream { get; set; }
+
+        /// <summary>
+        //// ноги
+        /// </summary>
+        public string foots { get; set; }
+
         #endregion
     }
 }
