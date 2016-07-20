@@ -108,21 +108,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201607130726207_InitialCreate.cs" />
-    <Compile Include="Migrations\201607130726207_InitialCreate.Designer.cs">
-      <DependentUpon>201607130726207_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201607200710413_sd.cs" />
+    <Compile Include="Migrations\201607200710413_sd.Designer.cs">
+      <DependentUpon>201607200710413_sd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201607150535287_AthletesAccounting.cs" />
-    <Compile Include="Migrations\201607150535287_AthletesAccounting.Designer.cs">
-      <DependentUpon>201607150535287_AthletesAccounting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607180358374_AthletesAccounting1.cs" />
-    <Compile Include="Migrations\201607180358374_AthletesAccounting1.Designer.cs">
-      <DependentUpon>201607180358374_AthletesAccounting1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607180613395_AthletesAccounting2.cs" />
-    <Compile Include="Migrations\201607180613395_AthletesAccounting2.Designer.cs">
-      <DependentUpon>201607180613395_AthletesAccounting2.cs</DependentUpon>
+    <Compile Include="Migrations\201607200713102_sd1.cs" />
+    <Compile Include="Migrations\201607200713102_sd1.Designer.cs">
+      <DependentUpon>201607200713102_sd1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -138,17 +130,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201607130726207_InitialCreate.resx">
-      <DependentUpon>201607130726207_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201607200710413_sd.resx">
+      <DependentUpon>201607200710413_sd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607150535287_AthletesAccounting.resx">
-      <DependentUpon>201607150535287_AthletesAccounting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607180358374_AthletesAccounting1.resx">
-      <DependentUpon>201607180358374_AthletesAccounting1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607180613395_AthletesAccounting2.resx">
-      <DependentUpon>201607180613395_AthletesAccounting2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201607200713102_sd1.resx">
+      <DependentUpon>201607200713102_sd1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

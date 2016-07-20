@@ -305,8 +305,10 @@ namespace AthletesAccounting.DataBase
         /// </summary>
         public DateTime? dateTimeNextProbe {get;set;}
 
-
+        public int? id_AnthropometricData { get; set; }
+        [ForeignKey("id_AnthropometricData")]
+        public virtual AnthropometricData AnthropometricData { get; set; }
 
     }
-  
+
 }

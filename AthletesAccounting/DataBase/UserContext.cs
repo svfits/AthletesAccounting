@@ -30,6 +30,8 @@ namespace AthletesAccounting.DataBase
 
         public DbSet<MainSport> MainSport { get; set; }
 
+        public DbSet<AnthropometricData> AnthropometricData { get; set; }
+
     }
 
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -7,10 +8,14 @@ using System.Threading.Tasks;
 
 namespace AthletesAccounting.DataBase
 {
-   public class AnthropometricData
+   public class AnthropometricData : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         [Key]
         public int id { get; set; }
+
+        public int id_AnthropometricData { get; set; }
 
         /// <summary>
         ////дата осмотра
@@ -167,7 +172,7 @@ namespace AthletesAccounting.DataBase
         //// ноги
         /// </summary>
         public string foots { get; set; }
-        public string foots_evaluation { get; set; }
+        public string foots_evaluation { get; set; }      
 
         #endregion
     }
