@@ -118,7 +118,7 @@ namespace AthletesAccounting
                     var result = db.Athletes
                         .Include("Sports")
                         .AsEnumerable()
-                        .Take(200)
+                        .Take(30)
                         .ToList()
                         ;
                    
@@ -147,6 +147,7 @@ namespace AthletesAccounting
                        .Include("Sports")               
                        .AsEnumerable()
                        .Where(c => c.fam.ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
+                       .Take(30)
                        .ToList()
                        ;
 
