@@ -43,81 +43,7 @@ namespace AthletesAccounting
 
            updateDataGrid();
         }
-
-        private void comboBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            //if (comboBox.Text.Length < 2)
-            //{
-            //    //comboBox.ItemsSource = null;
-            //    return;
-            //}
-            //   List<Athletes> result = null;
-            ////comboBox.ItemsSource = null;
-            //try
-            //{
-            //    using (UserContext db = new UserContext())
-            //    {
-            //     var result = db.Athletes
-            //        .AsEnumerable()                  
-            //        .Where(c => c.fam.ToLower().StartsWith(comboBox.Text.ToString()))
-            //        .Select(c => new
-            //        {
-            //            c.id,
-            //            c.fam,
-            //            c.name,
-            //            c.parent,                        
-            //            c.DOB              
-            //        }
-            //        )                    
-            //        .Take(20)
-            //        .ToList()
-            //        ;
-                                    
-            //        //comboBox.SelectedIndex = -1;
-            //        comboBox.IsDropDownOpen = true;
-            //        comboBox.ItemsSource = result;
-            //    }               
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(ex.ToString());
-            //}
-        }
-        
-        /// <summary>
-        /// выбор после поиска 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {        
-            //try
-            //{
-            //    using (UserContext db = new UserContext())
-            //    {
-            //        var result = db.Athletes
-            //           .Include("Sports")
-            //           .Include("SportTeam")
-            //           .Include("Rank")
-            //           .Include("Education")                     
-            //           .AsEnumerable()                       
-            //           .Where(c => c.id == Convert.ToInt32(comboBox.SelectedValue))                       
-            //           .FirstOrDefault()
-            //           ;
-                 
-            //        this.DataContext = result;
-            //        System.Diagnostics.Debug.WriteLine(result.name + "    select11111111111111111111111111111111111111111111111   " + result.education_id);
-                                      
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(ex.ToString());
-            //}
-
-          
-        }
-
+      
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             MenuItem menuItem = (MenuItem)sender;
@@ -172,7 +98,7 @@ namespace AthletesAccounting
         {
             try
             {
-                EditAthletesWindows EditAthletesWin = new EditAthletesWindows();
+                EditAthletesWindows EditAthletesWin = new EditAthletesWindows(null);
                 EditAthletesWin.ShowDialog();
             }
             catch

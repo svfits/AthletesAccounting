@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace AthletesAccounting.DataBase
         /// <summary>
         ////дата осмотра
         /// </summary>
+        [Column(TypeName = "Date")]
         public DateTime dateGreate { get; set; }
 
         /// <summary>

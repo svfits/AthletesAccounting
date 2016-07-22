@@ -23,11 +23,11 @@ namespace AthletesAccounting
     public partial class EditAthletesWindows : Window    
     {
         int? athletesAddorUpdate;
-        public EditAthletesWindows(int id = -100)
+        public EditAthletesWindows(int? id)
         {
             InitializeComponent();
             
-            if (id != -100)
+            if (id != null)
             {
                 athletesAddorUpdate = id;
                 try
@@ -48,6 +48,16 @@ namespace AthletesAccounting
                         this.DataContext = result;
                         //System.Diagnostics.Debug.WriteLine(result.name + "    select11111111111111111111111111111111111111111111111   " + result.education_id);
 
+                        var result1 = db.AnthropometricData                        
+                       .AsEnumerable()
+                       .Where( c => c.id_AnthropometricData == 1)
+                       .Take(200)                       
+                       .ToList()
+                       ;
+
+                        //dataGridALLAthlets.ItemsSource = result;
+                        dataGridAntrometry.ItemsSource = result1;
+                       
                     }
                 }
                 catch (Exception ex)
@@ -56,6 +66,7 @@ namespace AthletesAccounting
                 }
             }            
         }
+              
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
