@@ -41,14 +41,14 @@ namespace AthletesAccounting
                            .Include("Education")
                            .Include("MainSport")
                            .AsEnumerable()
-                           .Where(c => c.id == id)
+                           .Where(c => c.id == id)                                                                                                                                                                                                      
                            .FirstOrDefault()
                            ;
 
                         this.DataContext = result;
                         //System.Diagnostics.Debug.WriteLine(result.name + "    select11111111111111111111111111111111111111111111111   " + result.education_id);
 
-                        var result1 = db.AnthropometricData                        
+                        dataGridAntrometry.ItemsSource = db.AnthropometricData                        
                        .AsEnumerable()
                        .Where( c => c.id_AnthropometricData == 1)
                        .Take(200)                       
@@ -56,7 +56,7 @@ namespace AthletesAccounting
                        ;
 
                         //dataGridALLAthlets.ItemsSource = result;
-                        dataGridAntrometry.ItemsSource = result1;
+                      
                        
                     }
                 }
@@ -110,6 +110,11 @@ namespace AthletesAccounting
                     //System.Diagnostics.Debug.WriteLine(result3.ToString());
                     education.ItemsSource = result3;
 
+                    var result4 = db.Couch
+                    .AsEnumerable()
+                    .ToList()
+                     ;
+                    comboxCouch.ItemsSource = result4;
                 }
             }
             catch (Exception ex)
@@ -152,10 +157,16 @@ namespace AthletesAccounting
         {
             int? idMainSport = null;
             DateTime? dateTimeNextProbe = null;
+            int? id_couch = null;
 
             if (dateNextDatePicker.SelectedDate != null)
             {
                 dateTimeNextProbe = dateNextDatePicker.SelectedDate.Value;
+            }
+
+            if (comboxCouch.SelectedValue !=null)
+            {
+                id_couch = comboxCouch.SelectedIndex;
             }
 
 
@@ -239,7 +250,9 @@ namespace AthletesAccounting
                 
                 mainSport_id = idMainSport,
                 notes = notesTxb.Text,
-                dateTimeNextProbe = dateTimeNextProbe
+                dateTimeNextProbe = dateTimeNextProbe,
+                id_couch = id_couch
+                
             };
 
             try {
@@ -293,6 +306,7 @@ namespace AthletesAccounting
                        update.mainSport_id = idMainSport;
                        update.notes = notesTxb.Text;
                        update.dateTimeNextProbe = dateTimeNextProbe;
+                       update.id_couch = id_couch;
 
                        db.Entry(update).State = EntityState.Modified;
                        db.SaveChanges();
@@ -417,6 +431,11 @@ namespace AthletesAccounting
         private void Telefon_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             //Telefon.OpacityMask = Brush.OpacityProperty;
+        }
+
+        private void comboxCouch_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(comboxCouch.SelectedIndex + "  " + comboxCouch.SelectedValue);
         }
     }
 

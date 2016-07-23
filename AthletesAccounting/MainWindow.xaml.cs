@@ -121,6 +121,7 @@ namespace AthletesAccounting
                 {
                     var result = db.Athletes
                         .Include("Sports")
+                        .Include("Couch")
                         .AsEnumerable()
                         .Take(300)
                         .ToList()
@@ -153,6 +154,7 @@ namespace AthletesAccounting
                         {
                             var result = db.Athletes
                                .Include("Sports")
+                               .Include("Couch")
                                .AsEnumerable()
                                .Where(c => c.fam.ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
                                .Take(30)
@@ -175,6 +177,7 @@ namespace AthletesAccounting
                     {
                         var result = db.Athletes
                            .Include("Sports")
+                           .Include("Couch")
                            .AsEnumerable()
                            .Where(c => c.Sports.sport.ToString().ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
                            .Take(30)
@@ -193,6 +196,7 @@ namespace AthletesAccounting
                     {
                         var result = db.Athletes
                            .Include("Sports")
+                           .Include("Couch")
                            .AsEnumerable()
                            .Where(c => c.dateTimeNextProbe <= DateTime.Now.AddDays(Convert.ToInt32(Text_Filtr_DataGrid_Athletes.Text)))
                            .Take(30)
@@ -204,6 +208,25 @@ namespace AthletesAccounting
 
                     }
                 }
+                else if (radioButtonCouch.IsChecked == true)
+                {
+                    using (UserContext db = new UserContext())
+                    {
+                        var result = db.Athletes
+                           .Include("Sports")
+                           .Include("Couch")
+                           .AsEnumerable()
+                           .Where(c => c.Couch.fam.ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
+                           .Take(30)
+                           .ToList()
+                           ;
+
+                        dataGridALLAthlets.ItemsSource = result;
+                        System.Diagnostics.Debug.WriteLine("  количество спортсменов   " + result.Count);
+
+                    }
+                }
+            
             }
         }
     }

@@ -1,6 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 
 namespace AthletesAccounting.DataBase
 {
@@ -24,10 +26,10 @@ namespace AthletesAccounting.DataBase
             set
             {
                 _fam = value;
-                OnPropertyChanged("Couch");
+                NotifyPropertyChanged();
             }
         }
-
+      
         public string name
         {
             get
@@ -37,7 +39,7 @@ namespace AthletesAccounting.DataBase
             set
             {
                 _name = value;
-                OnPropertyChanged("Couch");
+                NotifyPropertyChanged();
             }
         }
 
@@ -50,7 +52,7 @@ namespace AthletesAccounting.DataBase
             set
             {
                 _parent = value;
-                OnPropertyChanged("Couch");
+                NotifyPropertyChanged();
             }
         }
 
@@ -58,13 +60,13 @@ namespace AthletesAccounting.DataBase
         [ForeignKey("sport_code")]
         public virtual Sports Sports { get; set; }
 
-        protected void OnPropertyChanged(string name)
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
+            if (PropertyChanged != null)
             {
-                handler(this, new PropertyChangedEventArgs(name));
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
     }
 }

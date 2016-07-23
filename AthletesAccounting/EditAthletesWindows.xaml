@@ -6,18 +6,19 @@
         xmlns:local="clr-namespace:AthletesAccounting"       
         mc:Ignorable="d"
         Title="Карта Спортсмена"  WindowStartupLocation="CenterScreen"
-        Loaded="Window_Loaded" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="auto" >
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,-154,-223"  >
+        Loaded="Window_Loaded" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="924" Height="767" 
+        >
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>          
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Menu Height="25" VerticalAlignment="Top" Grid.Row="0">
             <MenuItem Header="Файл">
                 <MenuItem Header="Экспорт БД в excel" Click="exportExcel"></MenuItem>
-                <MenuItem Header="Ипорт БД из excel" Click="importExcel"/>             
+                <MenuItem Header="Ипорт БД из excel" Click="importExcel"/>
                 <Separator />
                 <MenuItem Header="Выход" Click="MenuItem_Click_exit" ToolTip="Выход"></MenuItem>
             </MenuItem>
@@ -49,43 +50,61 @@
                             </Grid.RowDefinitions>
 
                             <GroupBox Grid.Row="4" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                
+
                                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                                     <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
-                                    <ColumnDefinition Width="auto" MinWidth="200"></ColumnDefinition>
-                                    <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
-                                    <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
-                                    <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
-                                    <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>                                        
+                                        <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto" MinWidth="200"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto"></RowDefinition>
                                         <RowDefinition Height="auto"></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    
-                                    <!--<Label--> 
+
+                                    <Label  Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Тренер"/>
+                                    <ComboBox x:Name="comboxCouch" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                              Grid.Row="1" SelectedValuePath="id_couch" Grid.ColumnSpan="2"
+                                              SelectionChanged="comboxCouch_SelectionChanged" Margin="5,5,5,5" SelectedIndex="{Binding Path=id_couch}"
+                                              >
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock>
+                                                    <TextBlock.Text>
+                                                        <MultiBinding StringFormat="{}{0}  {1}  {2}">
+                                                            <Binding Path="fam"/>
+                                                            <Binding Path="name"/>
+                                                            <Binding Path="parent"/>
+                                                        </MultiBinding>
+                                                    </TextBlock.Text>
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>                                      
+                                    </ComboBox>
 
                                     <Label Content="Примечания" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                     <TextBox x:Name="notesTxb" Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  TextWrapping="Wrap"
-                                             VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Margin="5,5,5,5" Text="{Binding Path=notes}"/>
-                                    
-                                <Button x:Name="saveAthlets" Grid.Row="0" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="5,5,5,5" 
+                                             VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Margin="5,5,5,5" Text="{Binding Path=notes}" Grid.RowSpan="2"/>
+
+                                    <Button x:Name="saveAthlets" Grid.Row="0" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="5,5,5,5" 
                                         Width="120" Click="saveAthlets_Click" Height="32">Сохранить</Button>
 
-                                <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Center">
-                                    
-                                    <Label Content="Дата заполнения " Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
-                                    <Label x:Name="dateTimeGreateLbl" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5"
+                                    <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+
+                                        <Label Content="Дата заполнения " Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5"/>
+                                        <Label x:Name="dateTimeGreateLbl" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5"
                                           ContentStringFormat="dd.MM.yyyy HH:mm" Content="{Binding Path=DateGreate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    
-                                </StackPanel>
+
+                                    </StackPanel>
 
                                     <Label Grid.Row="0" Grid.Column="3" Content="Следующая диспансеризация:" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                     <DatePicker x:Name="dateNextDatePicker" Grid.Row="0" Grid.Column="4"  VerticalAlignment="Center" HorizontalAlignment="Center"
                                                 SelectedDate="{Binding Path=dateTimeNextProbe}"/>
-                              
-                            </Grid>
+
+                                </Grid>
                             </GroupBox>
 
                             <GroupBox Grid.Row="0" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
@@ -109,8 +128,8 @@
 
                                     <Label Content="Фамилия" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
                                     <TextBox x:Name="fam" Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5"
-                                             VerticalContentAlignment="Center" > 
-                                        <TextBox.Text>                                         
+                                             VerticalContentAlignment="Center" >
+                                        <TextBox.Text>
                                             <Binding Path="fam"></Binding>
                                         </TextBox.Text>
                                     </TextBox>
@@ -165,7 +184,7 @@
                                         <TextBox.Text>
                                             <Binding Path="telefon" Mode="TwoWay" ></Binding>
                                         </TextBox.Text>
-                                    </TextBox>                                
+                                    </TextBox>
 
                                     <Label Content="Вид спорта" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,5,5,5"/>
                                     <ComboBox x:Name="sportCmb" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
@@ -405,7 +424,7 @@
                                     </StackPanel>
                                     <DatePicker x:Name="mainSportDateDatepicker" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"
                                         ToolTip="Укажите дату начала занятий" Margin="5,5,5,5"  SelectedDateChanged="mainSportDateDatepicker_SelectedDateChanged"
-                                                SelectedDate="{Binding Path=MainSport.dateOnSports}">                                       
+                                                SelectedDate="{Binding Path=MainSport.dateOnSports}">
                                     </DatePicker>
 
                                     <!--<Label Content="Какими др. видами занимался?" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left"
@@ -537,10 +556,10 @@
                 </TabItem.Content>
             </TabItem>
             <TabItem Header="Антропометрические данные" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
-             
+
                 <GroupBox x:Name="groupBox" Margin="10,10,10,10" Grid.Row="2" VerticalAlignment="Top" Width="auto">
                     <DataGrid x:Name="dataGridAntrometry" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                               AutoGenerateColumns="False" >                        
+                               AutoGenerateColumns="False" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding weight,Mode=TwoWay}" Header="Вес" ></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding height,Mode=TwoWay}" Header="Рост стоя"></DataGridTextColumn>
@@ -563,21 +582,21 @@
                             <DataGridTextColumn Binding="{Binding foots,Mode=TwoWay}" Header="Ноги" ></DataGridTextColumn>
 
                             <!--<DataGridTextColumn Binding="{Binding dateGreate,Mode=TwoWay}" Header="Дата осмотра" ></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Age,Mode=TwoWay}" Header="Возраст" ></DataGridTextColumn>-->                       
-                           
+                            <DataGridTextColumn Binding="{Binding Age,Mode=TwoWay}" Header="Возраст" ></DataGridTextColumn>-->
+
                         </DataGrid.Columns>
                         <DataGrid.RowHeaderTemplate>
                             <DataTemplate>
                                 <TextBlock  >
-                                    <TextBlock.Text x:Uid="dateAndOsmotr">    
-                                        lghlgjhlkjgklj                                      
-                                            <!--<MultiBinding StringFormat="{}{0}">
+                                    <TextBlock.Text x:Uid="dateAndOsmotr">
+                                        lghlgjhlkjgklj
+                                        <!--<MultiBinding StringFormat="{}{0}">
                                                 <Binding Path="dateGreate" Mode="TwoWay"/>
                                                  <Binding Path="  !!!!!!!!!!   "/>
                                                 <Binding Path="Age" Mode="TwoWay" />
-                                        </MultiBinding>-->                                       
+                                        </MultiBinding>-->
                                     </TextBlock.Text>
-                                    
+
                                     <TextBlock.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
@@ -588,7 +607,7 @@
                                     </TextBlock.RenderTransform>
                                 </TextBlock>
                             </DataTemplate>
-                            
+
                         </DataGrid.RowHeaderTemplate>
 
                         <DataGrid.LayoutTransform>
@@ -625,7 +644,7 @@
 
                     </DataGrid>
 
-                        <!--<Label Content="Возраст" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <!--<Label Content="Возраст" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <TextBox x:Name="txtbAge" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="0" Width="100" IsReadOnly="True"/>
 
                             <Label Content="Рост" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
@@ -655,8 +674,8 @@
                             <Label Content="Динанометрия лв." Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
                             <TextBox x:Name="DynamometryL" Grid.Column="5"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Width="100"/>-->
 
-                      
-                   
+
+
                 </GroupBox>
             </TabItem>
             <TabItem Header="Врач спортивной медицины"></TabItem>

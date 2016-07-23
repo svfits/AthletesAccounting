@@ -84,7 +84,7 @@
                 <RadioButton x:Name="radioButtonFIO" Content="Поиск по ФИО" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Center" IsChecked="True"/>
                 <RadioButton x:Name="radioButton1Sport" Content="Поиск по спорту" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
                 <RadioButton x:Name="radioButtonDateOsmotr" Content="Поиск по дате осмотра" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-
+                <RadioButton x:Name="radioButtonCouch" Content="Поиск по тренеру" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" />
             </Grid>
         </GroupBox>
         <GroupBox Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,5,5">
@@ -105,6 +105,7 @@
                     <DataGridTextColumn Binding="{Binding telefon,Mode=TwoWay}" Header="Телефон"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding DOB,Mode=TwoWay , StringFormat={}{0:dd.MM.yyyy} }" Header="ДР"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding Sports.sport,Mode=TwoWay}" Header="Вид спорта"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Couch.fam,Mode=TwoWay}" Header="Тренер"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding dateTimeNextProbe,Mode=TwoWay  , StringFormat={}{0:dd.MM.yyyy}}" Header="Дата следующего осмотра"></DataGridTextColumn>
                 </DataGrid.Columns>
 
