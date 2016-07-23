@@ -68,7 +68,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AuthorizationWindow.xaml.cs">
+      <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataBase\AnthropometricData.cs" />
+    <Compile Include="DataBase\Couch.cs" />
     <Compile Include="DataBase\Education.cs" />
     <Compile Include="DataBase\MainSport.cs" />
     <Compile Include="DataBase\RankDateGet.cs" />
@@ -80,6 +84,10 @@
     <Compile Include="HandbookWindow.xaml.cs">
       <DependentUpon>HandbookWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="AuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditAthletesWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,6 +128,10 @@
     <Compile Include="Migrations\201607200850455_s.Designer.cs">
       <DependentUpon>201607200850455_s.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607230557054_lll.cs" />
+    <Compile Include="Migrations\201607230557054_lll.Designer.cs">
+      <DependentUpon>201607230557054_lll.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -142,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607200850455_s.resx">
       <DependentUpon>201607200850455_s.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607230557054_lll.resx">
+      <DependentUpon>201607230557054_lll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

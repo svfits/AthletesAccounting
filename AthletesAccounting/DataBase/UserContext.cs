@@ -32,6 +32,8 @@ namespace AthletesAccounting.DataBase
 
         public DbSet<AnthropometricData> AnthropometricData { get; set; }
 
+        public DbSet<Couch> Couch { get; set; }
+        
     }
 
 }

@@ -5,23 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AthletesAccounting"            
         mc:Ignorable="d"
-        Title="Карта пациента"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-        Loaded="Window_Loaded" Height="1180" Width="1024"
+        Title="Карта пациента"  VerticalAlignment="Center" HorizontalAlignment="Stretch"
+        Loaded="Window_Loaded" WindowStartupLocation="CenterScreen"
         >
 
-    <Grid x:Name="gridAll" Margin="10,10,10,10" FocusManager.FocusedElement="{Binding ElementName=Text_Filtr_DataGrid_Athletes}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Grid x:Name="gridAll" Margin="10,10,10,10" FocusManager.FocusedElement="{Binding ElementName=Text_Filtr_DataGrid_Athletes}" VerticalAlignment="Top" HorizontalAlignment="Left">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto" MinHeight="200"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <!--<RowDefinition Height="*"></RowDefinition>-->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <GroupBox Grid.Row="0" Margin="10,35,10,10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+        <Menu Grid.Row="0" VerticalAlignment="Top" Margin="5,5,5,5" HorizontalAlignment="Left">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Экспорт БД в excel" Click="exportExcel"></MenuItem>
+                <MenuItem Header="Ипорт БД из excel" Click="importExcel"/>
+                <!--<MenuItem Header="WinForms"></MenuItem>
+                    <MenuItem Header="WPF" ></MenuItem>-->
+                <Separator />
+                <MenuItem Header="Выход" Click="MenuItem_Click_exit" ToolTip="Выход"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Редактировать" >
+                <MenuItem Header="Справочники">
+                    <MenuItem Header="Виды спорта" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Спортколлектив (ДЮСШ)" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Образование" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Разряды" Click="MenuItem_Click"></MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Настройки" ></MenuItem>
+        </Menu>
+
+        <GroupBox Grid.Row="1" Margin="5,5,5,5" VerticalAlignment="Stretch">
             <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -58,19 +81,19 @@
                                      Width="250" Padding="5,5,5,5" Height="auto" PreviewTextInput="Text_Filtr_Grid_Log_PreviewTextInput"
                                      ToolTip="Введите 3 символа">
                 </TextBox>
-                <RadioButton x:Name="radioButton" Content="Поиск по тренеру" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Center" />
-                <RadioButton x:Name="radioButton1" Content="Поиск по спорту" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center"/>             
-
+                <RadioButton x:Name="radioButtonFIO" Content="Поиск по ФИО" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Center" IsChecked="True"/>
+                <RadioButton x:Name="radioButton1Sport" Content="Поиск по спорту" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                <RadioButton x:Name="radioButtonDateOsmotr" Content="Поиск по дате осмотра" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
 
             </Grid>
         </GroupBox>
-        <GroupBox Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,10">
+        <GroupBox Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,5,5">
             <!--<Grid>-->
 
-            <DataGrid x:Name="dataGridALLAthlets" Grid.Row="1" CanUserDeleteRows="False"
+            <DataGrid x:Name="dataGridALLAthlets" Grid.Row="0" CanUserDeleteRows="False"
                               AutoGenerateColumns="False" CanUserAddRows="False"
-                              Margin="10,10,10,10" ScrollViewer.VerticalScrollBarVisibility="Auto"
-                               VerticalAlignment="Top" HorizontalAlignment="Stretch" SelectedItem="id" 
+                              Margin="10,10,10,10" ScrollViewer.VerticalScrollBarVisibility="Visible"
+                               VerticalAlignment="Top" HorizontalAlignment="Left" SelectedItem="id" 
                               MouseDoubleClick="dataGridALLAthlets_MouseDoubleClick">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding id,Mode=TwoWay}" Header="№"></DataGridTextColumn>
@@ -78,10 +101,11 @@
                     <DataGridTextColumn Binding="{Binding name,Mode=TwoWay}" Header="Имя" ></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding parent,Mode=TwoWay}" Header="Отчество" ></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding sex,Mode=TwoWay}" Header="Пол"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding adress,Mode=TwoWay}" Header="Адрес"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding adress,Mode=TwoWay}"  Header="Адрес"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding telefon,Mode=TwoWay}" Header="Телефон"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding DOB,Mode=TwoWay , StringFormat={}{0:dd.MM.yyyy} }" Header="ДР"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding Sports.sport,Mode=TwoWay}" Header="Вид спорта"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding dateTimeNextProbe,Mode=TwoWay  , StringFormat={}{0:dd.MM.yyyy}}" Header="Дата следующего осмотра"></DataGridTextColumn>
                 </DataGrid.Columns>
 
             </DataGrid>
@@ -90,25 +114,7 @@
         </GroupBox>
 
 
-        <Menu Height="25" VerticalAlignment="Top">
-            <MenuItem Header="Файл">
-                <MenuItem Header="Экспорт БД в excel" Click="exportExcel"></MenuItem>
-                <MenuItem Header="Ипорт БД из excel" Click="importExcel"/>
-                <!--<MenuItem Header="WinForms"></MenuItem>
-                    <MenuItem Header="WPF" ></MenuItem>-->
-                <Separator />
-                <MenuItem Header="Выход" Click="MenuItem_Click_exit" ToolTip="Выход"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="Редактировать" >
-                <MenuItem Header="Справочники">
-                    <MenuItem Header="Виды спорта" Click="MenuItem_Click"></MenuItem>
-                    <MenuItem Header="Спортколлектив (ДЮСШ)" Click="MenuItem_Click"></MenuItem>
-                    <MenuItem Header="Образование" Click="MenuItem_Click"></MenuItem>
-                    <MenuItem Header="Разряды" Click="MenuItem_Click"></MenuItem>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="Настройки" ></MenuItem>
-        </Menu>
+
     </Grid>
 
 

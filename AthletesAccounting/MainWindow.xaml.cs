@@ -24,7 +24,10 @@ namespace AthletesAccounting
     {
         public MainWindow()
         {
-            InitializeComponent();        
+            InitializeComponent();
+
+            //gridAll.MaxHeight = SystemParameters.WorkArea.Height - 150;
+            gridAll.MaxWidth = SystemParameters.WorkArea.Width - 150;
         }
 
         private void Btn_Grid_Update_Click(object sender, RoutedEventArgs e)
@@ -39,7 +42,8 @@ namespace AthletesAccounting
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           SizeToContent = SizeToContent.WidthAndHeight;
+            //SizeToContent = SizeToContent.WidthAndHeight;
+            SizeToContent = SizeToContent.Width;
 
            updateDataGrid();
         }
@@ -118,7 +122,7 @@ namespace AthletesAccounting
                     var result = db.Athletes
                         .Include("Sports")
                         .AsEnumerable()
-                        .Take(30)
+                        .Take(300)
                         .ToList()
                         ;
                    
@@ -139,26 +143,67 @@ namespace AthletesAccounting
         /// <param name="e"></param>
         private void Text_Filtr_Grid_Log_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            try
+            if (Text_Filtr_DataGrid_Athletes.Text.Length >= 3)
             {
-                using (UserContext db = new UserContext())
+                if (radioButtonFIO.IsChecked == true)
                 {
-                    var result = db.Athletes
-                       .Include("Sports")               
-                       .AsEnumerable()
-                       .Where(c => c.fam.ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
-                       .Take(30)
-                       .ToList()
-                       ;
+                    try
+                    {
+                        using (UserContext db = new UserContext())
+                        {
+                            var result = db.Athletes
+                               .Include("Sports")
+                               .AsEnumerable()
+                               .Where(c => c.fam.ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
+                               .Take(30)
+                               .ToList()
+                               ;
 
-                    dataGridALLAthlets.ItemsSource = result;
-                    System.Diagnostics.Debug.WriteLine( "  result.id   " + result.FirstOrDefault());
+                            dataGridALLAthlets.ItemsSource = result;
+                            System.Diagnostics.Debug.WriteLine("  количество фамилией " + result.Count);
 
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.ToString());
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.ToString());
+                else if (radioButton1Sport.IsChecked == true)
+                {
+                    using (UserContext db = new UserContext())
+                    {
+                        var result = db.Athletes
+                           .Include("Sports")
+                           .AsEnumerable()
+                           .Where(c => c.Sports.sport.ToString().ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
+                           .Take(30)
+                           .ToList()
+                           ;
+
+                        dataGridALLAthlets.ItemsSource = result;
+                        System.Diagnostics.Debug.WriteLine("  количество спортсменов   "  + result.Count);
+
+                    }
+               
+                }
+                else if (radioButtonDateOsmotr.IsChecked == true)
+                {
+                    using (UserContext db = new UserContext())
+                    {
+                        var result = db.Athletes
+                           .Include("Sports")
+                           .AsEnumerable()
+                           .Where(c => c.dateTimeNextProbe <= DateTime.Now.AddDays(Convert.ToInt32(Text_Filtr_DataGrid_Athletes.Text)))
+                           .Take(30)
+                           .ToList()
+                           ;
+
+                        dataGridALLAthlets.ItemsSource = result;
+                        System.Diagnostics.Debug.WriteLine("  количество спортсменов   " + result.Count);
+
+                    }
+                }
             }
         }
     }
