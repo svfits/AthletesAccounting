@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Карта Спортсмена"  WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="auto" >
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,-154,-223"  >
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -60,8 +60,11 @@
                                     <ColumnDefinition Width="auto" MinWidth="100"></ColumnDefinition>                                        
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="80"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
                                     </Grid.RowDefinitions>
+                                    
+                                    <!--<Label--> 
 
                                     <Label Content="Примечания" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                     <TextBox x:Name="notesTxb" Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  TextWrapping="Wrap"
