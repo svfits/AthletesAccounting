@@ -157,7 +157,7 @@ namespace AthletesAccounting
                                .Include("Couch")
                                .AsEnumerable()
                                .Where(c => c.fam.ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
-                               .Take(30)
+                               .Take(150)
                                .ToList()
                                ;
 
@@ -180,7 +180,7 @@ namespace AthletesAccounting
                            .Include("Couch")
                            .AsEnumerable()
                            .Where(c => c.Sports.sport.ToString().ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
-                           .Take(30)
+                           //.Take(30)
                            .ToList()
                            ;
 
@@ -216,8 +216,8 @@ namespace AthletesAccounting
                            .Include("Sports")
                            .Include("Couch")
                            .AsEnumerable()
-                           .Where(c => c.Couch.fam.ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
-                           .Take(30)
+                           .Where(c => c.Couch.fam.ToString().ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
+                           //.Take(30)
                            .ToList()
                            ;
 

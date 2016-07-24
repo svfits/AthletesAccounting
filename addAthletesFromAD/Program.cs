@@ -12,6 +12,12 @@ namespace AddAthletesFromAD
     {
         public static void Main(string[] args)
         {
+            using (UserContext db = new UserContext())
+            {
+                db.Athletes.RemoveRange(db.Athletes);
+                db.SaveChanges();
+            }
+
             AddUsersFromAD gg = new AddUsersFromAD();
             gg.FromADtoBD();
             Console.ReadKey();
@@ -101,10 +107,10 @@ namespace AddAthletesFromAD
                 fam = fam,
                 name = name,
                 parent = parent,
-                adress = "Иркутская область г.Ангарск улица Ворошилова 117а корпус 7 квартира 115",
+                adress = "Иркутская область г.Ангарск улица Ворошилова " + RandomCombo3() + " корпус " + RandomCombo3() + " квартира " + RandomCombo3(),
                 sex = "Муж.",
-                telefon = "89501475249",
-                PlaceofStudyAndWork = "школа №32",
+                telefon = "89501475" + RandomComboTel(),
+                PlaceofStudyAndWork = "школа №" + RandomCombo2() ,
                 livingСonditions = "НЕ удолетворительно",
                 sportTeam_code = RandomCombo(),
                 profAthlets = "Директор",
@@ -119,11 +125,12 @@ namespace AddAthletesFromAD
                 mainSport_id = 34,
                 otherSports = "Футбол Хоккей Тенис",
                 sportsGame = "Футбол  Крекет  Волейбол  Настольный Тенис  Картинг",
-                rankDateGet = "1 разряд    13.07.2016 Тенис \n" + "2 разряд    13.07.2016 Тенис \n",
+                rankDateGet = "1 разряд    " + RandomDay() +" Тенис \n" + "2 разряд   " + RandomDay() + " Тенис \n",
                 DateGreate = RandomDay(),
                 notes = "Пиль куриль  болель",
                 dateTimeNextProbe = RandomDay(),
-                education_code = RandomCombo()
+                education_code = RandomCombo(),
+                id_couch = RandomCombo2()
             };
 
             using (UserContext db = new UserContext())
@@ -137,6 +144,7 @@ namespace AddAthletesFromAD
         DateTime RandomDay()
         {
             Random gen = new Random();
+            System.Threading.Thread.Sleep(RandomCombo2());
             DateTime start = new DateTime(1930, 1, 1);
             int range = (DateTime.Today - start).Days;
             System.Diagnostics.Debug.WriteLine(start.AddDays(gen.Next(range)).ToString());
@@ -147,7 +155,31 @@ namespace AddAthletesFromAD
         int RandomCombo()
         {
             Random gen = new Random();
-            int rnd = gen.Next(0, 6);
+            System.Threading.Thread.Sleep(RandomCombo2());
+            int rnd = gen.Next(0, 7);
+            return rnd;
+        }
+
+        int RandomCombo2()
+        {
+            Random gen = new Random();
+            int rnd = gen.Next(0, 11);
+            return rnd;
+        }
+
+        int RandomCombo3()
+        {
+            Random gen = new Random();
+            System.Threading.Thread.Sleep(RandomCombo2());
+            int rnd = gen.Next(1, 500);
+            return rnd;
+        }
+
+        int RandomComboTel()
+        {
+            Random gen = new Random();
+            System.Threading.Thread.Sleep(RandomCombo2());
+            int rnd = gen.Next(100, 999);
             return rnd;
         }
     }
