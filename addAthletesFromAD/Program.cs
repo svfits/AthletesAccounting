@@ -107,15 +107,15 @@ namespace AddAthletesFromAD
                 fam = fam,
                 name = name,
                 parent = parent,
-                adress = "Иркутская область г.Ангарск улица Ворошилова " + RandomCombo3() + " корпус " + RandomCombo3() + " квартира " + RandomCombo3(),
+                adress = "Иркутская область г.Ангарск, "  + RandomCombo3() + " квартал, " + RandomCombo3() + " дом, " + RandomCombo3() + " квартира",
                 sex = "Муж.",
-                telefon = "89501475" + RandomComboTel(),
-                PlaceofStudyAndWork = "школа №" + RandomCombo2() ,
-                livingСonditions = "НЕ удолетворительно",
+                telefon = "89501" + RandomComboTel() + RandomComboTel(),
+                PlaceofStudyAndWork = "школа №" + RandomCombo3() ,
+                livingСonditions = "Удолетворительно",
                 sportTeam_code = RandomCombo(),
                 profAthlets = "Директор",
-                alcohol = "Много",
-                smoke = "Курит",
+                alcohol = "Не употребляет",
+                smoke = "Не курит",
                 operations = "Ре­зекция желудка по поводу язвенной болезни \n" + "Костно - плас­тическая ампутация стопы по Н.И.Пирогову \n" + "Аppendectomia \n" + "Удаление периферической части конечности на уровне сустава \n",
                 pastIllnes = "Корь \n" + "Краснуха \n" + "Гепатит А \n" + "Паротит",
                 injuries = "Перелом левого уха",
@@ -127,10 +127,11 @@ namespace AddAthletesFromAD
                 sportsGame = "Футбол  Крекет  Волейбол  Настольный Тенис  Картинг",
                 rankDateGet = "1 разряд    " + RandomDay() +" Тенис \n" + "2 разряд   " + RandomDay() + " Тенис \n",
                 DateGreate = RandomDay(),
-                notes = "Пиль куриль  болель",
+                notes = "13.03.2016 был вызван на прием к неврологу \n",
                 dateTimeNextProbe = RandomDay(),
                 education_code = RandomCombo(),
-                id_couch = RandomCombo2()
+                id_couch = RandomCombo2(),
+                
             };
 
             using (UserContext db = new UserContext())
@@ -171,7 +172,7 @@ namespace AddAthletesFromAD
         {
             Random gen = new Random();
             System.Threading.Thread.Sleep(RandomCombo2());
-            int rnd = gen.Next(1, 500);
+            int rnd = gen.Next(1, 999);
             return rnd;
         }
 
