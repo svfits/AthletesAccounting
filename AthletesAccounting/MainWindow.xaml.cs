@@ -127,7 +127,8 @@ namespace AthletesAccounting
                         .ToList()
                         ;
                    
-                    dataGridALLAthlets.ItemsSource = result;                  
+                    dataGridALLAthlets.ItemsSource = result;
+                    labelTotal.Content = result.Count;                
                        
                 }
             }
@@ -162,6 +163,7 @@ namespace AthletesAccounting
                                ;
 
                             dataGridALLAthlets.ItemsSource = result;
+                            labelTotal.Content = result.Count;
                             System.Diagnostics.Debug.WriteLine("  количество фамилией " + result.Count);
 
                         }
@@ -185,6 +187,7 @@ namespace AthletesAccounting
                            ;
 
                         dataGridALLAthlets.ItemsSource = result;
+                        labelTotal.Content = result.Count;
                         System.Diagnostics.Debug.WriteLine("  количество спортсменов   "  + result.Count);
 
                     }
@@ -204,6 +207,7 @@ namespace AthletesAccounting
                            ;
 
                         dataGridALLAthlets.ItemsSource = result;
+                        labelTotal.Content = result.Count;
                         System.Diagnostics.Debug.WriteLine("  количество спортсменов   " + result.Count);
 
                     }
@@ -222,6 +226,7 @@ namespace AthletesAccounting
                            ;
 
                         dataGridALLAthlets.ItemsSource = result;
+                        labelTotal.Content = result.Count;
                         System.Diagnostics.Debug.WriteLine("  количество спортсменов   " + result.Count);
 
                     }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AthletesAccounting"            
         mc:Ignorable="d"
         Title="Карта пациента"  VerticalAlignment="Center" HorizontalAlignment="Stretch"
-        Loaded="Window_Loaded" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Width="1029"
         >
 
     <Grid x:Name="gridAll" Margin="10,10,10,10" FocusManager.FocusedElement="{Binding ElementName=Text_Filtr_DataGrid_Athletes}" VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -14,7 +14,7 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <!--<RowDefinition Height="*"></RowDefinition>-->
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -114,6 +114,12 @@
             <!--</Grid>-->
         </GroupBox>
 
+        <GroupBox Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5">
+            <StackPanel Orientation="Horizontal">
+               <Label Content="Итого:" Grid.Column="0" VerticalAlignment="Center" Margin="5,5,5,5" HorizontalAlignment="Center"/>
+               <Label x:Name="labelTotal" Content="......" Grid.Column="0" VerticalAlignment="Center" Margin="5,5,5,5" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </GroupBox>
 
 
     </Grid>

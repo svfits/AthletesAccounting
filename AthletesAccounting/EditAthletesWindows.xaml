@@ -678,11 +678,56 @@
 
                 </GroupBox>
             </TabItem>
-            <TabItem Header="Врач спортивной медицины"></TabItem>
-            <TabItem Header="Врач2"></TabItem>
-            <TabItem Header="Врач3"></TabItem>
-            <TabItem Header="Врач4"></TabItem>
-            <TabItem Header="Врач5"></TabItem>
+            <TabItem Header="Врач спортивной медицины">
+                <TextBox  VerticalAlignment="Top"
+                          HorizontalAlignment="Stretch" 
+                          TextWrapping="Wrap"
+                          VerticalScrollBarVisibility="Auto"
+                          AcceptsReturn="True"
+                          Margin="5,5,5,5"
+                          MinHeight="650"                          
+                          Text="{Binding Path=notes}"/>
+            </TabItem>
+            <TabItem Header="Врач2">
+                <TextBox  VerticalAlignment="Top"
+                          HorizontalAlignment="Stretch" 
+                          TextWrapping="Wrap"
+                          VerticalScrollBarVisibility="Auto"
+                          AcceptsReturn="True"
+                          Margin="5,5,5,5"
+                          MinHeight="650"                          
+                          Text="{Binding Path=notes}"/>
+            </TabItem>
+            <TabItem Header="Врач3">
+                <TextBox  VerticalAlignment="Top"
+                          HorizontalAlignment="Stretch" 
+                          TextWrapping="Wrap"
+                          VerticalScrollBarVisibility="Auto"
+                          AcceptsReturn="True"
+                          Margin="5,5,5,5"
+                          MinHeight="650"                          
+                          Text="{Binding Path=notes}"/>
+            </TabItem>
+            <TabItem Header="Врач4">
+                <TextBox  VerticalAlignment="Top"
+                          HorizontalAlignment="Stretch" 
+                          TextWrapping="Wrap"
+                          VerticalScrollBarVisibility="Auto"
+                          AcceptsReturn="True"
+                          Margin="5,5,5,5"
+                          MinHeight="650"                          
+                          Text="{Binding Path=notes}"/>
+            </TabItem>
+            <TabItem Header="Врач5">
+                <TextBox  VerticalAlignment="Top"
+                          HorizontalAlignment="Stretch" 
+                          TextWrapping="Wrap"
+                          VerticalScrollBarVisibility="Auto"
+                          AcceptsReturn="True"
+                          Margin="5,5,5,5"
+                          MinHeight="650"                          
+                          Text="{Binding Path=notes}"/>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
