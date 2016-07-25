@@ -561,6 +561,7 @@
                     <DataGrid x:Name="dataGridAntrometry" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                                AutoGenerateColumns="False" >
                         <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding dateGreate,Mode=TwoWay, StringFormat={}{0:dd.MM.yyyy} }"  Header="Дата Осмотра" ></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding weight,Mode=TwoWay}" Header="Вес" ></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding height,Mode=TwoWay}" Header="Рост стоя"></DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding breath,Mode=TwoWay}" Header="Вдох"></DataGridTextColumn>
@@ -587,24 +588,15 @@
                         </DataGrid.Columns>
                         <DataGrid.RowHeaderTemplate>
                             <DataTemplate>
-                                <TextBlock  >
-                                    <TextBlock.Text x:Uid="dateAndOsmotr">
-                                        lghlgjhlkjgklj
-                                        <!--<MultiBinding StringFormat="{}{0}">
-                                                <Binding Path="dateGreate" Mode="TwoWay"/>
-                                                 <Binding Path="  !!!!!!!!!!   "/>
-                                                <Binding Path="Age" Mode="TwoWay" />
-                                        </MultiBinding>-->
-                                    </TextBlock.Text>
-
-                                    <TextBlock.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="-90"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </TextBlock.RenderTransform>
+                                <TextBlock >
+                                    <Label Content="Дата Осмотра" >
+                                    <Label.LayoutTransform>
+                                        <ScaleTransform ScaleX="-1" />
+                                    </Label.LayoutTransform>
+                                    </Label>
+                                    <TextBlock.LayoutTransform>
+                                        <RotateTransform Angle="-90"/>                                       
+                                    </TextBlock.LayoutTransform>
                                 </TextBlock>
                             </DataTemplate>
 

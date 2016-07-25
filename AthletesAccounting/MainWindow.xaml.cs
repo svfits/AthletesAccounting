@@ -158,7 +158,7 @@ namespace AthletesAccounting
                                .Include("Couch")
                                .AsEnumerable()
                                .Where(c => c.fam.ToLower().StartsWith(Text_Filtr_DataGrid_Athletes.Text))
-                               .Take(150)
+                               .Take(300)
                                .ToList()
                                ;
 
@@ -202,7 +202,7 @@ namespace AthletesAccounting
                            .Include("Couch")
                            .AsEnumerable()
                            .Where(c => c.dateTimeNextProbe <= DateTime.Now.AddDays(Convert.ToInt32(Text_Filtr_DataGrid_Athletes.Text)))
-                           .Take(30)
+                           //.Take(30)
                            .ToList()
                            ;
 
