@@ -7,13 +7,13 @@ namespace AthletesAccounting.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class аап : IMigrationMetadata
+    public sealed partial class d1c : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(аап));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(d1c));
         
         string IMigrationMetadata.Id
         {
-            get { return "201607230601438_аап"; }
+            get { return "201607280649017_d1c"; }
         }
         
         string IMigrationMetadata.Source

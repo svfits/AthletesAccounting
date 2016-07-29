@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AthletesAccounting.DataBase.User;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -11,20 +12,15 @@ namespace AthletesAccounting.DataBase
     {
         public UserContext() :
             base("data source = (localdb)\\MSSQLLocalDB; Initial Catalog = AthletesAccounting; Integrated Security = True; TrustServerCertificate=False") { }
-        //   base("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = 2222; Integrated Security = True") { }                 
+          //base("BookContext") { }                 
         
-
         public DbSet<Athletes> Athletes{get; set;}     
-
-        //public DbSet<Operations> Operations { get; set; }
-
+   
         public DbSet<Rank> Rank { get; set; }
 
         public DbSet<SportTeam> SportTeam { get; set; }
 
         public DbSet<Education> Education { get; set; }
-
-        //public DbSet<Rank> Rank { get; set; }
 
         public DbSet<Sports> Sports { get; set; }
 
@@ -33,6 +29,15 @@ namespace AthletesAccounting.DataBase
         public DbSet<AnthropometricData> AnthropometricData { get; set; }
 
         public DbSet<Couch> Couch { get; set; }
+
+        /// <summary>
+        ////пользователи
+        /// </summary>
+        public DbSet<Users> Users { get; set; }
+        /// <summary>
+        ///  роли пользователей
+        /// </summary>
+        public DbSet<RoleUsers> RoleUsers { get; set; }
         
     }
 

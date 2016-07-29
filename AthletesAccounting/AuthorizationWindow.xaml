@@ -5,19 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AthletesAccounting"
         mc:Ignorable="d"
-        Title="AuthorizationWindow" Height="300" Width="300">
+         WindowStartupLocation="CenterScreen"
+        Title="Вход в программу учет спортсменов" Height="250" Width="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" MinHeight="50"></RowDefinition>
             <RowDefinition Height="auto" MinHeight="50" ></RowDefinition>
             <RowDefinition Height="auto" MinHeight="50"></RowDefinition>
-            <!--<RowDefinition Height="auto"></RowDefinition>-->
+            <RowDefinition Height="auto" ></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="textBoxLogin" Margin="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0"></TextBox>
-        <PasswordBox Grid.Row="1" Grid.Column="0"/>
-        <Button x:Name="buttonAuthrization" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="2" Content="Вход"/>
+        <TextBox x:Name="textBoxLogin" Margin="5,5,5,5" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center"></TextBox>
+        <PasswordBox x:Name="passwordTextBox" Grid.Row="1" Grid.Column="0" Margin="5,5,5,5" VerticalContentAlignment="Center"></PasswordBox>
+        <Button x:Name="buttonAuthrization" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                Grid.Column="0" Grid.Row="2" Content="Вход" Click="buttonAuthrization_Click" />
+        <Label x:Name="lblWhat" Grid.Row="3" Content="Введите логин и пароль" VerticalAlignment="Center" HorizontalAlignment="Center" />
     </Grid>
 </Window>

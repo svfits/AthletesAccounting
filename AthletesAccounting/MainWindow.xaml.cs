@@ -22,12 +22,14 @@ namespace AthletesAccounting
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(string login)
         {
             InitializeComponent();
 
             //gridAll.MaxHeight = SystemParameters.WorkArea.Height - 150;
             gridAll.MaxWidth = SystemParameters.WorkArea.Width - 150;
+
+            this.Title = "оператор " + login;
         }
 
         private void Btn_Grid_Update_Click(object sender, RoutedEventArgs e)
