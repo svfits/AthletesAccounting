@@ -1,8 +1,10 @@
 ﻿using AthletesAccounting.DataBase;
+using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,13 +16,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace AthletesAccounting
 {
     /// <summary>
     /// форма для редактирования спортсменов 
     /// </summary>
-    public partial class EditAthletesWindows : Window    
+    public partial class EditAthletesWindows : System.Windows.Window
     {
         int? athletesAddorUpdate;
         public EditAthletesWindows(int? id)
@@ -437,6 +440,84 @@ namespace AthletesAccounting
         {
             System.Diagnostics.Debug.WriteLine(comboxCouch.SelectedIndex + "  " + comboxCouch.SelectedValue);
         }
+
+        private void ImportTemplete(object sender, RoutedEventArgs e)
+        {
+            #region сохранение шаблона в БД         
+
+            //string filename = @"C:\Users\afanasievdv\Downloads\шаблон формы 061у.doc";
+
+            //string templateFileName = "шаблон формы для печати";
+
+            //byte[] imageData;
+            //using (System.IO.FileStream fs = new System.IO.FileStream(filename, FileMode.Open))
+            //{
+            //    imageData = new byte[fs.Length];
+            //    fs.Read(imageData, 0, imageData.Length);
+            //}
+
+            //using (UserContext db = new UserContext())
+            //{
+            //    Templates template = new Templates
+            //    {
+            //        templateFilename = templateFileName,
+            //        template = imageData,
+            //        notesTemplate = "примечание"
+            //    };
+
+            //    db.Templates.Add(
+            //        template
+            //        );
+            //    db.SaveChanges();
+            //}
+
+            #endregion сохранение шаблона
+
+            #region извлечение из БД
+            //using (UserContext db = new UserContext())
+            //{
+            //    var result = db.Templates.FirstOrDefault().template;
+
+            //    using (System.IO.FileStream fs = new System.IO.FileStream("шаблон.doc", FileMode.OpenOrCreate))
+            //    {
+            //        fs.Write(result, 0, result.Length);
+
+            //    }
+
+            //}
+            #endregion извлечение из БД
+
+            try
+            {
+                var wordApp = new Word.Application();
+                var wordDoc = wordApp.Documents.Add(
+                    @"\\isea.ru\Homes\Employee\afanasievdv\My Documents\Visual Studio 2015\Projects\AthletesAccounting\AthletesAccounting\bin\Debug\шаблон.doc"
+                         );
+                ReplaceStub("date",DateTime.Now.ToString("yyyy/MM/dd"), wordDoc); //Заменяем метку на данные из формы(здесь конкретно из текстбокса с именем textBox_fio)
+                                                       ///Может быть много таких меток
+                object SaveAsFile = (object)@"\\isea.ru\Homes\Employee\afanasievdv\My Documents\Visual Studio 2015\Projects\AthletesAccounting\AthletesAccounting\bin\Debug\шаблон2.doc";
+                
+                wordDoc.SaveAs2(SaveAsFile);
+                wordDoc.Close();
+
+                System.Diagnostics.Process.Start(@"\\isea.ru\Homes\Employee\afanasievdv\My Documents\Visual Studio 2015\Projects\AthletesAccounting\AthletesAccounting\bin\Debug\шаблон2.doc");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ReplaceStub(string stubToReplace, string text, Word.Document worldDocument)
+        {
+            var range = worldDocument.Content;
+            range.Find.ClearFormatting();
+            object wdReplaceAll = Word.WdReplace.wdReplaceAll;
+            range.Find.Execute(FindText: stubToReplace, ReplaceWith: text, Replace: wdReplaceAll);
+        }
+
+      
+
     }
 
 }

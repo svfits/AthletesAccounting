@@ -71,6 +71,9 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -102,14 +105,18 @@
     <Compile Include="DataBase\AnthropometricData.cs" />
     <Compile Include="DataBase\Couch.cs" />
     <Compile Include="DataBase\Education.cs" />
+    <Compile Include="DataBase\Log\Log.cs" />
+    <Compile Include="DataBase\Log\TypeEvent.cs" />
+    <Compile Include="DataBase\Log\WhereEvent.cs" />
     <Compile Include="DataBase\MainSport.cs" />
     <Compile Include="DataBase\RankDateGet.cs" />
     <Compile Include="DataBase\SportTeam.cs" />
+    <Compile Include="DataBase\Templates.cs" />
     <Compile Include="DataBase\User\Hash.cs" />
     <Compile Include="EditAthletesWindows.xaml.cs">
       <DependentUpon>EditAthletesWindows.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ImportorExportExcel\Excel.cs" />
+    <Compile Include="ImportExport\Excel.cs" />
     <Compile Include="HandbookWindow.xaml.cs">
       <DependentUpon>HandbookWindow.xaml</DependentUpon>
     </Compile>
@@ -165,6 +172,14 @@
     <Compile Include="Migrations\201607281308528_a.Designer.cs">
       <DependentUpon>201607281308528_a.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608040340363_www.cs" />
+    <Compile Include="Migrations\201608040340363_www.Designer.cs">
+      <DependentUpon>201608040340363_www.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608040445554_www1.cs" />
+    <Compile Include="Migrations\201608040445554_www1.Designer.cs">
+      <DependentUpon>201608040445554_www1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -193,6 +208,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607281308528_a.resx">
       <DependentUpon>201607281308528_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608040340363_www.resx">
+      <DependentUpon>201608040340363_www.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608040445554_www1.resx">
+      <DependentUpon>201608040445554_www1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

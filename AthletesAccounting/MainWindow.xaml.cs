@@ -29,7 +29,13 @@ namespace AthletesAccounting
             //gridAll.MaxHeight = SystemParameters.WorkArea.Height - 150;
             gridAll.MaxWidth = SystemParameters.WorkArea.Width - 150;
 
-            this.Title = "оператор " + login;
+            this.Title = "Оператор " + login;
+        }
+
+        public MainWindow ()
+        {
+            InitializeComponent();
+            gridAll.MaxWidth = SystemParameters.WorkArea.Width - 150;
         }
 
         private void Btn_Grid_Update_Click(object sender, RoutedEventArgs e)
@@ -47,7 +53,7 @@ namespace AthletesAccounting
             //SizeToContent = SizeToContent.WidthAndHeight;
             SizeToContent = SizeToContent.Width;
 
-           updateDataGrid();
+            updateDataGrid();
         }
       
         private void MenuItem_Click(object sender, RoutedEventArgs e)

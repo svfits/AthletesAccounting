@@ -28,7 +28,6 @@ namespace AthletesAccounting.DataBase.User
             {
                 using (UserContext db = new UserContext())
                 {
-
                     var result = db.Users
                         .AsEnumerable()
                         .Where(c => c.login == login)

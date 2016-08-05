@@ -38,7 +38,10 @@ namespace AthletesAccounting.DataBase
         ///  роли пользователей
         /// </summary>
         public DbSet<RoleUsers> RoleUsers { get; set; }
-        
+
+        public DbSet<Templates> Templates { get; set; }
+
+
     }
 
 }

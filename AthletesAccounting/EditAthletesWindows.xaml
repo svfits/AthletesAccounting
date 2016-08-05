@@ -18,7 +18,8 @@
         <Menu Height="25" VerticalAlignment="Top" Grid.Row="0">
             <MenuItem Header="Файл">
                 <MenuItem Header="Экспорт БД в excel" Click="exportExcel"></MenuItem>
-                <MenuItem Header="Ипорт БД из excel" Click="importExcel"/>
+                <MenuItem Header="Ипорт БД из excel" Click="importExcel"></MenuItem>
+                <MenuItem Header="Ипорт в печатную форму" Click="ImportTemplete"></MenuItem>
                 <Separator />
                 <MenuItem Header="Выход" Click="MenuItem_Click_exit" ToolTip="Выход"></MenuItem>
             </MenuItem>
