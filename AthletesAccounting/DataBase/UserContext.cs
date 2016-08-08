@@ -1,4 +1,5 @@
 ﻿using AthletesAccounting.DataBase.User;
+using AthletesAccounting.DataBase.Settings;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -38,9 +39,14 @@ namespace AthletesAccounting.DataBase
         ///  роли пользователей
         /// </summary>
         public DbSet<RoleUsers> RoleUsers { get; set; }
-
+        /// <summary>
+        ////шаблоны для печати итд
+        /// </summary>
         public DbSet<Templates> Templates { get; set; }
-
+        /// <summary>
+        /// системные настроки
+        /// </summary>
+        public DbSet<Settings.Settings> Settings { get; set; }
 
     }
 

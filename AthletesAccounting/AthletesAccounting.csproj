@@ -110,8 +110,9 @@
     <Compile Include="DataBase\Log\WhereEvent.cs" />
     <Compile Include="DataBase\MainSport.cs" />
     <Compile Include="DataBase\RankDateGet.cs" />
+    <Compile Include="DataBase\Settings\Settings.cs" />
     <Compile Include="DataBase\SportTeam.cs" />
-    <Compile Include="DataBase\Templates.cs" />
+    <Compile Include="DataBase\Templates\Templates.cs" />
     <Compile Include="DataBase\User\Hash.cs" />
     <Compile Include="EditAthletesWindows.xaml.cs">
       <DependentUpon>EditAthletesWindows.xaml</DependentUpon>
@@ -146,6 +147,7 @@
     <Compile Include="DataBase\UserContext.cs" />
     <Compile Include="DataBase\User\RoleUsers.cs" />
     <Compile Include="DataBase\User\Users.cs" />
+    <Compile Include="ImportExport\ExportPatientСard.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -179,6 +181,10 @@
     <Compile Include="Migrations\201608040445554_www1.cs" />
     <Compile Include="Migrations\201608040445554_www1.Designer.cs">
       <DependentUpon>201608040445554_www1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608080700279_www2.cs" />
+    <Compile Include="Migrations\201608080700279_www2.Designer.cs">
+      <DependentUpon>201608080700279_www2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -214,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608040445554_www1.resx">
       <DependentUpon>201608040445554_www1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608080700279_www2.resx">
+      <DependentUpon>201608080700279_www2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

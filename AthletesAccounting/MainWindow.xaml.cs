@@ -110,7 +110,7 @@ namespace AthletesAccounting
         {
             try
             {
-                EditAthletesWindows EditAthletesWin = new EditAthletesWindows(null);
+                EditAthletesWindows EditAthletesWin = new EditAthletesWindows();
                 EditAthletesWin.ShowDialog();
             }
             catch
