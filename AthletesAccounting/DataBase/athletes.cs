@@ -308,7 +308,9 @@ namespace AthletesAccounting.DataBase
         public int? id_AnthropometricData { get; set; }
         [ForeignKey("id_AnthropometricData")]
         public virtual AnthropometricData AnthropometricData { get; set; }
-
+        /// <summary>
+        ////тренер
+        /// </summary>
         public int? id_couch { get; set; }
         [ForeignKey("id_couch")]
         public virtual Couch Couch { get; set; }

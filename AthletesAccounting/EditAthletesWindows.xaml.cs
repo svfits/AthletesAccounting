@@ -334,7 +334,7 @@ namespace AthletesAccounting
 
         private void mainSportDateDatepicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            DateTime newDate = DateTime.Now;
+            //DateTime newDate = DateTime.Now;
 
             if (mainSportDateDatepicker.SelectedDate != null)
             {
@@ -355,9 +355,9 @@ namespace AthletesAccounting
         {
             if (!txtotherSports.Text.Contains(sportsOtherCmb.SelectedValue.ToString()))
             {
-                System.Diagnostics.Debug.WriteLine(sportsOtherCmb.SelectedValue + "   rankCmb.SelectedValue" + txtotherSports.Text);
+                System.Diagnostics.Debug.WriteLine(sportsOtherCmb.SelectedValue + " rankCmb.SelectedValue" + txtotherSports.Text);
                 //txtotherSports.Text += sportsOtherCmb.SelectedValue + "\n";
-                txtotherSports.Text += sportsOtherCmb.SelectedValue + " ";
+                txtotherSports.Text += sportsOtherCmb.SelectedValue + ", ";
             }
         }
 
@@ -380,9 +380,9 @@ namespace AthletesAccounting
         {
             if (!sportGame.Text.Contains(sportsGameCmb.SelectedValue.ToString()))
             {
-                System.Diagnostics.Debug.WriteLine(sportsGameCmb.SelectedValue + "   sportsGameCmb.SelectedValue" + sportGame.Text);
+                System.Diagnostics.Debug.WriteLine(sportsGameCmb.SelectedValue + " sportsGameCmb.SelectedValue" + sportGame.Text);
                 //sportGame.Text += sportsGameCmb.SelectedValue + "\n";
-                sportGame.Text += sportsGameCmb.SelectedValue + "  ";
+                sportGame.Text += sportsGameCmb.SelectedValue + ", ";
             }
         }
 
@@ -399,7 +399,7 @@ namespace AthletesAccounting
                 && ( ( rankDateSport.Text.Contains(sportsRankCmb.SelectedValue.ToString())  && rankDateSport.Text.Contains(rankSportDateCmd.SelectedValue.ToString()) ) != true)
                 )
             {
-                rankDateSport.Text += rankSportDateCmd.SelectedValue + "    " + rankDateAdd.SelectedDate.Value + "  " + sportsRankCmb.SelectedValue + "\n";
+                rankDateSport.Text += rankSportDateCmd.SelectedValue + " " + rankDateAdd.SelectedDate.Value.ToString("dd/MM/yyyy") + " " + sportsRankCmb.SelectedValue + ",  \n";
             }
         }
 

@@ -158,8 +158,8 @@
                                         <ComboBox.Text>
                                             <Binding Path="sex"></Binding>
                                         </ComboBox.Text>
-                                        <ComboBoxItem>Муж.</ComboBoxItem>
-                                        <ComboBoxItem>Жен.</ComboBoxItem>
+                                        <ComboBoxItem>Мужской</ComboBoxItem>
+                                        <ComboBoxItem>Женский</ComboBoxItem>
                                     </ComboBox>
 
                                     <Label Content="Дата Рождения" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Margin="5,5,5,5"/>
@@ -303,8 +303,8 @@
 
                                     <Label Content="Жилищные условия" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,5,5"/>
                                     <ComboBox x:Name="livingСonditions" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Margin="5,5,5,5" >
-                                        <ComboBoxItem>Удолетворительно</ComboBoxItem>
-                                        <ComboBoxItem>НЕ удолетворительно</ComboBoxItem>
+                                        <ComboBoxItem>Удовлетворительно</ComboBoxItem>
+                                        <ComboBoxItem>Не удовлетворительно</ComboBoxItem>
                                         <ComboBox.Text>
                                             <Binding Path="livingСonditions"></Binding>
                                         </ComboBox.Text>

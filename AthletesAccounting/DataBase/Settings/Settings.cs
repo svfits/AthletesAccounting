@@ -15,6 +15,8 @@ namespace AthletesAccounting.DataBase.Settings
         [Key]
         public int id { get; set; }
 
-        public string HomeDirCard { get;set; }
+        public string homeDirCard { get;set; }
+
+        public string nameOrg { get; set; }
     }
 }
