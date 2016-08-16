@@ -1,6 +1,7 @@
 ﻿using AthletesAccounting.DataBase;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +21,12 @@ namespace AthletesAccounting
     /// </summary>
     public partial class Handbook : Window
     {
+        UserContext db = new UserContext();
+
         public Handbook(string txt)
         {
             InitializeComponent();
-            MessageBox.Show(txt);
+            //MessageBox.Show(txt);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -31,31 +34,61 @@ namespace AthletesAccounting
             SizeToContent = SizeToContent.WidthAndHeight;
 
             try
-            {
-                using (UserContext db = new UserContext())
-                {
-                    var result = db.Sports
-                       .AsEnumerable()
-                       //.Where(c => c.fam.ToLower().StartsWith(comboBox.Text.ToString()))
-                       //.Select(c => new
-                       //{
-                       //    c.id,
-                       //    c.fam,
-                       //    c.name,
-                       //    c.parent,
-                       //    c.DOB
-                       //}
-                       //)
-                       //.Take(20)
+            {            
+                    var myList = db.Sports
+                       .AsEnumerable()                      
                        .ToList()
                        ;
-                    System.Diagnostics.Debug.WriteLine(result.ToString());
-                    dataGrid.ItemsSource = result;
-                }
+
+                dataGrid.ItemsSource = myList;
+                //dataGrid.DataContext = myList;
+
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
+        }
+               
+        /// <summary>
+        /// обьект который изменился
+        /// </summary>
+        Sports objToAdd;
+        /// <summary>
+        /// узнаем что изменилось в таблице сохраним
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+          objToAdd = dataGrid.SelectedItem as Sports;
+        }
+
+        private void dataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            try
+            {
+                var Res = MessageBox.Show("Сохранить изменения?", "Сохранить?", MessageBoxButton.YesNo);
+                if (Res == MessageBoxResult.Yes)
+                {
+                    var conn = db.Sports.Where(c => c.sports_code == objToAdd.sports_code).FirstOrDefault();
+
+                    if (conn == null)
+                    {                       
+                        db.Sports.Add(objToAdd);
+                    }
+                    else
+                    {
+                        conn.sports_code = objToAdd.sports_code;
+                        conn.sport = objToAdd.sport;
+                        db.Entry(conn).State = System.Data.Entity.EntityState.Modified;
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

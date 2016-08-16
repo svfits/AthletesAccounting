@@ -109,7 +109,7 @@ namespace AthletesAccounting.DataBase
             set
             {
                 _telefon = value;
-                NotifyPropertyChanged();
+                NotifyPropertyChanged();              
             }
         }
 

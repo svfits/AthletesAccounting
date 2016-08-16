@@ -1,14 +1,17 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 
 namespace AthletesAccounting.DataBase
 {
     public class Sports : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private string _sport;
-
+        private int _sport_code;
+        private string _sport;     
+     
         public string sport
         {
             get
@@ -18,20 +21,30 @@ namespace AthletesAccounting.DataBase
             set
             {
                 _sport = value;
-                OnPropertyChanged("sport");
+                NotifyPropertyChanged();
+            }
+        }
+     
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int sports_code
+        {
+            get
+            {
+                return _sport_code;
+            }
+            set
+            {
+                _sport_code = value;
+                NotifyPropertyChanged();
             }
         }
 
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int sports_code { get; set; }
-
-        protected void OnPropertyChanged(string name)
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
+            if (PropertyChanged != null)
             {
-                handler(this, new PropertyChangedEventArgs(name));
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
-        }      
+        }
     }
 }

@@ -306,7 +306,7 @@
                                         <ComboBoxItem>Удовлетворительно</ComboBoxItem>
                                         <ComboBoxItem>Не удовлетворительно</ComboBoxItem>
                                         <ComboBox.Text>
-                                            <Binding Path="livingСonditions"></Binding>
+                                            <Binding Path="livingСonditions" Mode="TwoWay"></Binding>
                                         </ComboBox.Text>
                                     </ComboBox>
 
@@ -323,7 +323,7 @@
                                     <TextBox x:Name="pastIllnesTxtb" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Grid.RowSpan="3" Margin="5,5,5,5"
                                  TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" ToolTip="перечисление заболеваний через нажатие ENTER" >
                                         <TextBox.Text>
-                                            <Binding Path="pastIllnes"></Binding>
+                                            <Binding Path="pastIllnes" Mode="TwoWay"></Binding>
                                         </TextBox.Text>
                                     </TextBox>
 

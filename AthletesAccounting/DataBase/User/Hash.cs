@@ -39,7 +39,7 @@ namespace AthletesAccounting.DataBase.User
             }
             catch (Exception ex)
             {
-                return "";
+                return ex.ToString();
             }
         }
     }

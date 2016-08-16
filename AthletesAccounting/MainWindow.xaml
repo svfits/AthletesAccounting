@@ -94,7 +94,7 @@
                               AutoGenerateColumns="False" CanUserAddRows="False"
                               Margin="10,10,10,10" ScrollViewer.VerticalScrollBarVisibility="Visible"
                                VerticalAlignment="Top" HorizontalAlignment="Left" SelectedItem="id" 
-                              MouseDoubleClick="dataGridALLAthlets_MouseDoubleClick">
+                              MouseDoubleClick="dataGridALLAthlets_MouseDoubleClick" LoadingRow="dataGridALLAthlets_LoadingRow">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding id,Mode=TwoWay}" Header="№"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding fam,Mode=TwoWay}" Header="Фамилия" ></DataGridTextColumn>

@@ -451,7 +451,6 @@ namespace AthletesAccounting
             if (athletesAddorUpdate != null)
             {                
                 ExportPatientСard card = new ExportPatientСard(athletesAddorUpdate);
-
             }
            else
             {

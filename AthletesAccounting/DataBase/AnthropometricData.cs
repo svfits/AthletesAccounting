@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,26 +19,54 @@ namespace AthletesAccounting.DataBase
 
         public int id_AnthropometricData { get; set; }
 
+        private DateTime _dateGreate;
         /// <summary>
         ////дата осмотра
         /// </summary>
         [Column(TypeName = "Date")]
-        public DateTime dateGreate { get; set; }
+        public DateTime dateGreate
+        {
+            get { return _dateGreate; }
+            set
+            {
+                //_dateGreate = value;
+                _dateGreate = DateTime.Now;
+                NotifyPropertyChanged();
+            }
+        }
 
-        /// <summary>
-        /// возраст
-        /// </summary>
-        public int Age { get; set; }
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        ///// <summary>
+        ///// возраст
+        ///// </summary>
+        //public int Age { get; set; }
 
         /// <summary>
         ////оценка для детей и подростков до 17 лет включительно
         /// </summary>
         public int evaluation { get; set; }
 
+        private int _weight;
         /// <summary>
         //// вес
         /// </summary>
-        public int weight { get; set; }
+        public int weight
+        {
+            get {return _weight;}
+            set
+            {
+                _weight = value;
+                NotifyPropertyChanged();
+                ;
+            }
+        }
 
         public string weight_evaluation { get; set; }
 

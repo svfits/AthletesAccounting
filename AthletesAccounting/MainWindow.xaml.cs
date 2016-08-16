@@ -242,5 +242,29 @@ namespace AthletesAccounting
             
             }
         }
+
+      
+        /// <summary>
+        /// раскрасим datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridALLAthlets_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+               SolidColorBrush hb = new SolidColorBrush(Colors.Orange);
+               SolidColorBrush nb = new SolidColorBrush(Colors.White);
+
+               Athletes ff = (Athletes)e.Row.DataContext;
+
+            if (ff.dateTimeNextProbe > DateTime.Now.AddYears(-30))
+            {
+                e.Row.Background = hb;
+            }
+            else
+            {
+                e.Row.Background = nb;
+            }
+      
+        }
     }
 }

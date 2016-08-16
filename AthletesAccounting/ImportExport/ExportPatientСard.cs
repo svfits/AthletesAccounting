@@ -91,7 +91,7 @@ namespace AthletesAccounting.ImportExport
                            .Where(c => c.id == id)
                            .FirstOrDefault()
                            ;
-                ;
+              
                 if (!Directory.Exists(_settings.homeDirCard))
                 {
                     DirectoryInfo di = Directory.CreateDirectory(_settings.homeDirCard);

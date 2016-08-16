@@ -190,6 +190,18 @@
     <Compile Include="Migrations\201608090150185_www3.Designer.cs">
       <DependentUpon>201608090150185_www3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608110213453_eer.cs" />
+    <Compile Include="Migrations\201608110213453_eer.Designer.cs">
+      <DependentUpon>201608110213453_eer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608151252582_fff.cs" />
+    <Compile Include="Migrations\201608151252582_fff.Designer.cs">
+      <DependentUpon>201608151252582_fff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608151256308_ррр.cs" />
+    <Compile Include="Migrations\201608151256308_ррр.Designer.cs">
+      <DependentUpon>201608151256308_ррр.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -230,6 +242,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608090150185_www3.resx">
       <DependentUpon>201608090150185_www3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608110213453_eer.resx">
+      <DependentUpon>201608110213453_eer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608151252582_fff.resx">
+      <DependentUpon>201608151252582_fff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608151256308_ррр.resx">
+      <DependentUpon>201608151256308_ррр.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
