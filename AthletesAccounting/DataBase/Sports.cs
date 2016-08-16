@@ -20,7 +20,12 @@ namespace AthletesAccounting.DataBase
             }
             set
             {
-                _sport = value;
+               string txt = value;
+
+               ValidText dd = new ValidText();
+               txt = dd.textUpperandTrim(txt);
+
+                _sport = txt;
                 NotifyPropertyChanged();
             }
         }
@@ -33,7 +38,7 @@ namespace AthletesAccounting.DataBase
                 return _sport_code;
             }
             set
-            {
+            {           
                 _sport_code = value;
                 NotifyPropertyChanged();
             }

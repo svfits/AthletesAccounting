@@ -114,6 +114,7 @@
     <Compile Include="DataBase\SportTeam.cs" />
     <Compile Include="DataBase\Templates\Templates.cs" />
     <Compile Include="DataBase\User\Hash.cs" />
+    <Compile Include="DataBase\ValidText\ValidText.cs" />
     <Compile Include="EditAthletesWindows.xaml.cs">
       <DependentUpon>EditAthletesWindows.xaml</DependentUpon>
     </Compile>
