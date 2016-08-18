@@ -12,8 +12,8 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <DataGrid x:Name="dataGrid" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="False"
-                      CanUserAddRows="True" CanUserDeleteRows="False" SelectionChanged="dataGrid_SelectionChanged" RowEditEnding="dataGrid_RowEditEnding">
+            <DataGrid x:Name="dataGridSports" Visibility="Hidden" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="False"
+                      CanUserAddRows="True" CanUserDeleteRows="False" SelectionChanged="dataGridSports_SelectionChanged" RowEditEnding="dataGridSports_RowEditEnding">
                 
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Path = sports_code,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="№"></DataGridTextColumn>
@@ -21,7 +21,50 @@
                     <!--<DataGridTextColumn Binding="{Binding Type_Exception.type_events}" Header="Класс сообщения" Width="200"></DataGridTextColumn>-->            
                 </DataGrid.Columns>
             </DataGrid>
-          
+
+            <DataGrid x:Name="dataGridEducation" Visibility="Hidden" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="False"
+                      CanUserAddRows="True" CanUserDeleteRows="False" SelectionChanged="dataGridEducation_SelectionChanged" RowEditEnding="dataGridEducation_RowEditEnding">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path = education_code,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="№"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = education,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="Уровень образований" Width="300" ></DataGridTextColumn>
+                    <!--<DataGridTextColumn Binding="{Binding Type_Exception.type_events}" Header="Класс сообщения" Width="200"></DataGridTextColumn>-->
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid x:Name="dataGridSportTeam" Visibility="Hidden" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="False"
+                      CanUserAddRows="True" CanUserDeleteRows="False" SelectionChanged="dataGridSportTeam_SelectionChanged" RowEditEnding="dataGridSportTeam_RowEditEnding">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path = sportTeam_code,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="№"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = sportTeam,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="Спортивный коллектив" Width="300" ></DataGridTextColumn>
+                    <!--<DataGridTextColumn Binding="{Binding Type_Exception.type_events}" Header="Класс сообщения" Width="200"></DataGridTextColumn>-->
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid x:Name="dataGridRank" Visibility="Hidden" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="False"
+                      CanUserAddRows="True" CanUserDeleteRows="False" SelectionChanged="dataGridRank_SelectionChanged" RowEditEnding="dataGridRank_RowEditEnding">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path = rank_code,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="№"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = rank,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="Виды разрядов" Width="300" ></DataGridTextColumn>
+                    <!--<DataGridTextColumn Binding="{Binding Type_Exception.type_events}" Header="Класс сообщения" Width="200"></DataGridTextColumn>-->
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid x:Name="dataGridCouch" Visibility="Hidden" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="False"
+                      CanUserAddRows="True" CanUserDeleteRows="False" SelectionChanged="dataGridCouch_SelectionChanged" RowEditEnding="dataGridCouch_RowEditEnding">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path = id_couch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="№"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = fam,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="Фамилия" Width="300" ></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="Имя" Width="300" ></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = parent,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="Отчество" Width="300" ></DataGridTextColumn>
+                    <DataGridComboBoxColumn SelectedItemBinding="{Binding Path=Sports.sports_code}" Header="Вид спорта" Width="300" ></DataGridComboBoxColumn>
+                    <!--<DataGridTextColumn Binding="{Binding Type_Exception.type_events}" Header="Класс сообщения" Width="200"></DataGridTextColumn>-->
+                </DataGrid.Columns>
+            </DataGrid>
+
         </Grid>
 
     </Grid>

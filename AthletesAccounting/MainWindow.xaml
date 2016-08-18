@@ -35,6 +35,7 @@
                     <MenuItem Header="Спортколлектив (ДЮСШ)" Click="MenuItem_Click"></MenuItem>
                     <MenuItem Header="Образование" Click="MenuItem_Click"></MenuItem>
                     <MenuItem Header="Разряды" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Тренер" Click="MenuItem_Click"></MenuItem>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Настройки" ></MenuItem>

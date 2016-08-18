@@ -26,7 +26,7 @@ namespace AthletesAccounting
     /// </summary>
     public partial class EditAthletesWindows : System.Windows.Window
     {
-       private int? athletesAddorUpdate;
+       private int? athletesAddorUpdate;        
 
         public EditAthletesWindows()
         {
@@ -36,7 +36,7 @@ namespace AthletesAccounting
         public EditAthletesWindows(int id)
         {
             InitializeComponent();
-          
+                      
                 athletesAddorUpdate = id;
                 try
                 {
@@ -49,7 +49,7 @@ namespace AthletesAccounting
                            .Include("Education")
                            .Include("MainSport")
                            .AsEnumerable()
-                           .Where(c => c.id == id)                                                                                                                                                                                                      
+                           .Where(c => c.id == athletesAddorUpdate)                                                                                                                                                                                                      
                            .FirstOrDefault()
                            ;
 

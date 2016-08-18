@@ -30,6 +30,10 @@ namespace AthletesAccounting.DataBase
                 {
                     _tempStr = _tempStr + sb[i];
                 }
+                else
+                {
+                   return "Только русские буквы";
+                }
             }
                        
             return _tempStr;

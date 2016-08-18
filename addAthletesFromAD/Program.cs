@@ -15,9 +15,10 @@ namespace AddAthletesFromAD
             using (UserContext db = new UserContext())
             {
                 db.Athletes.RemoveRange(db.Athletes);
+                db.Sports.RemoveRange(db.Sports);
                 db.SaveChanges();
             }
-
+         
             AddUsersFromAD gg = new AddUsersFromAD();
             gg.FromADtoBD();
             Console.ReadKey();
