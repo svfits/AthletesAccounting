@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace AthletesAccounting.DataBase
 {
-    public class Sports : INotifyPropertyChanged
+    public class Sports : INotifyPropertyChanged,IEditableObject
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private int _sport_code;
@@ -20,13 +20,21 @@ namespace AthletesAccounting.DataBase
             }
             set
             {
-               string txt = value;
+                string txt = value;              
 
-               ValidText dd = new ValidText();
-               txt = dd.textUpperandTrim(txt);
+                try
+                {
+                    ValidText dd = new ValidText();
+                    txt = dd.textUpperandTrim(txt);
 
-                _sport = txt;
-                NotifyPropertyChanged();
+                    _sport = txt;
+                    NotifyPropertyChanged();
+                }
+                catch
+                {
+
+                    NotifyPropertyChanged();
+                }            
             }
         }
      
@@ -51,5 +59,23 @@ namespace AthletesAccounting.DataBase
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        #region IEditableObject
+        public void BeginEdit()
+        {
+            return;
+        }
+
+        public void EndEdit()
+        {
+            return;
+        }
+
+        public void CancelEdit()
+        {
+            sport = _sport;
+        }
+
+        #endregion IEditableObject
     }
 }

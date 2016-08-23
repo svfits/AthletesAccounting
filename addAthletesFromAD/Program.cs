@@ -14,8 +14,7 @@ namespace AddAthletesFromAD
         {
             using (UserContext db = new UserContext())
             {
-                db.Athletes.RemoveRange(db.Athletes);
-                db.Sports.RemoveRange(db.Sports);
+                db.Athletes.RemoveRange(db.Athletes);               
                 db.SaveChanges();
             }
          
@@ -123,7 +122,7 @@ namespace AddAthletesFromAD
                 sport_code = RandomCombo(),
                 rank_code = RandomCombo(),
                 DOB = RandomDay(),
-                mainSport_id = 34,
+                mainSport_id = 40,
                 otherSports = "Футбол Хоккей Теннис",
                 sportsGame = "Футбол Крикет Волейбол Настольный Теннис Картинг",
                 rankDateGet = RandomDay() + " 1 разряд " + " Теннис \n" + RandomDay() + " 2 разряд "  + " Теннис \n",

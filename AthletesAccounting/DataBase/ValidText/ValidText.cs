@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace AthletesAccounting.DataBase
 {
@@ -32,11 +35,11 @@ namespace AthletesAccounting.DataBase
                 }
                 else
                 {
-                   return "Только русские буквы";
+                    throw new ArgumentException("Только русские буквы");
                 }
             }
                        
             return _tempStr;
-        }
+        }     
     }
 }

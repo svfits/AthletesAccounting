@@ -39,28 +39,33 @@ namespace AthletesAccounting
             {
                 case "Виды спорта":
                     dataGridSports.Visibility = Visibility.Visible;
+                    //dataGridSports.Width = 300;
                     load_DataGrid_Sports();
-                    this.Title = "Виды спорта";                  
+                    this.Title = "Справочник - виды спорта";                  
                     break;
                 case "Спортколлектив (ДЮСШ)":
                     dataGridSportTeam.Visibility = Visibility.Visible;
+                    dataGridSports.Width = 300;
                     load_DataGrid_SportTeam();
-                    this.Title = "Спортколлектив (ДЮСШ)";                 
+                    this.Title = "Справочник - спортколлектив (ДЮСШ)";                 
                     break;
                 case "Образование":
                     dataGridEducation.Visibility = Visibility.Visible;
+                    dataGridSports.Width = 300;
                     load_DataGrid_Education();
-                    this.Title = "Образование";                   
+                    this.Title = "Справочник - образование";                   
                     break;
                 case "Разряды":
                     dataGridRank.Visibility = Visibility.Visible;
+                    dataGridSports.Width = 300;
                     load_DataGrid_Rank();
-                    this.Title = "Разряды";
+                    this.Title = "Справочник - разряды";
                     break;
                 case "Тренер":
                     dataGridCouch.Visibility = Visibility.Visible;
+                  
                     load_DataGrid_Couch();
-                    this.Title = "Тренер";
+                    this.Title = "Справочник - тренер";
                     break;
             }
           
@@ -127,7 +132,12 @@ namespace AthletesAccounting
                    .ToList()
                    ;
 
-                dataGridCouch.ItemsSource = myList;             
+                dataGridCouch.ItemsSource = myList;
+                var myList1 = db.Sports
+                    .AsEnumerable()
+                    .ToList()
+                    ;
+                comboxColomn.ItemsSource = myList1;            
             }
             catch (Exception ex)
             {
@@ -139,7 +149,7 @@ namespace AthletesAccounting
         {
             try
             {
-                var myList = db.Sports
+                var myList = db.Sports                 
                    .AsEnumerable()
                    //.Select(c => c.sport)                      
                    .ToList()
@@ -180,32 +190,37 @@ namespace AthletesAccounting
                 if (Res == MessageBoxResult.Yes)
                 {
                     var conn = db.Couch.Where(c => c.id_couch == objToAddCouch.id_couch).FirstOrDefault();
+                    var conn1 = db.Couch.Where(c => c.name == objToAddCouch.name &&
+                    c.parent == objToAddCouch.parent && c.fam == objToAddCouch.fam && c.sport_code == objToAddCouch.sport_code).FirstOrDefault();
+                   
                     int idMax = -1;
-                    if (conn == null)
+                    if (conn == null && objToAddCouch.fam != "" && objToAddCouch.name != "" && objToAddCouch.parent != "" && conn1 == null)
                     {
                         db.Couch.Add(new Couch {
                             id_couch = 0,
                             fam = objToAddCouch.fam,
                             name = objToAddCouch.name,
                             parent = objToAddCouch.parent,
-                            //sport_code = Sports.sports_code
+                            sport_code = objToAddCouch.sport_code
                         });
                     }
                     else
                     {
-                        idMax = db.Sports.ToList().Select(c => c.sports_code).Last();
+                        idMax = db.Couch.ToList().Select(c => c.id_couch).Last();
                     }
 
-                    if (idMax >= 0)
+                    if (idMax >= 0 && conn1 == null)
                     {
-                        db.Sports.Add(new Sports { sports_code = idMax + 1, sport = objToAddSports.sport });
+                        idMax = idMax + 1;
+                        db.Couch.Add(new Couch { id_couch = idMax, fam = objToAddCouch.fam, name = objToAddCouch.name, parent = objToAddCouch.parent });
                     }
-                    else if (conn != null)
+                    else if (conn != null && objToAddCouch.fam != "" && objToAddCouch.name != "" && objToAddCouch.parent != "" )
                     {
                         conn.id_couch = objToAddCouch.id_couch;
                         conn.name = objToAddCouch.name;
                         conn.fam = objToAddCouch.fam;
                         conn.parent = objToAddCouch.parent;
+                        conn.sport_code = objToAddCouch.sport_code;
 
                         db.Entry(conn).State = System.Data.Entity.EntityState.Modified;
                     }
@@ -226,8 +241,9 @@ namespace AthletesAccounting
                 if (Res == MessageBoxResult.Yes)
                 {
                     var conn = db.Rank.Where(c => c.rank_code == objToAddRank.rank_code).FirstOrDefault();
+                    var conn1 = db.Rank.Where(c =>c.rank == objToAddRank.rank.Trim()).FirstOrDefault();
                     int idMax = -1;
-                    if (conn == null)
+                    if (conn == null && objToAddRank.rank != "" && conn1 == null )
                     {
                         db.Rank.Add(new Rank { rank_code = 0, rank = objToAddRank.rank });
                     }
@@ -236,7 +252,7 @@ namespace AthletesAccounting
                         idMax = db.Rank.ToList().Select(c => c.rank_code).Last();
                     }
 
-                    if (idMax >= 0)
+                    if (idMax >= 0 && conn1 == null)
                     {
                         db.Rank.Add(new Rank { rank_code = idMax + 1, rank = objToAddRank.rank });
                     }
@@ -263,8 +279,9 @@ namespace AthletesAccounting
                 if (Res == MessageBoxResult.Yes)
                 {
                     var conn = db.SportTeam.Where(c => c.sportTeam_code == objToAddSportTeam.sportTeam_code).FirstOrDefault();
+                    var conn1 = db.SportTeam.Where(c => c.sportTeam == objToAddSportTeam.sportTeam).FirstOrDefault();
                     int idMax = -1;
-                    if (conn == null)
+                    if (conn == null && objToAddSportTeam.sportTeam != "" && conn1 == null)
                     {
                         db.SportTeam.Add(new SportTeam { sportTeam_code = 0, sportTeam = objToAddSportTeam.sportTeam });
                     }
@@ -273,7 +290,7 @@ namespace AthletesAccounting
                         idMax = db.SportTeam.ToList().Select(c => c.sportTeam_code).Last();
                     }
 
-                    if (idMax >= 0)
+                    if (idMax >= 0 && conn1 == null)
                     {
                         db.SportTeam.Add(new SportTeam { sportTeam_code = idMax + 1, sportTeam = objToAddSportTeam.sportTeam });
                     }
@@ -300,8 +317,9 @@ namespace AthletesAccounting
                 if (Res == MessageBoxResult.Yes)
                 {
                     var conn = db.Education.Where(c => c.education_code == objToAddEducation.education_code).FirstOrDefault();
+                    var conn1 = db.Education.Where(c => c.education == objToAddEducation.education).FirstOrDefault();
                     int idMax = -1;
-                    if (conn == null)
+                    if (conn == null && objToAddEducation.education != "" && conn1 == null)
                     {
                         db.Education.Add(new Education { education_code = 0, education = objToAddEducation.education });
                     }
@@ -310,11 +328,11 @@ namespace AthletesAccounting
                         idMax = db.Education.ToList().Select(c => c.education_code).Last();
                     }
 
-                    if (idMax >= 0)
+                    if (idMax >= 0 && conn1 == null)
                     {
                         db.Education.Add(new Education { education_code = idMax + 1, education = objToAddEducation.education });
                     }
-                    else if (conn != null)
+                    else if (conn != null )
                     {
                         conn.education_code = objToAddEducation.education_code;
                         conn.education = objToAddEducation.education;
@@ -337,8 +355,10 @@ namespace AthletesAccounting
                 if (Res == MessageBoxResult.Yes)
                 {
                     var conn = db.Sports.Where(c => c.sports_code == objToAddSports.sports_code).FirstOrDefault();
+                    var conn1 = db.Sports.Where(c => c.sport == objToAddSports.sport).FirstOrDefault();
                     int idMax = -1;
-                    if (conn == null)
+                    // первый раз заполняем таблицу
+                    if (conn == null && objToAddSports.sport != "" && conn1 == null)
                     {
                         db.Sports.Add(new Sports { sports_code = 0, sport = objToAddSports.sport });
                     }
@@ -347,7 +367,8 @@ namespace AthletesAccounting
                         idMax = db.Sports.ToList().Select(c => c.sports_code).Last();
                     }
 
-                    if (idMax >= 0)
+                    // не в первый раз заполняем таблицу
+                    if (idMax >= 0 && conn1 == null)
                     {
                         db.Sports.Add(new Sports { sports_code = idMax + 1, sport = objToAddSports.sport });
                     }
@@ -358,7 +379,7 @@ namespace AthletesAccounting
                         db.Entry(conn).State = System.Data.Entity.EntityState.Modified;
                     }
                     db.SaveChanges();
-                }
+                }              
             }
             catch (Exception ex)
             {
@@ -366,6 +387,7 @@ namespace AthletesAccounting
             }
         }
 
+        #region зполним то что изменилось в таблицах
         private void dataGridSports_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             objToAddSports = dataGridSports.SelectedItem as Sports;
@@ -390,5 +412,9 @@ namespace AthletesAccounting
         {
             objToAddCouch = dataGridCouch.SelectedItem as Couch;
         }
+
+        #endregion зполним то что изменилось в таблицах
+
+            
     }
 }
